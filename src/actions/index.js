@@ -20,6 +20,7 @@ export {
   getContent,
   orderContent,
   sortContent,
+  resetContent,
 } from '@plone/volto/actions/content/content';
 export {
   getControlpanel,

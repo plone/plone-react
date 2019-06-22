@@ -99,7 +99,6 @@ msgstr "Oplopend"
 #: components/manage/Preferences/PersonalPreferences
 #: components/manage/Sharing/Sharing
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 msgid "Back"
 msgstr ""
 
@@ -192,7 +191,6 @@ msgid "Contact"
 msgstr "Contact"
 
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 msgid "Contact form"
 msgstr ""
 
@@ -248,7 +246,6 @@ msgstr ""
 #: components/theme/Comments/CommentEditModal
 #: components/theme/Comments/Comments
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 #: components/theme/PasswordReset/PasswordReset
 #: components/theme/PasswordReset/RequestPasswordReset
 #: components/theme/Register/Register
@@ -267,6 +264,7 @@ msgstr "Verwijderen"
 msgid "Descending"
 msgstr "Aflopend"
 
+#: components/manage/Tiles/HeroImageLeft/Edit
 #: components/manage/Widgets/CheckboxWidget
 #: components/manage/Widgets/SchemaWidget
 #: components/manage/Widgets/SelectWidget
@@ -337,8 +335,11 @@ msgid "Edit {title}"
 msgstr "{title} bewerken"
 
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 msgid "Email sent"
+msgstr ""
+
+#: components/manage/Tiles/Maps/Edit
+msgid "Enter Map URL"
 msgstr ""
 
 #: components/manage/Tiles/Video/Edit
@@ -371,7 +372,6 @@ msgstr "Geef een nieuw wachtwoord op. Minimaal 5 karakters."
 #: components/manage/Form/Form
 #: components/manage/Widgets/SchemaWidget
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 #: components/theme/Login/Login
 msgid "Error"
 msgstr ""
@@ -396,7 +396,6 @@ msgstr "Bestandsnaam"
 msgid "Filter…"
 msgstr "Filter…"
 
-#: components/theme/ContactForm/ContactForm
 #: components/theme/ContactForm/ContactForm
 msgid "From"
 msgstr ""
@@ -491,7 +490,14 @@ msgstr "Inloggen"
 msgid "Login Name"
 msgstr "Gebruikersnaam"
 
-#: components/theme/ContactForm/ContactForm
+#: components/manage/Tiles/Maps/Edit
+msgid "Maps data error"
+msgstr ""
+
+#: components/manage/Tiles/Maps/Edit
+msgid "Maps instructions"
+msgstr ""
+
 #: components/theme/ContactForm/ContactForm
 msgid "Message"
 msgstr ""
@@ -519,7 +525,6 @@ msgstr ""
 
 #: components/manage/Sharing/Sharing
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 msgid "Name"
 msgstr "Naam"
 
@@ -528,8 +533,11 @@ msgstr "Naam"
 msgid "New password"
 msgstr "Nieuw wachtwoord"
 
+#: components/manage/Tiles/Proxy/Edit
+#: components/manage/Tiles/SummaryBox/Edit
 #: components/manage/Widgets/ArrayWidget
 #: components/manage/Widgets/ReferenceWidget
+#: components/manage/Widgets/TokenWidget
 msgid "No results found."
 msgstr ""
 
@@ -679,6 +687,8 @@ msgstr "Rechten"
 msgid "Save"
 msgstr "Opslaan"
 
+#: components/manage/Tiles/Proxy/Edit
+#: components/manage/Tiles/SummaryBox/Edit
 #: components/theme/SearchWidget/SearchWidget
 msgid "Search"
 msgstr "Zoek"
@@ -719,7 +729,6 @@ msgstr ""
 msgid "Select…"
 msgstr "Selecteer…"
 
-#: components/theme/ContactForm/ContactForm
 #: components/theme/ContactForm/ContactForm
 msgid "Send"
 msgstr ""
@@ -791,7 +800,6 @@ msgid "String"
 msgstr ""
 
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 msgid "Subject"
 msgstr ""
 
@@ -843,6 +851,7 @@ msgstr "Het spijt ons, maar deze pagina bestaat niet…"
 
 #: components/manage/Contents/Contents
 #: components/manage/Contents/ContentsRenameModal
+#: components/manage/Tiles/HeroImageLeft/Edit
 #: components/manage/Widgets/CheckboxWidget
 #: components/manage/Widgets/SchemaWidget
 #: components/manage/Widgets/SelectWidget
@@ -1002,6 +1011,10 @@ msgstr ""
 
 #: components/theme/PasswordReset/RequestPasswordReset
 msgid "label_my_email_address_is"
+msgstr ""
+
+#: config/Tiles
+msgid "proxy"
 msgstr ""
 
 #: components/theme/Login/Login

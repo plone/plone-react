@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2018-11-11T07:30:09.497Z\n"
+"POT-Creation-Date: 2019-06-20T11:44:33.019Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -95,7 +95,6 @@ msgstr ""
 #: components/manage/Preferences/PersonalInformation
 #: components/manage/Preferences/PersonalPreferences
 #: components/manage/Sharing/Sharing
-#: components/theme/ContactForm/ContactForm
 #: components/theme/ContactForm/ContactForm
 # defaultMessage: Back
 msgid "Back"
@@ -208,7 +207,6 @@ msgid "Contact"
 msgstr ""
 
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 # defaultMessage: Contact form
 msgid "Contact form"
 msgstr ""
@@ -273,7 +271,6 @@ msgstr ""
 #: components/theme/Comments/CommentEditModal
 #: components/theme/Comments/Comments
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 #: components/theme/PasswordReset/PasswordReset
 #: components/theme/PasswordReset/RequestPasswordReset
 #: components/theme/Register/Register
@@ -295,6 +292,7 @@ msgstr ""
 msgid "Descending"
 msgstr ""
 
+#: components/manage/Tiles/HeroImageLeft/Edit
 #: components/manage/Widgets/CheckboxWidget
 #: components/manage/Widgets/SchemaWidget
 #: components/manage/Widgets/SelectWidget
@@ -380,9 +378,13 @@ msgid "Edit {title}"
 msgstr ""
 
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 # defaultMessage: Email sent
 msgid "Email sent"
+msgstr ""
+
+#: components/manage/Tiles/Maps/Edit
+# defaultMessage: Enter Map URL
+msgid "Enter Map URL"
 msgstr ""
 
 #: components/manage/Tiles/Video/Edit
@@ -421,7 +423,6 @@ msgstr ""
 #: components/manage/Form/Form
 #: components/manage/Widgets/SchemaWidget
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 #: components/theme/Login/Login
 # defaultMessage: Error
 msgid "Error"
@@ -452,7 +453,6 @@ msgstr ""
 msgid "Filter…"
 msgstr ""
 
-#: components/theme/ContactForm/ContactForm
 #: components/theme/ContactForm/ContactForm
 # defaultMessage: From
 msgid "From"
@@ -569,7 +569,16 @@ msgstr ""
 msgid "Login Name"
 msgstr ""
 
-#: components/theme/ContactForm/ContactForm
+#: components/manage/Tiles/Maps/Edit
+# defaultMessage: Embed code error, please follow the instructions and try again.
+msgid "Maps data error"
+msgstr ""
+
+#: components/manage/Tiles/Maps/Edit
+# defaultMessage: Please enter the Embed Code provided by Google Maps -> Share -> Embed map. It should contain the <iframe> code on it.
+msgid "Maps instructions"
+msgstr ""
+
 #: components/theme/ContactForm/ContactForm
 # defaultMessage: Message
 msgid "Message"
@@ -603,7 +612,6 @@ msgstr ""
 
 #: components/manage/Sharing/Sharing
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 # defaultMessage: Name
 msgid "Name"
 msgstr ""
@@ -614,8 +622,11 @@ msgstr ""
 msgid "New password"
 msgstr ""
 
+#: components/manage/Tiles/Proxy/Edit
+#: components/manage/Tiles/SummaryBox/Edit
 #: components/manage/Widgets/ArrayWidget
 #: components/manage/Widgets/ReferenceWidget
+#: components/manage/Widgets/TokenWidget
 # defaultMessage: No results found.
 msgid "No results found."
 msgstr ""
@@ -796,6 +807,8 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+#: components/manage/Tiles/Proxy/Edit
+#: components/manage/Tiles/SummaryBox/Edit
 #: components/theme/SearchWidget/SearchWidget
 # defaultMessage: Search
 msgid "Search"
@@ -846,7 +859,6 @@ msgstr ""
 msgid "Select…"
 msgstr ""
 
-#: components/theme/ContactForm/ContactForm
 #: components/theme/ContactForm/ContactForm
 # defaultMessage: Send
 msgid "Send"
@@ -934,7 +946,6 @@ msgid "String"
 msgstr ""
 
 #: components/theme/ContactForm/ContactForm
-#: components/theme/ContactForm/ContactForm
 # defaultMessage: Subject
 msgid "Subject"
 msgstr ""
@@ -998,6 +1009,7 @@ msgstr ""
 
 #: components/manage/Contents/Contents
 #: components/manage/Contents/ContentsRenameModal
+#: components/manage/Tiles/HeroImageLeft/Edit
 #: components/manage/Widgets/CheckboxWidget
 #: components/manage/Widgets/SchemaWidget
 #: components/manage/Widgets/SelectWidget
@@ -1194,6 +1206,11 @@ msgstr ""
 #: components/theme/PasswordReset/RequestPasswordReset
 # defaultMessage: My email address is
 msgid "label_my_email_address_is"
+msgstr ""
+
+#: config/Tiles
+# defaultMessage: Proxy
+msgid "proxy"
 msgstr ""
 
 #: components/theme/Login/Login

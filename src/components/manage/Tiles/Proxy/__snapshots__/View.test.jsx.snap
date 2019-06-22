@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a proxy view component 1`] = `
+<div
+  className="ui items proxy-item"
+>
+  <div
+    className="item"
+  >
+    <a
+      className="ui small image"
+      href="/test"
+      onClick={[Function]}
+    >
+      <img
+        alt="Test"
+        className="ui image"
+        src="undefined/test/image.jpeg"
+      />
+    </a>
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        <a
+          href="/test"
+          onClick={[Function]}
+        >
+          Test
+        </a>
+      </div>
+      <div
+        className="description"
+      >
+        Proxy
+      </div>
+    </div>
+  </div>
+</div>
+`;

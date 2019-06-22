@@ -7,6 +7,7 @@ import ViewImageTile from '@plone/volto/components/manage/Tiles/Image/View';
 import ViewVideoTile from '@plone/volto/components/manage/Tiles/Video/View';
 import ViewHeroImageLeftTile from '@plone/volto/components/manage/Tiles/HeroImageLeft/View';
 import ViewMapTile from '@plone/volto/components/manage/Tiles/Maps/View';
+import ViewProxyTile from '@plone/volto/components/manage/Tiles/Proxy/View';
 import ViewHTMLTile from '@plone/volto/components/manage/Tiles/HTML/View';
 
 import EditTitleTile from '@plone/volto/components/manage/Tiles/Title/Edit';
@@ -16,6 +17,7 @@ import EditImageTile from '@plone/volto/components/manage/Tiles/Image/Edit';
 import EditVideoTile from '@plone/volto/components/manage/Tiles/Video/Edit';
 import EditHeroImageLeftTile from '@plone/volto/components/manage/Tiles/HeroImageLeft/Edit';
 import EditMapTile from '@plone/volto/components/manage/Tiles/Maps/Edit';
+import EditProxyTile from '@plone/volto/components/manage/Tiles/Proxy/Edit';
 import EditHTMLTile from '@plone/volto/components/manage/Tiles/HTML/Edit';
 
 // import ImageSidebar from '@plone/volto/components/manage/Sidebar/ImageSidebar';
@@ -23,6 +25,7 @@ import EditHTMLTile from '@plone/volto/components/manage/Tiles/HTML/Edit';
 import globeSVG from '@plone/volto/icons/globe.svg';
 import codeSVG from '@plone/volto/icons/code.svg';
 import heroSVG from '@plone/volto/icons/hero.svg';
+import summarySVG from '@plone/volto/icons/summary.svg';
 
 const customTiles = [
   {
@@ -32,6 +35,10 @@ const customTiles = [
   {
     title: 'maps',
     icon: globeSVG,
+  },
+  {
+    title: 'proxy',
+    icon: summarySVG,
   },
   {
     title: 'html',
@@ -56,6 +63,10 @@ const messagesTiles = defineMessages({
     id: 'image',
     defaultMessage: 'Image',
   },
+  proxy: {
+    id: 'proxy',
+    defaultMessage: 'Proxy',
+  },
   video: {
     id: 'video',
     defaultMessage: 'Video',
@@ -70,6 +81,7 @@ const defaultTilesViewMap = {
   video: ViewVideoTile,
   hero: ViewHeroImageLeftTile,
   maps: ViewMapTile,
+  proxy: ViewProxyTile,
   html: ViewHTMLTile,
 };
 
@@ -81,6 +93,7 @@ const defaultTilesEditMap = {
   video: EditVideoTile,
   hero: EditHeroImageLeftTile,
   maps: EditMapTile,
+  proxy: EditProxyTile,
   html: EditHTMLTile,
 };
 

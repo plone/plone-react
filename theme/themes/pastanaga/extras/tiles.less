@@ -398,6 +398,26 @@
   }
 }
 
+// Proxy tile
+.tile.proxy {
+  min-height: 20px;
+}
+
+.proxy-item.ui.items > .item > a.image {
+  &:hover,
+  &:focus {
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      content: '';
+    }
+  }
+}
+
 .token.comment,
 .token.prolog,
 .token.doctype,
