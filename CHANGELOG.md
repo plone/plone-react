@@ -38,6 +38,7 @@
 ### Changes
 
 - Fix `DefaultView.jsx` warning on missing key @sneridagh
+- Fix page jump in add form because of `visual` @sneridagh
 
 ### Internal
 

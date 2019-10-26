@@ -161,75 +161,76 @@ class Add extends Component {
    * @returns {string} Markup for the component.
    */
   render() {
-    if (this.props.schemaRequest.loaded) {
-      const visual = hasTilesData(this.props.schema.properties);
+    const visual = this.props.schema?.properties
+      ? hasTilesData(this.props.schema.properties)
+      : true;
 
-      return (
-        <div id="page-add">
-          <Helmet
-            title={this.props.intl.formatMessage(messages.add, {
-              type: this.props.type,
-            })}
-          />
-          <Form
-            ref={this.form}
-            schema={this.props.schema}
-            formData={{
-              [getTilesFieldname(this.props.schema.properties)]: null,
-              [getTilesLayoutFieldname(this.props.schema.properties)]: null,
-            }}
-            onSubmit={this.onSubmit}
-            hideActions
+    return (
+      <div id="page-add">
+        <Helmet
+          title={this.props.intl.formatMessage(messages.add, {
+            type: this.props.type,
+          })}
+        />
+        <Form
+          ref={this.form}
+          schema={this.props.schema}
+          formData={
+            this.props.schema?.properties
+              ? {
+                  [getTilesFieldname(this.props.schema.properties)]: null,
+                  [getTilesLayoutFieldname(this.props.schema.properties)]: null,
+                }
+              : {}
+          }
+          onSubmit={this.onSubmit}
+          hideActions
+          pathname={this.props.pathname}
+          visual={visual}
+          title={this.props.intl.formatMessage(messages.add, {
+            type: this.props.type,
+          })}
+          loading={this.props.createRequest.loading}
+        />
+        <Portal node={__CLIENT__ && document.getElementById('toolbar')}>
+          <Toolbar
             pathname={this.props.pathname}
-            visual={visual}
-            title={this.props.intl.formatMessage(messages.add, {
-              type: this.props.type,
-            })}
-            loading={this.props.createRequest.loading}
+            hideDefaultViewButtons
+            inner={
+              <>
+                <button
+                  id="toolbar-save"
+                  className="save"
+                  aria-label={this.props.intl.formatMessage(messages.save)}
+                  onClick={() => this.form.current.onSubmit()}
+                >
+                  <Icon
+                    name={saveSVG}
+                    className="circled"
+                    size="30px"
+                    title={this.props.intl.formatMessage(messages.save)}
+                  />
+                </button>
+                <button className="cancel" onClick={() => this.onCancel()}>
+                  <Icon
+                    name={clearSVG}
+                    className="circled"
+                    aria-label={this.props.intl.formatMessage(messages.cancel)}
+                    size="30px"
+                    title={this.props.intl.formatMessage(messages.cancel)}
+                  />
+                </button>
+              </>
+            }
           />
-          <Portal node={__CLIENT__ && document.getElementById('toolbar')}>
-            <Toolbar
-              pathname={this.props.pathname}
-              hideDefaultViewButtons
-              inner={
-                <>
-                  <button
-                    id="toolbar-save"
-                    className="save"
-                    aria-label={this.props.intl.formatMessage(messages.save)}
-                    onClick={() => this.form.current.onSubmit()}
-                  >
-                    <Icon
-                      name={saveSVG}
-                      className="circled"
-                      size="30px"
-                      title={this.props.intl.formatMessage(messages.save)}
-                    />
-                  </button>
-                  <button className="cancel" onClick={() => this.onCancel()}>
-                    <Icon
-                      name={clearSVG}
-                      className="circled"
-                      aria-label={this.props.intl.formatMessage(
-                        messages.cancel,
-                      )}
-                      size="30px"
-                      title={this.props.intl.formatMessage(messages.cancel)}
-                    />
-                  </button>
-                </>
-              }
-            />
+        </Portal>
+        {visual && (
+          <Portal node={__CLIENT__ && document.getElementById('sidebar')}>
+            <Sidebar />
           </Portal>
-          {visual && (
-            <Portal node={__CLIENT__ && document.getElementById('sidebar')}>
-              <Sidebar />
-            </Portal>
-          )}
-        </div>
-      );
-    }
-    return <div />;
+        )}
+      </div>
+    );
   }
 }
 
