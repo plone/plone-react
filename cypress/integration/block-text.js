@@ -27,6 +27,94 @@ if (Cypress.env('API') !== 'guillotina') {
         .should('have.attr', 'href')
         .and('include', 'https://google.com');
     });
+
+    it('As editor I can add a link to a text block 2', function() {
+      // given
+      cy.wait(2000);
+      cy.get('.documentFirstHeading > .public-DraftStyleDefault-block');
+
+      // when
+      cy.get('.block.inner.text .public-DraftEditor-content')
+        .type('Colorless green ideas sleep furiously.')
+        .setSelection('furiously');
+      cy.get(
+        '#page-edit .draftJsToolbar__buttonWrapper__1Dmqh:nth-of-type(3)',
+      ).click();
+      cy.get('.link-form-container input').type('https://google.com{enter}');
+      cy.get('#toolbar-save').click();
+
+      // then
+      cy.get('.block.text').contains('Colorless green ideas sleep furiously.');
+      cy.get('.block.text a')
+        .should('have.attr', 'href')
+        .and('include', 'https://google.com');
+    });
+
+    it('As editor I can add a link to a text block 3', function() {
+      // given
+      cy.wait(2000);
+      cy.get('.documentFirstHeading > .public-DraftStyleDefault-block');
+
+      // when
+      cy.get('.block.inner.text .public-DraftEditor-content')
+        .type('Colorless green ideas sleep furiously.')
+        .setSelection('furiously');
+      cy.get(
+        '#page-edit .draftJsToolbar__buttonWrapper__1Dmqh:nth-of-type(3)',
+      ).click();
+      cy.get('.link-form-container input').type('https://google.com{enter}');
+      cy.get('#toolbar-save').click();
+
+      // then
+      cy.get('.block.text').contains('Colorless green ideas sleep furiously.');
+      cy.get('.block.text a')
+        .should('have.attr', 'href')
+        .and('include', 'https://google.com');
+    });
+
+    it('As editor I can add a link to a text block 4', function() {
+      // given
+      cy.wait(2000);
+      cy.get('.documentFirstHeading > .public-DraftStyleDefault-block');
+
+      // when
+      cy.get('.block.inner.text .public-DraftEditor-content')
+        .type('Colorless green ideas sleep furiously.')
+        .setSelection('furiously');
+      cy.get(
+        '#page-edit .draftJsToolbar__buttonWrapper__1Dmqh:nth-of-type(3)',
+      ).click();
+      cy.get('.link-form-container input').type('https://google.com{enter}');
+      cy.get('#toolbar-save').click();
+
+      // then
+      cy.get('.block.text').contains('Colorless green ideas sleep furiously.');
+      cy.get('.block.text a')
+        .should('have.attr', 'href')
+        .and('include', 'https://google.com');
+    });
+
+    it('As editor I can add a link to a text block 5', function() {
+      // given
+      cy.wait(2000);
+      cy.get('.documentFirstHeading > .public-DraftStyleDefault-block');
+
+      // when
+      cy.get('.block.inner.text .public-DraftEditor-content')
+        .type('Colorless green ideas sleep furiously.')
+        .setSelection('furiously');
+      cy.get(
+        '#page-edit .draftJsToolbar__buttonWrapper__1Dmqh:nth-of-type(3)',
+      ).click();
+      cy.get('.link-form-container input').type('https://google.com{enter}');
+      cy.get('#toolbar-save').click();
+
+      // then
+      cy.get('.block.text').contains('Colorless green ideas sleep furiously.');
+      cy.get('.block.text a')
+        .should('have.attr', 'href')
+        .and('include', 'https://google.com');
+    });
   });
   // Low level command reused by `setSelection` and low level command `setCursor`
   Cypress.Commands.add('selection', { prevSubject: true }, (subject, fn) => {
