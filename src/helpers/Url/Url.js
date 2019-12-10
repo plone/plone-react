@@ -83,3 +83,20 @@ export function getIcon(type, isFolderish) {
 export function flattenToAppURL(url) {
   return url.replace(settings.apiPath, '');
 }
+
+/**
+ * Check if a given url is inside the same domain or is an external link
+ * TODO: Re-check this method when we implement dynamic internal links
+ * like in Plone using ${portal_url}, because that could be a good way
+ * to understand if url is internal or external.
+ * @method isExternalLink
+ * @param {string} url an URL
+ * @returns {boolean}
+ */
+export function isExternalLink(url) {
+  const clientUrl = window.location ? window.location.href : settings.apiPath;
+  const currentUrl = new URL(clientUrl);
+  // if url is relative, we use current hostname as base.
+  const linkUrl = new URL(url, currentUrl.origin);
+  return linkUrl.hostname !== currentUrl.hostname;
+}

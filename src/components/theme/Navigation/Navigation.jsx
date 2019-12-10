@@ -8,12 +8,12 @@ import PropTypes from 'prop-types';
 import { isMatch } from 'lodash';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Link from '../Link/Link';
 import { defineMessages, injectIntl } from 'react-intl';
 import { Menu } from 'semantic-ui-react';
 import cx from 'classnames';
-import { getBaseUrl } from '../../../helpers';
-
+import { getBaseUrl } from '@plone/volto/helpers';
 import { getNavigation } from '../../../actions';
 
 const messages = defineMessages({

@@ -9,6 +9,7 @@ export ContactForm from '@plone/volto/components/theme/ContactForm/ContactForm';
 export Footer from '@plone/volto/components/theme/Footer/Footer';
 export Header from '@plone/volto/components/theme/Header/Header';
 export Icon from '@plone/volto/components/theme/Icon/Icon';
+export Link from '@plone/volto/components/theme/Link/Link';
 export Logo from '@plone/volto/components/theme/Logo/Logo';
 export Navigation from '@plone/volto/components/theme/Navigation/Navigation';
 export SearchWidget from '@plone/volto/components/theme/SearchWidget/SearchWidget';

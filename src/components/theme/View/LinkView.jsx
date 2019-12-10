@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from '@plone/volto/helpers';
 import { Link } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
+import { isExternalLink } from '@plone/volto/helpers';
 
 /**
  * View container class.
@@ -46,7 +47,12 @@ class LinkView extends Component {
    */
   UNSAFE_componentWillMount() {
     if (!this.props.token) {
-      this.props.history.replace(this.props.content.remoteUrl);
+      const { remoteUrl } = this.props.content;
+      if (isExternalLink(remoteUrl)) {
+        window.location.href = remoteUrl;
+      } else {
+        this.props.history.replace(remoteUrl);
+      }
     }
   }
 
@@ -58,6 +64,7 @@ class LinkView extends Component {
    */
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.pathname !== this.props.pathname && !nextProps.token) {
+      console.log('QUO');
       nextProps.history.replace(nextProps.content.remoteUrl);
     }
   }
@@ -68,6 +75,9 @@ class LinkView extends Component {
    * @returns {string} Markup for the component.
    */
   render() {
+    if (!this.props.token) {
+      return '';
+    }
     return (
       <Container id="page-document">
         <Helmet title={this.props.content.title} />

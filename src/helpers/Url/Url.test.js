@@ -1,6 +1,12 @@
 import { settings } from '~/config';
 
-import { flattenToAppURL, getBaseUrl, getIcon, getView } from './Url';
+import {
+  flattenToAppURL,
+  getBaseUrl,
+  getIcon,
+  getView,
+  isExternalLink,
+} from './Url';
 
 describe('Url', () => {
   describe('getBaseUrl', () => {
@@ -58,6 +64,12 @@ describe('Url', () => {
   describe('flattenToAppURL', () => {
     it('flattens a given URL to the app URL', () => {
       expect(flattenToAppURL(`${settings.apiPath}/edit`)).toBe('/edit');
+    });
+  });
+  describe.only('isExternalLink', () => {
+    it('flattens a given URL to the app URL', () => {
+      expect(isExternalLink('/news')).toBe(false);
+      expect(isExternalLink('https://github.com')).toBe(true);
     });
   });
 });

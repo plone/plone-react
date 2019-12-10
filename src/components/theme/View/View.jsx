@@ -208,7 +208,6 @@ class View extends Component {
     }
     const RenderedView =
       this.getViewByType() || this.getViewByLayout() || this.getViewDefault();
-
     return (
       <div id="view">
         {/* Body class if displayName in component is set */}
