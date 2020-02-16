@@ -6,6 +6,7 @@
 
 - Chose template for listing block @giuliaghisini
 - Event type view @nileshgulia1 @pnicolli
+- Added PWA feature to volto @iFlameing
 
 ### Changes
 

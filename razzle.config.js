@@ -11,6 +11,8 @@ const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const fs = require('fs');
 const { map } = require('lodash');
 const glob = require('glob').sync;
@@ -161,6 +163,42 @@ module.exports = {
 
     config.module.rules.push(LESSLOADER);
     config.module.rules.push(SVGLOADER);
+    config.plugins.push(new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+      maximumFileSizeToCacheInBytes: 5000000,
+      runtimeCaching: [
+        {
+          urlPattern: /images/,
+          handler: 'CacheFirst'
+        },
+        {
+          urlPattern: new RegExp(
+            '^https://fonts.(?:googleapis|gstatic).com/(.*)'
+          ),
+          handler: 'CacheFirst'
+        },
+        {
+          urlPattern: /.*/,
+          handler: 'NetworkFirst'
+        }
+      ]
+    }),
+    new WebpackPwaManifest({
+      name: 'Volto App',
+      short_name: 'Volto',
+      description: 'A Volto App which Uses Plone As Backend',
+      theme_color: '#ffffff',
+      background_color: '#000000',
+      inject: false,
+      fingerprints: false,
+      icons: [
+        {
+          src: path.resolve('public/Logo.png'),
+          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+        }
+      ]
+    }))
 
     // Don't load config|variables|overrides) files with file-loader
     // Don't load SVGs from ./src/icons with file-loader

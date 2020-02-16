@@ -6,6 +6,7 @@ import { createBrowserHistory } from 'history';
 import { ReduxAsyncConnect } from 'redux-connect';
 import routes from '~/routes';
 import '~/theme';
+import * as serviceWorker from '../serviceWorker';
 
 import configureStore from './store';
 import { Api, persistAuthToken, ScrollToTop } from './helpers';
@@ -29,3 +30,7 @@ export default () => {
     document.getElementById('main'),
   );
 };
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below.
+serviceWorker.unregister();
