@@ -324,6 +324,7 @@ refer to all of them in https://github.com/plone/volto/releases
 ### Internal
 
 - Upgrade version pin for lxml, for compatibility with Python3.8
+- Add tests for new line in text blocks @rodfersou
 - Bump handlebars from 4.1.2 to 4.3.0 @timo
 
 ## 4.0.0-alpha.19 (2019-12-20)
