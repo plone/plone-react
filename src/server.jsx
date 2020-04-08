@@ -21,6 +21,7 @@ import {
   persistAuthToken,
   generateSitemap,
   getAPIResourceWithAuth,
+  AnimationWrapper,
 } from '@plone/volto/helpers';
 
 import userSession from '@plone/volto/reducers/userSession/userSession';
@@ -115,7 +116,9 @@ server
           const markup = renderToString(
             <Provider store={store}>
               <StaticRouter context={context} location={req.url}>
-                <ReduxAsyncConnect routes={routes} helpers={api} />
+                <AnimationWrapper>
+                  <ReduxAsyncConnect routes={routes} helpers={api} />
+                </AnimationWrapper>
               </StaticRouter>
             </Provider>,
           );

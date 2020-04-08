@@ -252,6 +252,65 @@ button {
   }
 }
 
+@keyframes routertransitionfade {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.01;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes routertransitionenter {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.01;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation-wrapper {
+  // match the main wrapper CSS to achieve same functionality but an element below.
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+
+  .content-area {
+    position: relative;
+  }
+
+  &.entering {
+    .content-area {
+      animation-direction: alternate;
+      animation-duration: 0.25s;
+      animation-iteration-count: 1;
+      animation-name: routertransitionfade;
+      animation-timing-function: ease-out;
+    }
+  }
+
+  &.entered {
+    .content-area {
+      animation-direction: alternate;
+      animation-duration: 0.25s;
+      animation-iteration-count: 1;
+      animation-name: routertransitionenter;
+      animation-timing-function: ease-in;
+    }
+  }
+}
+
 .users-control-panel .table {
   overflow-x: scroll;
 
