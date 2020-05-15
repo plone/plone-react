@@ -154,6 +154,28 @@
     "Firefox ESR",
     "not ie < 9"
   ],
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        2,
+        "always",
+        100
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "breaking",
+          "feature",
+          "fix",
+          "internal"
+        ]
+      ]
+    }
+  },
   "release-it": {
     "hooks": {
       "after:bump": "node changelogupdater.js bump ${version}",
@@ -173,6 +195,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "post-checkout": "yarnhook",
       "post-merge": "yarnhook",
       "post-rebase": "yarnhook"
@@ -221,6 +244,8 @@
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-syntax-import-meta": "7.7.4",
     "@babel/preset-stage-0": "7.0.0",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
     "@loadable/babel-plugin": "5.12.0",
     "@loadable/component": "5.12.0",
     "@loadable/server": "5.12.0",

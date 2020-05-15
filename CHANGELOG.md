@@ -325,6 +325,10 @@
 
 - Use kitconcept.volto as integration package @sneridagh
 
+### Internal
+
+- Add commitlint @timo
+
 ## 4.0.0 (2020-03-01)
 
 ### Feature
