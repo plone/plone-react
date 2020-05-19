@@ -36,6 +36,8 @@ import addSVG from '@plone/volto/icons/add-document.svg';
 import moreSVG from '@plone/volto/icons/more.svg';
 import userSVG from '@plone/volto/icons/user.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
+import JoyRide, { STATUS } from 'react-joyride';
+import { settings } from '~/config';
 
 const messages = defineMessages({
   edit: {
@@ -171,6 +173,92 @@ class Toolbar extends Component {
     menuComponents: [],
     loadedComponents: [],
     hideToolbarBody: false,
+    run: cookie.load('guide') ? false : settings.guide,
+  };
+
+  steps = () => {
+    return [
+      {
+        content: (
+          <div>
+            <h2>Click to edit page</h2>, You can interact with your own
+            components through the spotlight.
+            <br />
+            Click the menu above!
+          </div>
+        ),
+        floaterProps: {
+          disableAnimation: true,
+        },
+        placement: 'right',
+        spotlightPadding: 20,
+        target: '.edit',
+      },
+      {
+        content: (
+          <div>
+            <h2>You can see the contents of your website</h2>, You can interact
+            with your own components through the spotlight.
+            <br />
+            Click the menu above!
+          </div>
+        ),
+        floaterProps: {
+          disableAnimation: true,
+        },
+        placement: 'right',
+        spotlightPadding: 20,
+        target: '.contents',
+      },
+      {
+        content: (
+          <div>
+            <h2>Here we can add content</h2>, You can interact with your own
+            components through the spotlight.
+            <br />
+            Click the menu above!
+          </div>
+        ),
+        floaterProps: {
+          disableAnimation: true,
+        },
+        spotlightPadding: 20,
+        placement: 'right',
+        target: '.add',
+      },
+      {
+        content: (
+          <div>
+            <h2>You can see more</h2>, You can interact with your own components
+            through the spotlight.
+            <br />
+            Click the menu above!
+          </div>
+        ),
+        floaterProps: {
+          disableAnimation: true,
+        },
+        spotlightPadding: 20,
+        placement: 'right',
+        target: '#toolbar-more',
+      },
+      {
+        content: (
+          <div>
+            <h2>This is your controlPanels</h2>, You can interact with your own
+            components through the spotlight.
+            <br />
+            Click the menu above!
+          </div>
+        ),
+        floaterProps: {
+          disableAnimation: true,
+        },
+        spotlightPadding: 20,
+        placement: 'right',
+        target: '#toolbar-personal',
+      },
+    ];
   };
 
   toolbarWindow = React.createRef();
@@ -268,6 +356,17 @@ class Toolbar extends Component {
     this.closeMenu();
   };
 
+  handleJoyrideCallback = (data) => {
+    const { status } = data;
+    if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
+      cookie.save('guide', 'true', {
+        expires: new Date((2 ** 31 - 1) * 1000),
+        path: '/',
+      });
+      this.setState({ run: false });
+    }
+  };
+
   /**
    * Render method.
    * @method render
@@ -279,7 +378,7 @@ class Toolbar extends Component {
     const folderContentsAction = find(this.props.actions.object, {
       id: 'folderContents',
     });
-    const { expanded } = this.state;
+    const { expanded, run } = this.state;
 
     return (
       this.props.token && (
@@ -372,6 +471,26 @@ class Toolbar extends Component {
           <div className={this.state.expanded ? 'toolbar expanded' : 'toolbar'}>
             <div className="toolbar-body">
               <div className="toolbar-actions">
+                <div>
+                  <JoyRide
+                    steps={this.steps()}
+                    continuous={true}
+                    showSkipButton={true}
+                    run={run}
+                    styles={{
+                      tooltipContainer: {
+                        textAlign: 'left',
+                      },
+                      buttonNext: {
+                        backgroundColor: 'green',
+                      },
+                      buttonBack: {
+                        marginRight: 400,
+                      },
+                    }}
+                    callback={this.handleJoyrideCallback}
+                  />
+                </div>
                 {this.props.hideDefaultViewButtons && this.props.inner && (
                   <>{this.props.inner}</>
                 )}
@@ -397,6 +516,7 @@ class Toolbar extends Component {
                             messages.contents,
                           )}
                           to={`${path}/contents`}
+                          className="contents"
                         >
                           <Icon name={folderSVG} size="30px" />
                         </Link>

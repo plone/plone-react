@@ -30,6 +30,7 @@ import {
 
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || '3000';
+const guide = true;
 
 const apiPath =
   process.env.RAZZLE_API_PATH ||
@@ -68,6 +69,8 @@ export const settings = {
   supportedLanguages: ['en'],
   defaultLanguage: 'en',
   navDepth: 1,
+  // intially the guide tour is enabled by default
+  guide,
 };
 
 export const widgets = {

@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Added tour guide to Volto @iFlameing
+
 ### Bugfix
 
 ### Internal
