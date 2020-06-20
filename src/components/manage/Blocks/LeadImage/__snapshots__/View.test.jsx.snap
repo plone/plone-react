@@ -4,10 +4,22 @@ exports[`renders a view image component 1`] = `
 <p
   className="block image align center"
 >
-  <img
-    alt=""
-    className=""
-    src="image.png"
-  />
+  <picture>
+    <source
+      sizes="(min-width: 1200px) 1127px, (min-width: 992px) 933px, (min-width: 768px) 723px, calc(100vw - (1em * 2))"
+      srcSet="
+            image.jpg/@@images/image/mini 200w,
+            image.jpg/@@images/image/preview 400w,
+            image.jpg/@@images/image/large 800w,
+            image.jpg/@@images/image 1200w,
+            image.jpg/@@images/image 1600w
+            "
+    />
+    <img
+      alt=""
+      className=""
+      src="image.jpg"
+    />
+  </picture>
 </p>
 `;

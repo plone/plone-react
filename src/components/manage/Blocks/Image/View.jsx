@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
+import { settings } from '~/config';
 
 import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers';
 
@@ -30,28 +31,33 @@ const View = ({ data, detached }) => (
       <>
         {(() => {
           const image = (
-            <img
-              className={cx({ 'full-width': data.align === 'full' })}
-              src={
-                isInternalURL(data.url)
-                  ? // Backwards compat in the case that the block is storing the full server URL
-                    (() => {
-                      if (data.size === 'l')
-                        return `${flattenToAppURL(data.url)}/@@images/image`;
-                      if (data.size === 'm')
-                        return `${flattenToAppURL(
-                          data.url,
-                        )}/@@images/image/preview`;
-                      if (data.size === 's')
-                        return `${flattenToAppURL(
-                          data.url,
-                        )}/@@images/image/mini`;
-                      return `${flattenToAppURL(data.url)}/@@images/image`;
-                    })()
-                  : data.url
-              }
-              alt={data.alt || ''}
-            />
+            <picture>
+              <source
+                srcSet={`
+            ${flattenToAppURL(data.url)}/@@images/image/mini 200w,
+            ${flattenToAppURL(data.url)}/@@images/image/preview 400w,
+            ${flattenToAppURL(data.url)}/@@images/image/large 800w,
+            ${flattenToAppURL(data.url)}/@@images/image 1200w,
+            ${flattenToAppURL(data.url)}/@@images/image 1600w
+            `}
+                sizes={
+                  data.align === 'full'
+                    ? '100vw'
+                    : data.align === 'left' || data.align === 'right'
+                    ? '(min-width: 1200px) calc(1127px * 0.333), (min-width: 992px) calc(933px * 0.333), (min-width: 768px) calc(723px * 0.333), calc((100vw - (1em * 2)) * 0.5)'
+                    : '(min-width: 1200px) 1127px, (min-width: 992px) 933px, (min-width: 768px) 723px, calc(100vw - (1em * 2))'
+                }
+              />
+              <img
+                className={cx({ 'full-width': data.align === 'full' })}
+                src={
+                  data.url.includes(settings.apiPath)
+                    ? `${flattenToAppURL(data.url)}/@@images/image`
+                    : data.url
+                }
+                alt={data.alt || ''}
+              />
+            </picture>
           );
           if (data.href) {
             if (!isInternalURL(data.href)) {
