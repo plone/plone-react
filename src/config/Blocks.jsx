@@ -160,6 +160,15 @@ const blocksConfig = {
       addPermission: [],
       view: [],
     },
+    tocEntry: (data) => {
+      return data?.text?.blocks[0].type.indexOf('header-') === 0
+        ? {
+            text: data.text.blocks[0].text,
+            id: data.text.blocks[0].key,
+            level: data.text.blocks[0].type,
+          }
+        : null;
+    },
   },
   image: {
     id: 'image',
