@@ -70,6 +70,7 @@ class TokenWidget extends Component {
     onChange: PropTypes.func.isRequired,
     itemsTotal: PropTypes.number,
     wrapped: PropTypes.bool,
+    focus: PropTypes.bool,
   };
 
   /**
@@ -90,6 +91,7 @@ class TokenWidget extends Component {
     choices: [],
     loading: false,
     value: null,
+    focus: false,
   };
 
   /**
@@ -112,6 +114,7 @@ class TokenWidget extends Component {
         ? props.value.map((item) => ({ label: item, value: item }))
         : [],
     };
+    this.focusRef = React.createRef();
   }
 
   /**
@@ -121,6 +124,10 @@ class TokenWidget extends Component {
    */
   componentDidMount() {
     this.props.getVocabulary(this.vocabBaseUrl);
+
+    if (this.props.focus && this.focusRef.current) {
+      this.focusRef.current.focus();
+    }
   }
 
   /**
@@ -178,6 +185,7 @@ class TokenWidget extends Component {
         <AsyncCreatable>
           {({ default: AsyncCreatableSelect }) => (
             <AsyncCreatableSelect
+              ref={this.focusRef}
               className="react-select-container"
               classNamePrefix="react-select"
               defaultOptions={this.props.choices || []}

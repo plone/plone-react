@@ -119,6 +119,10 @@ class WysiwygWidget extends Component {
      * Wrapped form component
      */
     wrapped: PropTypes.bool,
+    /**
+     * Focus the field or not
+     */
+    focus: PropTypes.bool,
   };
 
   /**
@@ -138,6 +142,7 @@ class WysiwygWidget extends Component {
     onEdit: null,
     onDelete: null,
     onChange: null,
+    focus: false,
   };
 
   /**
@@ -199,6 +204,19 @@ class WysiwygWidget extends Component {
     };
 
     this.onChange = this.onChange.bind(this);
+
+    this.focusRef = React.createRef();
+  }
+
+  /**
+   * Component did mount lifecycle method
+   * @method componentDidMount
+   * @returns {undefined}
+   */
+  componentDidMount() {
+    if (this.props.focus) {
+      this.focusRef.current.focus();
+    }
   }
 
   /**
@@ -311,6 +329,7 @@ class WysiwygWidget extends Component {
                 blockRenderMap={settings.extendedBlockRenderMap}
                 blockStyleFn={settings.blockStyleFn}
                 customStyleMap={settings.customStyleMap}
+                ref={this.focusRef}
               />
               {this.props.onChange && <InlineToolbar />}
             </>

@@ -3,7 +3,7 @@
  * @module components/manage/Widgets/TextareaWidget
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Label, TextArea } from 'semantic-ui-react';
 
@@ -61,6 +61,7 @@ const TextareaWidget = ({
   fieldSet,
   wrapped,
   placeholder,
+  focus,
 }) => {
   const [lengthError, setlengthError] = useState('');
 
@@ -107,6 +108,14 @@ const TextareaWidget = ({
     required: ['id', 'title'],
   };
 
+  const textAreaRef = useRef(null);
+
+  useEffect(() => {
+    if (focus) {
+      textAreaRef.current.focus();
+    }
+  }, [focus]);
+
   return (
     <FormFieldWrapper
       id={id}
@@ -139,6 +148,7 @@ const TextareaWidget = ({
       )}
       <TextArea
         id={`field-${id}`}
+        ref={textAreaRef}
         name={id}
         value={value || ''}
         disabled={onEdit !== null}

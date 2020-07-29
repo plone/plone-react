@@ -817,7 +817,7 @@ class Form extends Component {
                         <Field
                           {...schema.properties[field]}
                           id={field}
-                          focus={false}
+                          focus={index === 0}
                           value={this.state.formData[field]}
                           required={schema.required.indexOf(field) !== -1}
                           onChange={this.onChangeField}
@@ -902,7 +902,7 @@ class Form extends Component {
                     content={this.props.error.message}
                   />
                 )}
-                {map(schema.fieldsets[0].fields, (field) => (
+                {map(schema.fieldsets[0].fields, (field, index) => (
                   <Field
                     {...schema.properties[field]}
                     id={field}
@@ -910,6 +910,7 @@ class Form extends Component {
                     required={schema.required.indexOf(field) !== -1}
                     onChange={this.onChangeField}
                     key={field}
+                    focus={index === 0}
                     error={this.state.errors[field]}
                   />
                 ))}

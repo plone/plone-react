@@ -148,6 +148,7 @@ class SelectWidget extends Component {
     onDelete: PropTypes.func,
     itemsTotal: PropTypes.number,
     wrapped: PropTypes.bool,
+    focus: PropTypes.bool,
   };
 
   /**
@@ -170,6 +171,7 @@ class SelectWidget extends Component {
     value: null,
     onEdit: null,
     onDelete: null,
+    focus: false,
   };
 
   state = {
@@ -186,6 +188,9 @@ class SelectWidget extends Component {
   componentDidMount() {
     if (!this.props.choices && this.props.vocabBaseUrl) {
       this.props.getVocabulary(this.props.vocabBaseUrl);
+    }
+    if (this.props.focus && this.focusRef.current) {
+      this.focusRef.current.focus();
     }
   }
 
@@ -230,6 +235,12 @@ class SelectWidget extends Component {
     this.setState({ selectedOption });
     this.props.onChange(this.props.id, selectedOption.value);
   };
+
+  constructor(props) {
+    super(props);
+
+    this.focusRef = React.createRef();
+  }
 
   /**
    * Render method.
@@ -296,6 +307,7 @@ class SelectWidget extends Component {
         {this.props.vocabBaseUrl ? (
           <>
             <AsyncPaginate
+              // ref={this.focusRef}
               className="react-select-container"
               classNamePrefix="react-select"
               options={this.props.choices || []}
@@ -318,6 +330,9 @@ class SelectWidget extends Component {
           <Select
             id={`field-${id}`}
             name={id}
+            ref={(x, y) => {
+              this.focusRef = x;
+            }}
             disabled={onEdit !== null}
             className="react-select-container"
             classNamePrefix="react-select"
