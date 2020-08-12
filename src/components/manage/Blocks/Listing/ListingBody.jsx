@@ -18,14 +18,16 @@ const ListingBody = ({ data, properties, intl, path, isEditMode }) => {
   );
   const dispatch = useDispatch();
 
+  const pathRef = React.useRef(null);
+
   React.useEffect(() => {
-    if (data?.query?.length > 0) {
+    if (!pathRef.current) pathRef.current = path;
+    if (pathRef.current === path && data?.query?.length > 0) {
       dispatch(
         getQueryStringResults(path, { ...data, fullobjects: 1 }, data.block),
       );
     }
-    /* eslint-disable react-hooks/exhaustive-deps */
-  }, [data]);
+  }, [data, dispatch, path, data?.query?.length]);
 
   const folderItems = content.is_folderish ? content.items : [];
 
