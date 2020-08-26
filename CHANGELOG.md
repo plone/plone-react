@@ -10,6 +10,8 @@
 
 ### Internal
 
+- Export connected widget classes, to allow extending @tiberiuichim
+
 ## 7.10.0 (2020-08-26)
 
 ### Feature

@@ -45,7 +45,7 @@ const messages = defineMessages({
  * @class TokenWidget
  * @extends Component
  */
-class TokenWidget extends Component {
+export class TokenWidget extends Component {
   /**
    * Property types.
    * @property {Object} propTypes Property types.

@@ -69,7 +69,7 @@ const messages = defineMessages({
  * @class QuerystringWidget
  * @extends Component
  */
-class QuerystringWidget extends Component {
+export class QuerystringWidget extends Component {
   /**
    * Property types.
    * @property {Object} propTypes Property types.
