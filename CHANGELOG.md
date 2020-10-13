@@ -557,6 +557,8 @@
 - expose `blocks` and `blocks_layout` only editing content types @nileshgulia1
 - Small fix for `TextAreaWidget` and max_lenght @sneridagh
 
+- Added cypress text for Expiration Date @iFlameing
+
 ## 6.0.0 (2020-05-18)
 
 ### Breaking

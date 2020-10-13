@@ -28,12 +28,8 @@ if (Cypress.env('API') !== 'guillotina') {
       // when I rename a content object
       cy.get('svg[class="icon unchecked"]').click();
       cy.get('svg[class="icon rename"]').click();
-      cy.get('input[name="0_title"]')
-        .clear()
-        .type('Brand new document title');
-      cy.get('input[name="0_id"]')
-        .clear()
-        .type('brand-new-document-title');
+      cy.get('input[name="0_title"]').clear().type('Brand new document title');
+      cy.get('input[name="0_id"]').clear().type('brand-new-document-title');
       cy.get('.modal button[title="Save"]').click();
 
       // then the new document title and ID should show up in the folder contents view
@@ -86,9 +82,7 @@ if (Cypress.env('API') !== 'guillotina') {
       });
       cy.get('svg[class="icon unchecked"]').click();
       cy.get('svg[class="icon semaphore"]').click();
-      cy.get('#field-state')
-        .click()
-        .type('Publish{enter}');
+      cy.get('#field-state').click().type('Publish{enter}');
       cy.get('.checkbox').click();
       cy.get('button[title="Save"]').click();
 
@@ -117,6 +111,12 @@ if (Cypress.env('API') !== 'guillotina') {
         'have.text',
         ' My Child',
       );
+    });
+
+    it('Expiration date must not been set by default', () => {
+      cy.get('.item.dropdown.right').click();
+      cy.get('.icon.Expiration.date').click();
+      cy.get('tbody>tr>td').eq(6).should('have.text', 'None');
     });
   });
 }
