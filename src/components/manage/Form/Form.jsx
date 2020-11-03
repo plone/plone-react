@@ -378,15 +378,23 @@ class Form extends Component {
   }
 
   /**
-   * Delete block handler
+   * Delete block handler.
    * @method onDeleteBlock
    * @param {string} id Id of the field
-   * @param {bool} selectPrev True if previous should be selected
+   * @param {bool} selectNeighbor True if adjacent block should be selected
    * @returns {undefined}
    */
-  onDeleteBlock(id, selectPrev) {
+  onDeleteBlock(id, selectNeighbor) {
     const blocksFieldname = getBlocksFieldname(this.state.formData);
     const blocksLayoutFieldname = getBlocksLayoutFieldname(this.state.formData);
+
+    const index = this.state.formData[blocksLayoutFieldname].items.indexOf(id);
+
+    const selected = selectNeighbor
+      ? index === 0
+        ? this.state.formData[blocksLayoutFieldname].items[1]
+        : this.state.formData[blocksLayoutFieldname].items[index - 1]
+      : null;
 
     this.setState({
       formData: {
@@ -396,11 +404,7 @@ class Form extends Component {
         },
         [blocksFieldname]: omit(this.state.formData[blocksFieldname], [id]),
       },
-      selected: selectPrev
-        ? this.state.formData[blocksLayoutFieldname].items[
-            this.state.formData[blocksLayoutFieldname].items.indexOf(id) - 1
-          ]
-        : null,
+      selected,
     });
   }
 

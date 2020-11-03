@@ -6,6 +6,8 @@
 
 ### Feature
 
+- On block deletion, automatically select previous block (or next block, if the first block is deleted). @tiberiuichim
+
 ### Bugfix
 
 ### Internal
