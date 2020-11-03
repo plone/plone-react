@@ -117,6 +117,7 @@ module.exports = (userOptions = {}) => (
         /node_modules\/@plone\/volto\/theme/,
         /plone\.volto\/theme/,
         /node_modules\/semantic-ui-less/,
+        /node_modules\/fomantic-ui-less/,
         ...Object.values(registry.getResolveAliases()),
       ],
       use: isServer
