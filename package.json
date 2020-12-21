@@ -315,6 +315,7 @@
     "react-dom": "16.13.1",
     "react-dropzone": "11.1.0",
     "react-fast-compare": "2.0.4",
+    "react-image-crop": "8.6.4",
     "react-image-gallery": "1.0.7",
     "react-intl": "3.8.0",
     "react-intl-redux": "2.2.0",

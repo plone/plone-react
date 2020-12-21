@@ -314,6 +314,10 @@ msgstr "Choisir une cible"
 msgid "Choose a file"
 msgstr ""
 
+#: components/manage/Widgets/ImageCropWidget
+msgid "Choose a image"
+msgstr ""
+
 #: components/manage/Blocks/HTML/Edit
 msgid "Clear"
 msgstr ""
@@ -598,6 +602,10 @@ msgstr ""
 
 #: components/manage/Widgets/FileWidget
 msgid "Drop files here ..."
+msgstr ""
+
+#: components/manage/Widgets/ImageCropWidget
+msgid "Drop image here to upload a new image"
 msgstr ""
 
 #: components/manage/Preferences/PersonalInformation
@@ -1447,6 +1455,10 @@ msgstr ""
 
 #: components/manage/Widgets/RecurrenceWidget/RecurrenceWidget
 msgid "Repeat on"
+msgstr ""
+
+#: components/manage/Widgets/ImageCropWidget
+msgid "Replace existing Image"
 msgstr ""
 
 #: components/manage/Widgets/FileWidget

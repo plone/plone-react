@@ -312,6 +312,10 @@ msgstr "Ziel auswählen"
 msgid "Choose a file"
 msgstr ""
 
+#: components/manage/Widgets/ImageCropWidget
+msgid "Choose a image"
+msgstr ""
+
 #: components/manage/Blocks/HTML/Edit
 msgid "Clear"
 msgstr "Löschen"
@@ -597,6 +601,10 @@ msgstr ""
 #: components/manage/Widgets/FileWidget
 msgid "Drop files here ..."
 msgstr "Datei hier ablegen um die bestehende Datei zu ersetzen"
+
+#: components/manage/Widgets/ImageCropWidget
+msgid "Drop image here to upload a new image"
+msgstr ""
 
 #: components/manage/Preferences/PersonalInformation
 #: components/theme/Register/Register
@@ -1446,6 +1454,10 @@ msgstr "Wiederhole jeden"
 #: components/manage/Widgets/RecurrenceWidget/RecurrenceWidget
 msgid "Repeat on"
 msgstr "Wiederhole am"
+
+#: components/manage/Widgets/ImageCropWidget
+msgid "Replace existing Image"
+msgstr ""
 
 #: components/manage/Widgets/FileWidget
 msgid "Replace existing file"

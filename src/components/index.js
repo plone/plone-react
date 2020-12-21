@@ -130,6 +130,7 @@ export const RecurrenceWidget = loadable(() =>
 );
 
 export FileWidget from '@plone/volto/components/manage/Widgets/FileWidget';
+export ImageCropWidget from '@plone/volto/components/manage/Widgets/ImageCropWidget';
 export PasswordWidget from '@plone/volto/components/manage/Widgets/PasswordWidget';
 export ReferenceWidget from '@plone/volto/components/manage/Widgets/ReferenceWidget';
 export SchemaWidget from '@plone/volto/components/manage/Widgets/SchemaWidget';
