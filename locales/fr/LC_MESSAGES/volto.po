@@ -2537,4 +2537,4 @@ msgstr "{title} a été supprimé"
 
 #: components/theme/Comments/Comments
 msgid "{user} says:"
-msgstr "{user} dit :"
+msgstr "{user} dit :"# Translation of plone.pot to French"

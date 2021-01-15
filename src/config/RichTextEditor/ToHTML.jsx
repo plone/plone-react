@@ -25,16 +25,38 @@ const addBreaklinesInline = (children) => {
       : children[0];
 
     if (s.split('\n').length > 1) {
+      const last = s.split('\n').length - 1;
       return s.split('\n').map((child, index) => (
         <React.Fragment key={child + index}>
           {child}
-          <br />
+          {last !== index && <br />}
         </React.Fragment>
       ));
     }
   }
   return children;
 };
+
+const addBreaklines = (child) =>
+  child.map((subchild) => {
+    if (Array.isArray(subchild)) {
+      return subchild.map((subchildren) => {
+        if (typeof subchildren === 'string') {
+          const last = subchildren.split('\n').length - 1;
+          return subchildren.split('\n').map((item, index) => (
+            <React.Fragment key={index}>
+              {item}
+              {index !== last && <br />}
+            </React.Fragment>
+          ));
+        } else {
+          return subchildren;
+        }
+      });
+    } else {
+      return subchild;
+    }
+  });
 
 // Inline (not block) styles
 const inline = {
@@ -54,52 +76,10 @@ const inline = {
   ),
 };
 
-const addBreaklines = (children) =>
-  children.map((child) => {
-    return child[1].map((child) => [
-      <React.Fragment key={child}>
-        {child}
-        <br />
-      </React.Fragment>,
-    ]);
-  });
-
-const splitBySoftLines = (children) =>
-  children.map((child) => {
-    return child.map((item) => {
-      if (Array.isArray(item)) {
-        return item[0].split('\n');
-      }
-      return item;
-    });
-  });
-
 // splitSoftLines for <li> tag
 const splitSoftLinesOfLists = (children) =>
   children.map((child, index) => {
-    return (
-      <li key={index}>
-        {child.map((subchild) => {
-          if (Array.isArray(subchild)) {
-            return subchild.map((subchildren) => {
-              if (typeof subchildren === 'string') {
-                const last = subchildren.split('\n').length - 1;
-                return subchildren.split('\n').map((item, index) => (
-                  <React.Fragment key={index}>
-                    {item}
-                    {index !== last && <br />}
-                  </React.Fragment>
-                ));
-              } else {
-                return subchildren;
-              }
-            });
-          } else {
-            return subchild;
-          }
-        })}
-      </li>
-    );
+    return <li key={index}>{addBreaklines(child)}</li>;
   });
 
 // Returns how the default lists should be rendered
@@ -168,11 +148,15 @@ const blocks = {
     return processChildren(children, keys);
   },
   atomic: (children) => children[0],
-  blockquote: (children, { keys }) => (
-    <blockquote key={keys[0]}>
-      {addBreaklines(splitBySoftLines(children))}
-    </blockquote>
-  ),
+  blockquote: (children, { keys }) => {
+    return (
+      <blockquote key={keys[0]}>
+        {children.map((child, index) => {
+          return addBreaklines(child);
+        })}
+      </blockquote>
+    );
+  },
   'header-one': (children, { keys }) =>
     children.map((child, i) => <h1 key={keys[i]}>{child}</h1>),
   'header-two': (children, { keys }) =>
@@ -212,12 +196,13 @@ const blocks = {
   ),
   'unordered-list-item': getList(),
   'ordered-list-item': getList(true),
-  callout: (children, { keys }) =>
-    children.map((child, i) => (
+  callout: (children, { keys }) => {
+    return children.map((child, i) => (
       <p key={keys[i]} className="callout">
-        {child}
+        {addBreaklines(child)}
       </p>
-    )),
+    ));
+  },
 };
 
 const LinkEntity = connect((state) => ({

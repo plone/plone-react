@@ -446,6 +446,7 @@ https://docs.voltocms.com/upgrade-guide/
 ### Feature
 
 - Adding softlinebreak in list tag @iFlameing
+- Fixed styling in blockquote @iFlameing
 
 ### Bugfix
 
