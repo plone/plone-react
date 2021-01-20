@@ -384,6 +384,7 @@ class ObjectBrowserBody extends Component {
               <h2>
                 <FormattedMessage
                   id="Choose Image"
+                  className="choose-image"
                   defaultMessage="Choose Image"
                 />
               </h2>
@@ -391,16 +392,25 @@ class ObjectBrowserBody extends Component {
               <h2>
                 <FormattedMessage
                   id="Choose Target"
+                  className="choose-target"
                   defaultMessage="Choose Target"
                 />
               </h2>
             )}
 
             <button onClick={this.toggleSearchInput}>
-              <Icon name={searchSVG} size="24px" />
+              <Icon
+                name={searchSVG}
+                className="search-object-browser"
+                size="24px"
+              />
             </button>
             <button onClick={this.props.closeObjectBrowser}>
-              <Icon name={clearSVG} size="24px" />
+              <Icon
+                name={clearSVG}
+                className="close-object-browser"
+                size="24px"
+              />
             </button>
           </header>
           <Segment secondary>{this.state.currentFolder}</Segment>
