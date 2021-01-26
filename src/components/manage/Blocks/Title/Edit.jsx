@@ -6,10 +6,12 @@
 import React, { Component } from 'react';
 import { Map } from 'immutable';
 import PropTypes from 'prop-types';
-import { stateFromHTML } from 'draft-js-import-html';
-import { Editor, DefaultDraftBlockRenderMap, EditorState } from 'draft-js';
 import { defineMessages, injectIntl } from 'react-intl';
 import { settings } from '~/config';
+
+import loadable from '@loadable/component';
+const LibDraftJsImportHtml = loadable.lib(() => import('draft-js-import-html'));
+const LibDraftJs = loadable.lib(() => import('draft-js'));
 
 const messages = defineMessages({
   title: {
@@ -23,8 +25,6 @@ const blockRenderMap = Map({
     element: 'h1',
   },
 });
-
-const extendedBlockRenderMap = DefaultDraftBlockRenderMap.merge(blockRenderMap);
 
 /**
  * Edit title block class.
@@ -50,41 +50,7 @@ class Edit extends Component {
     block: PropTypes.string.isRequired,
   };
 
-  /**
-   * Constructor
-   * @method constructor
-   * @param {Object} props Component properties
-   * @constructs WysiwygEditor
-   */
-  constructor(props) {
-    super(props);
-
-    if (!__SERVER__) {
-      let editorState;
-      if (props.properties && props.properties.title) {
-        const contentState = stateFromHTML(props.properties.title);
-        editorState = EditorState.createWithContent(contentState);
-      } else {
-        editorState = EditorState.createEmpty();
-      }
-      this.state = { editorState, focus: true };
-    }
-
-    this.onChange = this.onChange.bind(this);
-  }
-
-  /**
-   * Component did mount lifecycle method
-   * @method componentDidMount
-   * @returns {undefined}
-   */
-  componentDidMount() {
-    if (this.node) {
-      this.node.focus();
-      this.node._onBlur = () => this.setState({ focus: false });
-      this.node._onFocus = () => this.setState({ focus: true });
-    }
-  }
+  state = { focus: true };
 
   /**
    * Component will receive props
@@ -92,17 +58,21 @@ class Edit extends Component {
    * @param {Object} nextProps Next properties
    * @returns {undefined}
    */
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps = (nextProps) => {
     if (
       nextProps.properties.title &&
       this.props.properties.title !== nextProps.properties.title &&
       !this.state.focus
     ) {
-      const contentState = stateFromHTML(nextProps.properties.title);
+      const contentState = this.libDraftJsImportHtmlRef.current.stateFromHTML(
+        nextProps.properties.title,
+      );
       this.setState({
         editorState: nextProps.properties.title
-          ? EditorState.createWithContent(contentState)
-          : EditorState.createEmpty(),
+          ? this.libDraftJsRef.current.EditorState.createWithContent(
+              contentState,
+            )
+          : this.libDraftJsRef.current.EditorState.createEmpty(),
       });
     }
 
@@ -110,7 +80,7 @@ class Edit extends Component {
       this.node.focus();
       this.setState({ focus: true });
     }
-  }
+  };
 
   /**
    * Change handler
@@ -118,14 +88,60 @@ class Edit extends Component {
    * @param {object} editorState Editor state.
    * @returns {undefined}
    */
-  onChange(editorState) {
+  onChange = (editorState) => {
     this.setState({ editorState }, () => {
       this.props.onChangeField(
         'title',
         editorState.getCurrentContent().getPlainText(),
       );
     });
-  }
+  };
+
+  extendedBlockRenderMap = null;
+
+  libDraftJsImportHtmlRef = React.createRef();
+  libDraftJsRef = React.createRef();
+
+  libDraftJsLoaded = (lib) => {
+    this.libDraftJsRef.current = lib;
+    this.checkLibs();
+  };
+  libDraftJsImportHtmlLoaded = (lib) => {
+    this.libDraftJsImportHtmlRef.current = lib;
+    this.checkLibs();
+  };
+
+  checkLibs = () => {
+    if (!this.libDraftJsRef.current || !this.libDraftJsImportHtmlRef.current) {
+      return;
+    }
+
+    this.extendedBlockRenderMap = this.libDraftJsRef.current.DefaultDraftBlockRenderMap.merge(
+      blockRenderMap,
+    );
+
+    this.Editor = this.libDraftJsRef.current.Editor;
+
+    let editorState;
+    if (this.props.properties && this.props.properties.title) {
+      const contentState = this.libDraftJsImportHtmlRef.current.stateFromHTML(
+        this.props.properties.title,
+      );
+      editorState = this.libDraftJsRef.current.EditorState.createWithContent(
+        contentState,
+      );
+    } else {
+      editorState = this.libDraftJsRef.current.EditorState.createEmpty();
+    }
+
+    this.setState({ editorState, focus: true }, () => {
+      if (this.node) {
+        this.node._onBlur = () => this.setState({ focus: false });
+        this.node._onFocus = () => this.setState({ focus: true });
+        this.node.focus();
+      }
+    });
+  };
 
   /**
    * Render method.
@@ -142,48 +158,60 @@ class Edit extends Component {
       this.props.intl.formatMessage(messages.title);
 
     return (
-      <Editor
-        onChange={this.onChange}
-        editorState={this.state.editorState}
-        blockRenderMap={extendedBlockRenderMap}
-        handleReturn={() => {
-          if (this.props.data.disableNewBlocks) {
-            return 'handled';
-          }
-          this.props.onSelectBlock(
-            this.props.onAddBlock(
-              settings.defaultBlockType,
-              this.props.index + 1,
-            ),
-          );
-          return 'handled';
-        }}
-        placeholder={placeholder}
-        blockStyleFn={() => 'documentFirstHeading'}
-        onUpArrow={() => {
-          const selectionState = this.state.editorState.getSelection();
-          const { editorState } = this.state;
-          if (
-            editorState.getCurrentContent().getBlockMap().first().getKey() ===
-            selectionState.getFocusKey()
-          ) {
-            this.props.onFocusPreviousBlock(this.props.block, this.node);
-          }
-        }}
-        onDownArrow={() => {
-          const selectionState = this.state.editorState.getSelection();
-          const { editorState } = this.state;
-          if (
-            editorState.getCurrentContent().getBlockMap().last().getKey() ===
-            selectionState.getFocusKey()
-          ) {
-            this.props.onFocusNextBlock(this.props.block, this.node);
-          }
-        }}
-        ref={(node) => {
-          this.node = node;
-        }}
-      />
+      <>
+        <LibDraftJsImportHtml ref={this.libDraftJsImportHtmlLoaded} />
+        <LibDraftJs ref={this.libDraftJsLoaded} />
+        {!!this.state.editorState && (
+          <this.Editor
+            onChange={this.onChange}
+            editorState={this.state.editorState}
+            blockRenderMap={this.extendedBlockRenderMap}
+            handleReturn={() => {
+              if (this.props.data.disableNewBlocks) {
+                return 'handled';
+              }
+              this.props.onSelectBlock(
+                this.props.onAddBlock(
+                  settings.defaultBlockType,
+                  this.props.index + 1,
+                ),
+              );
+              return 'handled';
+            }}
+            placeholder={placeholder}
+            blockStyleFn={() => 'documentFirstHeading'}
+            onUpArrow={() => {
+              const selectionState = this.state.editorState.getSelection();
+              const { editorState } = this.state;
+              if (
+                editorState
+                  .getCurrentContent()
+                  .getBlockMap()
+                  .first()
+                  .getKey() === selectionState.getFocusKey()
+              ) {
+                this.props.onFocusPreviousBlock(this.props.block, this.node);
+              }
+            }}
+            onDownArrow={() => {
+              const selectionState = this.state.editorState.getSelection();
+              const { editorState } = this.state;
+              if (
+                editorState
+                  .getCurrentContent()
+                  .getBlockMap()
+                  .last()
+                  .getKey() === selectionState.getFocusKey()
+              ) {
+                this.props.onFocusNextBlock(this.props.block, this.node);
+              }
+            }}
+            ref={(node) => {
+              this.node = node;
+            }}
+          />
+        )}
+      </>
     );
   }
 }

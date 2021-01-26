@@ -11,6 +11,9 @@ import {
   errorViews,
 } from './Views';
 import { nonContentRoutes } from './NonContentRoutes';
+
+// TODO: remove these imports after migrating all components to use the async
+// function settings.getRichTextEditorSettings:
 import ToHTMLRenderers, {
   options as ToHTMLOptions,
 } from './RichTextEditor/ToHTML';
@@ -21,6 +24,7 @@ import {
 } from './RichTextEditor/Blocks';
 import plugins, { inlineToolbarButtons } from './RichTextEditor/Plugins';
 import FromHTMLCustomBlockFn from './RichTextEditor/FromHTML';
+
 import {
   groupBlocksOrder,
   requiredBlocks,
@@ -32,6 +36,9 @@ import { sentryOptions } from './Sentry';
 import { contentIcons } from './ContentIcons';
 
 import applyAddonConfiguration from 'load-volto-addons';
+
+import loadable from '@loadable/component';
+const LibRichTextEditorConfig = loadable.lib(() => import('./RichTextEditor'));
 
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || '3000';
@@ -95,6 +102,9 @@ let config = {
     appExtras: [],
     maxResponseSize: 2000000000, // This is superagent default (200 mb)
     serverConfig,
+    getRichTextEditorSettings: async () => {
+      return await LibRichTextEditorConfig.load();
+    },
   },
   widgets: {
     ...widgetMapping,

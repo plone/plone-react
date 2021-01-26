@@ -1,11 +1,14 @@
+import React from 'react';
 import decorateComponentWithProps from 'decorate-component-with-props';
-import { EditorState, Modifier } from 'draft-js';
 
 import DefaultLink from './components/Link';
 import LinkButton from './components/LinkButton';
 import linkStrategy, { matchesEntityType } from './linkStrategy';
 
-function removeEntity(editorState) {
+import loadable from '@loadable/component';
+const LibDraftJs = loadable.lib(() => import('draft-js'));
+
+function removeEntity(editorState, libDraftJsRef) {
   const contentState = editorState.getCurrentContent();
   const selectionState = editorState.getSelection();
   const startKey = selectionState.getStartKey();
@@ -30,13 +33,13 @@ function removeEntity(editorState) {
     },
   );
 
-  const newContentState = Modifier.applyEntity(
+  const newContentState = libDraftJsRef.current.Modifier.applyEntity(
     contentState,
     entitySelection,
     null,
   );
 
-  const newEditorState = EditorState.push(
+  const newEditorState = libDraftJsRef.current.EditorState.push(
     editorState,
     newContentState,
     'apply-entity',
@@ -65,11 +68,22 @@ export default (config = {}) => {
       },
     ],
 
-    LinkButton: decorateComponentWithProps(LinkButton, {
-      ownTheme: theme,
-      placeholder,
-      onRemoveLinkAtSelection: (setEditorState, getEditorState) =>
-        setEditorState(removeEntity(getEditorState())),
-    }),
+    LinkButton: (props) => {
+      const libDraftJsRef = React.useRef();
+
+      return (
+        <>
+          <LibDraftJs ref={libDraftJsRef} />
+          <LinkButton
+            {...props}
+            ownTheme={theme}
+            placeholder={placeholder}
+            onRemoveLinkAtSelection={(setEditorState, getEditorState) =>
+              setEditorState(removeEntity(getEditorState(), libDraftJsRef))
+            }
+          />
+        </>
+      );
+    },
   };
 };

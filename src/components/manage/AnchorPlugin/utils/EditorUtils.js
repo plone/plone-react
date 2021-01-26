@@ -1,6 +1,4 @@
-import { RichUtils, EditorState } from 'draft-js';
-
-export default {
+export default (RichUtils, EditorState) => ({
   createLinkAtSelection(editorState, url) {
     const contentState = editorState
       .getCurrentContent()
@@ -41,4 +39,4 @@ export default {
     const entity = this.getCurrentEntity(editorState);
     return entity && entity.getType() === entityType;
   },
-};
+});

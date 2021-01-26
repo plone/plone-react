@@ -4,22 +4,29 @@
  */
 
 import PropTypes from 'prop-types';
-import redraft from 'redraft';
 import React from 'react';
 
 import { settings } from '~/config';
+
+import loadable from '@loadable/component';
+const LibRedraft = loadable.lib(() => import('redraft'));
 
 /**
  * View text block class.
  * @class View
  * @extends Component
  */
-const View = ({ data }) =>
-  data.text ? (
-    redraft(data.text, settings.ToHTMLRenderers, settings.ToHTMLOptions)
+const View = ({ data }) => {
+  return data.text ? (
+    <LibRedraft>
+      {({ default: redraft }) =>
+        redraft(data.text, settings.ToHTMLRenderers, settings.ToHTMLOptions)
+      }
+    </LibRedraft>
   ) : (
     <br />
   );
+};
 
 /**
  * Property types.

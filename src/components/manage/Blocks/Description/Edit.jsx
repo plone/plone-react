@@ -6,18 +6,13 @@
 import React, { Component } from 'react';
 import { Map } from 'immutable';
 import PropTypes from 'prop-types';
-import { stateFromHTML } from 'draft-js-import-html';
-import { Editor, DefaultDraftBlockRenderMap, EditorState } from 'draft-js';
 import { defineMessages, injectIntl } from 'react-intl';
 import cx from 'classnames';
 import { settings } from '~/config';
 
-const messages = defineMessages({
-  description: {
-    id: 'Add a description…',
-    defaultMessage: 'Add a description…',
-  },
-});
+import loadable from '@loadable/component';
+const LibDraftJs = loadable.lib(() => import('draft-js'));
+const LibDraftJsImportHtml = loadable.lib(() => import('draft-js-import-html'));
 
 const blockRenderMap = Map({
   unstyled: {
@@ -25,7 +20,12 @@ const blockRenderMap = Map({
   },
 });
 
-const extendedBlockRenderMap = DefaultDraftBlockRenderMap.merge(blockRenderMap);
+const messages = defineMessages({
+  description: {
+    id: 'Add a description…',
+    defaultMessage: 'Add a description…',
+  },
+});
 
 /**
  * Edit description block class.
@@ -51,28 +51,7 @@ class Edit extends Component {
     onFocusNextBlock: PropTypes.func.isRequired,
   };
 
-  /**
-   * Constructor
-   * @method constructor
-   * @param {Object} props Component properties
-   * @constructs WysiwygEditor
-   */
-  constructor(props) {
-    super(props);
-
-    if (!__SERVER__) {
-      let editorState;
-      if (props.properties && props.properties.description) {
-        const contentState = stateFromHTML(props.properties.description);
-        editorState = EditorState.createWithContent(contentState);
-      } else {
-        editorState = EditorState.createEmpty();
-      }
-      this.state = { editorState, focus: false };
-    }
-
-    this.onChange = this.onChange.bind(this);
-  }
+  state = { editorState: null, focus: false };
 
   /**
    * Component did mount lifecycle method
@@ -98,11 +77,15 @@ class Edit extends Component {
       this.props.properties.description !== nextProps.properties.description &&
       !this.state.focus
     ) {
-      const contentState = stateFromHTML(nextProps.properties.description);
+      const contentState = this.libDraftJsImportHtmlRef.current.stateFromHTML(
+        nextProps.properties.description,
+      );
       this.setState({
         editorState: nextProps.properties.description
-          ? EditorState.createWithContent(contentState)
-          : EditorState.createEmpty(),
+          ? this.libDraftJsRef.current.EditorState.createWithContent(
+              contentState,
+            )
+          : this.libDraftJsRef.current.EditorState.createEmpty(),
       });
     }
 
@@ -118,14 +101,54 @@ class Edit extends Component {
    * @param {object} editorState Editor state.
    * @returns {undefined}
    */
-  onChange(editorState) {
+  onChange = (editorState) => {
     this.setState({ editorState }, () => {
       this.props.onChangeField(
         'description',
         editorState.getCurrentContent().getPlainText(),
       );
     });
-  }
+  };
+
+  extendedBlockRenderMap = null;
+
+  checkLibs = () => {
+    if (!this.libDraftJsRef.current || !this.libDraftJsImportHtmlRef.current) {
+      return;
+    }
+
+    this.extendedBlockRenderMap = this.libDraftJsRef.current.DefaultDraftBlockRenderMap.merge(
+      blockRenderMap,
+    );
+
+    this.Editor = this.libDraftJsRef.current.Editor;
+
+    let editorState;
+    if (this.props.properties && this.props.properties.description) {
+      const contentState = this.libDraftJsImportHtmlRef.current.stateFromHTML(
+        this.props.properties.description,
+      );
+      editorState = this.libDraftJsRef.current.EditorState.createWithContent(
+        contentState,
+      );
+    } else {
+      editorState = this.libDraftJsRef.current.EditorState.createEmpty();
+    }
+    this.setState({ editorState });
+  };
+
+  libDraftJsImportHtmlRef = React.createRef();
+  libDraftJsRef = React.createRef();
+
+  libDraftJsLoaded = (lib) => {
+    this.libDraftJsRef.current = lib;
+    this.checkLibs();
+  };
+
+  libDraftJsImportHtmlLoaded = (lib) => {
+    this.libDraftJsImportHtmlRef.current = lib;
+    this.checkLibs();
+  };
 
   /**
    * Render method.
@@ -136,60 +159,71 @@ class Edit extends Component {
     if (__SERVER__) {
       return <div />;
     }
+
     return (
       <div
         className={cx('block description', { selected: this.props.selected })}
       >
-        <Editor
-          onChange={this.onChange}
-          editorState={this.state.editorState}
-          blockRenderMap={extendedBlockRenderMap}
-          handleReturn={() => {
-            if (this.props.data?.disableNewBlocks) {
+        <LibDraftJsImportHtml ref={this.libDraftJsImportHtmlLoaded} />
+        <LibDraftJs ref={this.libDraftJsLoaded} />
+        {!!this.state.editorState && (
+          <this.Editor
+            onChange={this.onChange}
+            editorState={this.state.editorState}
+            blockRenderMap={this.extendedBlockRenderMap}
+            handleReturn={() => {
+              if (this.props.data?.disableNewBlocks) {
+                return 'handled';
+              }
+              this.props.onSelectBlock(
+                this.props.onAddBlock(
+                  settings.defaultBlockType,
+                  this.props.index + 1,
+                ),
+              );
               return 'handled';
-            }
-            this.props.onSelectBlock(
-              this.props.onAddBlock(
-                settings.defaultBlockType,
-                this.props.index + 1,
-              ),
-            );
-            return 'handled';
-          }}
-          handleKeyCommand={(command, editorState) => {
-            if (
-              command === 'backspace' &&
-              editorState.getCurrentContent().getPlainText().length === 0
-            ) {
-              this.props.onDeleteBlock(this.props.block, true);
-            }
-          }}
-          placeholder={this.props.intl.formatMessage(messages.description)}
-          blockStyleFn={() => 'documentDescription'}
-          onUpArrow={() => {
-            const selectionState = this.state.editorState.getSelection();
-            const { editorState } = this.state;
-            if (
-              editorState.getCurrentContent().getBlockMap().first().getKey() ===
-              selectionState.getFocusKey()
-            ) {
-              this.props.onFocusPreviousBlock(this.props.block, this.node);
-            }
-          }}
-          onDownArrow={() => {
-            const selectionState = this.state.editorState.getSelection();
-            const { editorState } = this.state;
-            if (
-              editorState.getCurrentContent().getBlockMap().last().getKey() ===
-              selectionState.getFocusKey()
-            ) {
-              this.props.onFocusNextBlock(this.props.block, this.node);
-            }
-          }}
-          ref={(node) => {
-            this.node = node;
-          }}
-        />
+            }}
+            handleKeyCommand={(command, editorState) => {
+              if (
+                command === 'backspace' &&
+                editorState.getCurrentContent().getPlainText().length === 0
+              ) {
+                this.props.onDeleteBlock(this.props.block, true);
+              }
+            }}
+            placeholder={this.props.intl.formatMessage(messages.description)}
+            blockStyleFn={() => 'documentDescription'}
+            onUpArrow={() => {
+              const selectionState = this.state.editorState.getSelection();
+              const { editorState } = this.state;
+              if (
+                editorState
+                  .getCurrentContent()
+                  .getBlockMap()
+                  .first()
+                  .getKey() === selectionState.getFocusKey()
+              ) {
+                this.props.onFocusPreviousBlock(this.props.block, this.node);
+              }
+            }}
+            onDownArrow={() => {
+              const selectionState = this.state.editorState.getSelection();
+              const { editorState } = this.state;
+              if (
+                editorState
+                  .getCurrentContent()
+                  .getBlockMap()
+                  .last()
+                  .getKey() === selectionState.getFocusKey()
+              ) {
+                this.props.onFocusNextBlock(this.props.block, this.node);
+              }
+            }}
+            ref={(node) => {
+              this.node = node;
+            }}
+          />
+        )}
       </div>
     );
   }
