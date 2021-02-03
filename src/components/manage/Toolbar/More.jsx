@@ -8,33 +8,15 @@ import { defineMessages, injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Link } from 'react-router-dom';
-import { find } from 'lodash';
 
-import { Icon, Display, Workflow } from '@plone/volto/components';
-import { getBaseUrl } from '@plone/volto/helpers';
+import { Icon } from '@plone/volto/components';
 
-import rightArrowSVG from '@plone/volto/icons/right-key.svg';
 import userSVG from '@plone/volto/icons/user.svg';
-
-import { settings } from '~/config';
 
 const messages = defineMessages({
   personalTools: {
     id: 'Personal tools',
     defaultMessage: 'Personal tools',
-  },
-  history: {
-    id: 'History',
-    defaultMessage: 'History',
-  },
-  sharing: {
-    id: 'Sharing',
-    defaultMessage: 'Sharing',
-  },
-  ManageTranslations: {
-    id: 'Manage Translations',
-    defaultMessage: 'Manage Translations',
   },
 });
 
@@ -70,7 +52,6 @@ class More extends Component {
     content: null,
   };
   state = {
-    openManageTranslations: false,
     pushed: false,
   };
 
@@ -88,13 +69,7 @@ class More extends Component {
    * @returns {string} Markup for the component.
    */
   render() {
-    const path = getBaseUrl(this.props.pathname);
-    const editAction = find(this.props.actions.object, { id: 'edit' });
-    const historyAction = find(this.props.actions.object, { id: 'history' });
-    const sharingAction = find(this.props.actions.object, {
-      id: 'local_roles',
-    });
-
+    const actionComponents = this.props.extras || [];
     return (
       <div
         className="menu-more pastanaga-menu"
@@ -119,51 +94,9 @@ class More extends Component {
         </header>
         <div className="pastanaga-menu-list">
           <ul>
-            <li className="state-select">
-              <Workflow pathname={path} />
-            </li>
-            <li className="display-select">
-              {editAction && <Display pathname={path} />}
-            </li>
-            <li>
-              <Link to={`${path}/history`}>
-                <button>
-                  <div>
-                    <span className="pastanaga-menu-label">
-                      {historyAction?.title ||
-                        this.props.intl.formatMessage(messages.history)}
-                    </span>
-                    <span className="pastanaga-menu-value" />
-                  </div>
-                  <Icon name={rightArrowSVG} size="24px" />
-                </button>
-              </Link>
-            </li>
-            {sharingAction && (
-              <li>
-                <Link to={`${path}/sharing`}>
-                  <button>
-                    {this.props.intl.formatMessage(messages.sharing)}
-                    <Icon name={rightArrowSVG} size="24px" />
-                  </button>
-                </Link>
-              </li>
-            )}
-            {editAction && settings.isMultilingual && (
-              <>
-                <li>
-                  <Link to={`${path}/manage-translations`}>
-                    <button>
-                      {this.props.intl.formatMessage(
-                        messages.ManageTranslations,
-                      )}
-
-                      <Icon name={rightArrowSVG} size="24px" />
-                    </button>
-                  </Link>
-                </li>
-              </>
-            )}
+            {actionComponents.map((ActionComponent, index) => (
+              <ActionComponent {...this.props} key={index} />
+            ))}
           </ul>
         </div>
       </div>

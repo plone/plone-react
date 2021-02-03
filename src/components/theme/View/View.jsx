@@ -260,7 +260,11 @@ class View extends Component {
         )}
         {this.state.isClient && (
           <Portal node={document.getElementById('toolbar')}>
-            <Toolbar pathname={this.props.pathname} inner={<span />} />
+            <Toolbar
+              pathname={this.props.pathname}
+              inner={<span />}
+              activity="view"
+            />
           </Portal>
         )}
       </div>

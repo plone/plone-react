@@ -417,6 +417,7 @@ class SharingComponent extends Component {
             <Toolbar
               pathname={this.props.pathname}
               hideDefaultViewButtons
+              activity="sharing"
               inner={
                 <Link
                   to={`${getBaseUrl(this.props.pathname)}`}

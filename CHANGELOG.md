@@ -4,11 +4,14 @@
 
 ### Breaking
 
+- Add a new config registry, the `toolbar`. You should migrate your project's `config.js` to export the `toolbar` registry. @tiberiuichim
+
 ### Feature
 
 - Add `preloadLazyLibs` and `settings.lazyBundles` to allow preloading bundles of lazy libraries @tiberiuichim @silviubogan
 - Added onChangeFormData prop to Form component @giuliaghisini
 - Internationalization story for add-ons @sneridagh
+- Allow configuration of Toolbar actions @tiberiuichim
 
 ### Bugfix
 

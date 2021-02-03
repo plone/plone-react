@@ -31,6 +31,7 @@ import { loadables } from './Loadables';
 
 import { sentryOptions } from './Sentry';
 import { contentIcons } from './ContentIcons';
+import { defaultToolbar } from './toolbar';
 
 import applyAddonConfiguration from 'load-volto-addons';
 
@@ -128,6 +129,7 @@ let config = {
 
   addonRoutes: [],
   addonReducers: {},
+  toolbar: defaultToolbar,
 };
 
 config = applyAddonConfiguration(config);
@@ -139,3 +141,4 @@ export const blocks = config.blocks;
 export const addonRoutes = [...config.addonRoutes];
 export const addonReducers = { ...config.addonReducers };
 export const appExtras = config.appExtras;
+export const toolbar = { ...config.toolbar };

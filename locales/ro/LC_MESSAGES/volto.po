@@ -43,7 +43,7 @@ msgid "Activate and deactivate"
 msgstr "Activare și dezactivare"
 
 #: components/manage/Controlpanels/ContentTypes
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/SchemaWidget
 #: helpers/MessageLabels/MessageLabels
 msgid "Add"
@@ -173,7 +173,7 @@ msgstr "Disponibil"
 #: components/manage/Preferences/PersonalInformation
 #: components/manage/Preferences/PersonalPreferences
 #: components/manage/Sharing/Sharing
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/theme/ContactForm/ContactForm
 #: helpers/MessageLabels/MessageLabels
 msgid "Back"
@@ -317,7 +317,7 @@ msgstr "Închidere meniu"
 msgid "Code"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Collection"
 msgstr "Colecție"
 
@@ -369,7 +369,7 @@ msgid "Content type deleted"
 msgstr "Tip de conținut șters"
 
 #: components/manage/Contents/Contents
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Contents"
 msgstr "Cuprins"
 
@@ -595,7 +595,7 @@ msgstr "Adresele de e-mail nu se potrivesc."
 #: components/manage/Contents/ContentsItem
 #: components/manage/Controlpanels/ContentTypesActions
 #: components/manage/Controlpanels/ModerateComments
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/FormFieldWrapper
 #: components/manage/Widgets/ObjectBrowserWidget
 #: components/theme/Comments/Comments
@@ -729,7 +729,7 @@ msgstr "Expirat"
 msgid "External URL"
 msgstr "URL extern"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "File"
 msgstr "Fișier"
 
@@ -818,7 +818,7 @@ msgid "Header cell"
 msgstr ""
 
 #: components/manage/History/History
-#: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "History"
 msgstr "Istoric"
 
@@ -997,7 +997,7 @@ msgstr "Imaginea de start"
 msgid "Left"
 msgstr "Stânga"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Link"
 msgstr "Legătură"
 
@@ -1051,7 +1051,7 @@ msgid "Make the table compact"
 msgstr "Compactati tabelul"
 
 #: components/manage/Multilingual/ManageTranslations
-#: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Manage Translations"
 msgstr ""
 
@@ -1108,7 +1108,7 @@ msgstr ""
 msgid "Monthly"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "More"
 msgstr "Mai mult"
 
@@ -1142,7 +1142,7 @@ msgstr ""
 msgid "New password"
 msgstr "Parolă nouă"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "News Item"
 msgstr "Articol de știri"
 
@@ -1253,7 +1253,7 @@ msgstr "Deschideți meniul"
 msgid "Origin"
 msgstr "Origine"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Page"
 msgstr "Pagina"
 
@@ -1285,17 +1285,19 @@ msgid "Paste blocks"
 msgstr ""
 
 #: components/manage/Preferences/PersonalInformation
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Information"
 msgstr "Informații personale"
 
 #: components/manage/Preferences/PersonalPreferences
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Preferences"
 msgstr "Preferințe personale"
 
 #: components/manage/Toolbar/More
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Personal tools"
 msgstr "Instrumente personale"
 
@@ -1615,7 +1617,7 @@ msgid "Settings"
 msgstr ""
 
 #: components/manage/Sharing/Sharing
-#: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Sharing"
 msgstr "Partajare"
 
@@ -1647,6 +1649,7 @@ msgid "Shrink sidebar"
 msgstr "Reduceți bara laterală"
 
 #: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Shrink toolbar"
 msgstr "Reduceti bara de instrumente"
 

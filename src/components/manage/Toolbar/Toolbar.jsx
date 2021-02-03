@@ -6,120 +6,34 @@
 import React, { Component } from 'react';
 import { defineMessages, injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { doesNodeContainClick } from 'semantic-ui-react/dist/commonjs/lib';
 import cookie from 'react-cookie';
-import { filter, find } from 'lodash';
+import { filter } from 'lodash';
 import cx from 'classnames';
-import { settings } from '~/config';
-import More from '@plone/volto/components/manage/Toolbar/More';
-import PersonalTools from '@plone/volto/components/manage/Toolbar/PersonalTools';
-import Types from '@plone/volto/components/manage/Toolbar/Types';
-import PersonalInformation from '@plone/volto/components/manage/Preferences/PersonalInformation';
-import PersonalPreferences from '@plone/volto/components/manage/Preferences/PersonalPreferences';
-import StandardWrapper from '@plone/volto/components/manage/Toolbar/StandardWrapper';
 import {
   getTypes,
   listActions,
   setExpandedToolbar,
 } from '@plone/volto/actions';
-import { Icon } from '@plone/volto/components';
 import { BodyClass, getBaseUrl } from '@plone/volto/helpers';
 
-import pastanagaSmall from '@plone/volto/components/manage/Toolbar/pastanaga-small.svg';
-import pastanagalogo from '@plone/volto/components/manage/Toolbar/pastanaga.svg';
-import penSVG from '@plone/volto/icons/pen.svg';
-import folderSVG from '@plone/volto/icons/folder.svg';
-import addSVG from '@plone/volto/icons/add-document.svg';
-import moreSVG from '@plone/volto/icons/more.svg';
-import userSVG from '@plone/volto/icons/user.svg';
-import clearSVG from '@plone/volto/icons/clear.svg';
+import { toolbar } from '~/config';
 
 const messages = defineMessages({
-  edit: {
-    id: 'Edit',
-    defaultMessage: 'Edit',
-  },
-  contents: {
-    id: 'Contents',
-    defaultMessage: 'Contents',
-  },
-  add: {
-    id: 'Add',
-    defaultMessage: 'Add',
-  },
-  more: {
-    id: 'More',
-    defaultMessage: 'More',
-  },
-  personalTools: {
-    id: 'Personal tools',
-    defaultMessage: 'Personal tools',
-  },
   shrinkToolbar: {
     id: 'Shrink toolbar',
     defaultMessage: 'Shrink toolbar',
   },
-  personalInformation: {
-    id: 'Personal Information',
-    defaultMessage: 'Personal Information',
-  },
-  personalPreferences: {
-    id: 'Personal Preferences',
-    defaultMessage: 'Personal Preferences',
-  },
-  collection: {
-    id: 'Collection',
-    defaultMessage: 'Collection',
-  },
-  file: {
-    id: 'File',
-    defaultMessage: 'File',
-  },
-  link: {
-    id: 'Link',
-    defaultMessage: 'Link',
-  },
-  newsItem: {
-    id: 'News Item',
-    defaultMessage: 'News Item',
-  },
-  page: {
-    id: 'Page',
-    defaultMessage: 'Page',
-  },
-  back: {
-    id: 'Back',
-    defaultMessage: 'Back',
-  },
 });
 
-const toolbarComponents = {
-  personalTools: { component: PersonalTools, wrapper: null },
-  more: { component: More, wrapper: null },
-  types: { component: Types, wrapper: null, contentAsProps: true },
-  profile: {
-    component: PersonalInformation,
-    wrapper: StandardWrapper,
-    wrapperTitle: messages.personalInformation,
-    hideToolbarBody: true,
-  },
-  preferences: {
-    component: PersonalPreferences,
-    wrapper: StandardWrapper,
-    wrapperTitle: messages.personalPreferences,
-    hideToolbarBody: true,
-  },
-};
-
 /**
- * Toolbar container class.
- * @class Toolbar
+ * BasicToolbar container class.
+ * @class BasicToolbar
  * @extends Component
  */
-class Toolbar extends Component {
+export class BasicToolbarComponent extends Component {
   /**
    * Property types.
    * @property {Object} propTypes Property types.
@@ -164,8 +78,11 @@ class Toolbar extends Component {
     types: [],
   };
 
+  getCookieName = () => 'toolbar_expanded';
+  // `${this.props.activity ? `${this.props.activity}-` : ''}toolbar_expanded`;
+
   state = {
-    expanded: cookie.load('toolbar_expanded') !== 'false',
+    expanded: cookie.load(this.getCookieName()) !== 'false',
     showMenu: false,
     menuStyle: {},
     menuComponents: [],
@@ -210,7 +127,7 @@ class Toolbar extends Component {
   }
 
   handleShrink = () => {
-    cookie.save('toolbar_expanded', !this.state.expanded, {
+    cookie.save(this.getCookieName(), !this.state.expanded, {
       expires: new Date((2 ** 31 - 1) * 1000),
       path: '/',
     });
@@ -225,11 +142,16 @@ class Toolbar extends Component {
 
   loadComponent = (type) => {
     const { loadedComponents } = this.state;
-    if (!this.state.loadedComponents.includes(type)) {
-      this.setState({
-        loadedComponents: [...loadedComponents, type],
-        hideToolbarBody: toolbarComponents[type].hideToolbarBody || false,
-      });
+    if (type) {
+      if (!this.state.loadedComponents.includes(type)) {
+        this.setState({
+          loadedComponents: [...loadedComponents, type],
+          hideToolbarBody:
+            toolbar.toolbarComponents[type].hideToolbarBody || false,
+        });
+      }
+    } else {
+      this.setState({ loadedComponents: [] });
     }
   };
 
@@ -237,13 +159,18 @@ class Toolbar extends Component {
     this.setState((state) => ({
       loadedComponents: state.loadedComponents.slice(0, -1),
       hideToolbarBody:
-        toolbarComponents[
+        toolbar.toolbarComponents[
           state.loadedComponents[state.loadedComponents.length - 2]
         ].hideToolbarBody || false,
     }));
   };
 
-  toggleMenu = (e, selector) => {
+  toggleMenu = (e, selector, options = {}) => {
+    const {
+      extras = [],
+      menuStyle = { top: 0, overflow: 'initial' },
+      loadedComponentName = 'default',
+    } = options;
     if (this.state.showMenu) {
       this.closeMenu();
       return;
@@ -253,11 +180,15 @@ class Toolbar extends Component {
       this.setState((state) => ({
         showMenu: !state.showMenu,
         menuStyle: { bottom: 0 },
+        extras,
+        loadedComponentName,
       }));
     } else {
       this.setState((state) => ({
         showMenu: !state.showMenu,
-        menuStyle: { top: 0, overflow: 'initial' },
+        menuStyle,
+        extras,
+        loadedComponentName,
       }));
     }
     this.loadComponent(selector);
@@ -274,11 +205,7 @@ class Toolbar extends Component {
    * @returns {string} Markup for the component.
    */
   render() {
-    const path = getBaseUrl(this.props.pathname);
-    const editAction = find(this.props.actions.object, { id: 'edit' });
-    const folderContentsAction = find(this.props.actions.object, {
-      id: 'folderContents',
-    });
+    const { top = [], bottom = [] } = this.props;
     const { expanded } = this.state;
 
     return (
@@ -313,14 +240,15 @@ class Toolbar extends Component {
               {this.state.loadedComponents.map((component, index) =>
                 (() => {
                   const ToolbarComponent =
-                    toolbarComponents[component].component;
-                  const WrapperComponent = toolbarComponents[component].wrapper;
+                    toolbar.toolbarComponents[component].component;
+                  const WrapperComponent =
+                    toolbar.toolbarComponents[component].wrapper;
                   const haveActions =
-                    toolbarComponents[component].hideToolbarBody;
+                    toolbar.toolbarComponents[component].hideToolbarBody;
                   const title =
-                    toolbarComponents[component].wrapperTitle &&
+                    toolbar.toolbarComponents[component].wrapperTitle &&
                     this.props.intl.formatMessage(
-                      toolbarComponents[component].wrapperTitle,
+                      toolbar.toolbarComponents[component].wrapperTitle,
                     );
                   if (WrapperComponent) {
                     return (
@@ -335,6 +263,9 @@ class Toolbar extends Component {
                         key={`personalToolsComponent-${index}`}
                         closeMenu={this.closeMenu}
                         hasActions={haveActions}
+                        extras={this.state.extras}
+                        showMenu={this.state.showMenu}
+                        loadedComponentName={this.state.loadedComponentName}
                       >
                         <ToolbarComponent
                           pathname={this.props.pathname}
@@ -343,7 +274,10 @@ class Toolbar extends Component {
                           componentIndex={index}
                           theToolbar={this.toolbarWindow}
                           closeMenu={this.closeMenu}
+                          extras={this.state.extras}
+                          showMenu={this.state.showMenu}
                           isToolbarEmbedded
+                          loadedComponentName={this.state.loadedComponentName}
                         />
                       </WrapperComponent>
                     );
@@ -357,8 +291,11 @@ class Toolbar extends Component {
                         theToolbar={this.toolbarWindow}
                         key={`personalToolsComponent-${index}`}
                         closeMenu={this.closeMenu}
+                        extras={this.state.extras}
+                        showMenu={this.state.showMenu}
+                        loadedComponentName={this.state.loadedComponentName}
                         content={
-                          toolbarComponents[component].contentAsProps
+                          toolbar.toolbarComponents[component].contentAsProps
                             ? this.props.content
                             : null
                         }
@@ -372,119 +309,29 @@ class Toolbar extends Component {
           <div className={this.state.expanded ? 'toolbar expanded' : 'toolbar'}>
             <div className="toolbar-body">
               <div className="toolbar-actions">
-                {this.props.hideDefaultViewButtons && this.props.inner && (
-                  <>{this.props.inner}</>
-                )}
-                {!this.props.hideDefaultViewButtons && (
-                  <>
-                    {editAction && (
-                      <Link
-                        aria-label={this.props.intl.formatMessage(
-                          messages.edit,
-                        )}
-                        className="edit"
-                        to={`${path}/edit`}
-                      >
-                        <Icon name={penSVG} size="30px" className="circled" />
-                      </Link>
-                    )}
-                    {this.props.content &&
-                      this.props.content.is_folderish &&
-                      folderContentsAction &&
-                      !this.props.pathname.endsWith('/contents') && (
-                        <Link
-                          aria-label={this.props.intl.formatMessage(
-                            messages.contents,
-                          )}
-                          to={`${path}/contents`}
-                        >
-                          <Icon name={folderSVG} size="30px" />
-                        </Link>
-                      )}
-                    {this.props.content &&
-                      this.props.content.is_folderish &&
-                      folderContentsAction &&
-                      this.props.pathname.endsWith('/contents') && (
-                        <Link
-                          to={`${path}`}
-                          aria-label={this.props.intl.formatMessage(
-                            messages.back,
-                          )}
-                        >
-                          <Icon
-                            name={clearSVG}
-                            className="contents circled"
-                            size="30px"
-                            title={this.props.intl.formatMessage(messages.back)}
-                          />
-                        </Link>
-                      )}
-                    {this.props.content &&
-                      ((this.props.content.is_folderish &&
-                        this.props.types.length > 0) ||
-                        (settings.isMultilingual &&
-                          this.props.content['@components'].translations)) && (
-                        <button
-                          className="add"
-                          aria-label={this.props.intl.formatMessage(
-                            messages.add,
-                          )}
-                          onClick={(e) => this.toggleMenu(e, 'types')}
-                          tabIndex={0}
-                          id="toolbar-add"
-                        >
-                          <Icon name={addSVG} size="30px" />
-                        </button>
-                      )}
-                    <div className="toolbar-button-spacer" />
-                    <button
-                      className="more"
-                      aria-label={this.props.intl.formatMessage(messages.more)}
-                      onClick={(e) => this.toggleMenu(e, 'more')}
-                      tabIndex={0}
-                      id="toolbar-more"
-                    >
-                      <Icon
-                        className="mobile hidden"
-                        name={moreSVG}
-                        size="30px"
-                      />
-                      {this.state.showMenu ? (
-                        <Icon
-                          className="mobile only"
-                          name={clearSVG}
-                          size="30px"
-                        />
-                      ) : (
-                        <Icon
-                          className="mobile only"
-                          name={moreSVG}
-                          size="30px"
-                        />
-                      )}
-                    </button>
-                  </>
-                )}
+                {this.props.inner}
+                {top.map((ActionComponent, index) => (
+                  <ActionComponent
+                    {...this.props}
+                    key={index}
+                    toggleMenu={this.toggleMenu}
+                    showMenu={this.state.showMenu}
+                    theToolbar={this.toolbarWindow}
+                    loadedComponentName={this.state.loadedComponentName}
+                  />
+                ))}
               </div>
               <div className="toolbar-bottom">
-                <img className="minipastanaga" src={pastanagaSmall} alt="" />
-                {!this.props.hideDefaultViewButtons && (
-                  <button
-                    className="user"
-                    aria-label={this.props.intl.formatMessage(
-                      messages.personalTools,
-                    )}
-                    onClick={(e) => this.toggleMenu(e, 'personalTools')}
-                    tabIndex={0}
-                    id="toolbar-personal"
-                  >
-                    <Icon name={userSVG} size="30px" />
-                  </button>
-                )}
-                <div className="divider" />
-                <div className="pastanagalogo">
-                  <img src={pastanagalogo} alt="" />
-                </div>
+                {bottom.map((BottomComponent, index) => (
+                  <BottomComponent
+                    {...this.props}
+                    key={index}
+                    toggleMenu={this.toggleMenu}
+                    showMenu={this.state.showMenu}
+                    theToolbar={this.toolbarWindow}
+                    loadedComponentName={this.state.loadedComponentName}
+                  />
+                ))}
               </div>
             </div>
             <div className="toolbar-handler">
@@ -507,7 +354,7 @@ class Toolbar extends Component {
   }
 }
 
-export default compose(
+export const BasicToolbar = compose(
   injectIntl,
   connect(
     (state, props) => ({
@@ -519,4 +366,11 @@ export default compose(
     }),
     { getTypes, listActions, setExpandedToolbar },
   ),
-)(Toolbar);
+)(BasicToolbarComponent);
+
+const Toolbar = (props) => {
+  const activity = toolbar.activities[props.activity || 'default'] || [];
+  return <BasicToolbar {...props} {...activity}></BasicToolbar>;
+};
+
+export default Toolbar;

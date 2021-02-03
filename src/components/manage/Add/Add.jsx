@@ -287,6 +287,7 @@ class Add extends Component {
           {this.state.isClient && (
             <Portal node={document.getElementById('toolbar')}>
               <Toolbar
+                activity="add"
                 pathname={this.props.pathname}
                 hideDefaultViewButtons
                 inner={

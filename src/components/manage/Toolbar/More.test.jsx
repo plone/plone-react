@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-intl-redux';
 import { MemoryRouter } from 'react-router-dom';
+import { toolbar } from '~/config';
 
 import More from './More';
 
@@ -23,6 +24,8 @@ describe('Toolbar More component', () => {
         locale: 'en',
         messages: {},
       },
+      userSession: {},
+      types: {},
       actions: {
         actions: {
           document_actions: [],
@@ -139,6 +142,7 @@ describe('Toolbar More component', () => {
             theToolbar={{
               current: { getBoundingClientRect: () => ({ width: '320' }) },
             }}
+            extras={toolbar.defaultMoreActions}
           />
         </MemoryRouter>
       </Provider>,

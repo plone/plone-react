@@ -19,6 +19,7 @@ import {
   blocks as defaultBlocks,
   addonReducers as defaultAddonReducers,
   addonRoutes as defaultAddonRoutes,
+  toolbar as defaultToolbar,
 } from '@plone/volto/config';
 
 export const settings = {
@@ -39,3 +40,4 @@ export const blocks = {
 
 export const addonRoutes = [...defaultAddonRoutes];
 export const addonReducers = { ...defaultAddonReducers };
+export const toolbar = { ...defaultToolbar };

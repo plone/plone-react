@@ -130,7 +130,7 @@ describe('Toolbar', () => {
     const component = renderer.create(
       <Provider store={store}>
         <MemoryRouter>
-          <Toolbar pathname="/test" inner={<span />} />
+          <Toolbar pathname="/test" inner={<span />} activity="view" />
         </MemoryRouter>
       </Provider>,
     );

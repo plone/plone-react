@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2021-01-29T12:34:47.097Z\n"
+"POT-Creation-Date: 2021-02-01T18:49:42.271Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgid "Activate and deactivate"
 msgstr ""
 
 #: components/manage/Controlpanels/ContentTypes
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/SchemaWidget
 #: helpers/MessageLabels/MessageLabels
 # defaultMessage: Add
@@ -209,7 +209,7 @@ msgstr ""
 #: components/manage/Preferences/PersonalInformation
 #: components/manage/Preferences/PersonalPreferences
 #: components/manage/Sharing/Sharing
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/theme/ContactForm/ContactForm
 #: helpers/MessageLabels/MessageLabels
 # defaultMessage: Back
@@ -384,7 +384,7 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: Collection
 msgid "Collection"
 msgstr ""
@@ -448,7 +448,7 @@ msgid "Content type deleted"
 msgstr ""
 
 #: components/manage/Contents/Contents
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: Contents
 msgid "Contents"
 msgstr ""
@@ -720,7 +720,7 @@ msgstr ""
 #: components/manage/Contents/ContentsItem
 #: components/manage/Controlpanels/ContentTypesActions
 #: components/manage/Controlpanels/ModerateComments
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/FormFieldWrapper
 #: components/manage/Widgets/ObjectBrowserWidget
 #: components/theme/Comments/Comments
@@ -884,7 +884,7 @@ msgstr ""
 msgid "External URL"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: File
 msgid "File"
 msgstr ""
@@ -994,7 +994,7 @@ msgid "Header cell"
 msgstr ""
 
 #: components/manage/History/History
-#: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: History
 msgid "History"
 msgstr ""
@@ -1215,7 +1215,7 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: Link
 msgid "Link"
 msgstr ""
@@ -1281,7 +1281,7 @@ msgid "Make the table compact"
 msgstr ""
 
 #: components/manage/Multilingual/ManageTranslations
-#: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: Manage Translations
 msgid "Manage Translations"
 msgstr ""
@@ -1352,7 +1352,7 @@ msgstr ""
 msgid "Monthly"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: More
 msgid "More"
 msgstr ""
@@ -1394,7 +1394,7 @@ msgstr ""
 msgid "New password"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: News Item
 msgid "News Item"
 msgstr ""
@@ -1530,7 +1530,7 @@ msgstr ""
 msgid "Origin"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: Page
 msgid "Page"
 msgstr ""
@@ -1569,19 +1569,21 @@ msgid "Paste blocks"
 msgstr ""
 
 #: components/manage/Preferences/PersonalInformation
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 # defaultMessage: Personal Information
 msgid "Personal Information"
 msgstr ""
 
 #: components/manage/Preferences/PersonalPreferences
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 # defaultMessage: Personal Preferences
 msgid "Personal Preferences"
 msgstr ""
 
 #: components/manage/Toolbar/More
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: Personal tools
 msgid "Personal tools"
 msgstr ""
@@ -1975,7 +1977,7 @@ msgid "Settings"
 msgstr ""
 
 #: components/manage/Sharing/Sharing
-#: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: Sharing
 msgid "Sharing"
 msgstr ""
@@ -2014,6 +2016,7 @@ msgid "Shrink sidebar"
 msgstr ""
 
 #: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 # defaultMessage: Shrink toolbar
 msgid "Shrink toolbar"
 msgstr ""

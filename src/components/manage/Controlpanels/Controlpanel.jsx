@@ -175,6 +175,7 @@ class Controlpanel extends Component {
             <Portal node={document.getElementById('toolbar')}>
               <Toolbar
                 pathname={this.props.pathname}
+                activity="control-panel"
                 hideDefaultViewButtons
                 inner={
                   <>

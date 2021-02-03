@@ -50,7 +50,7 @@ msgid "Activate and deactivate"
 msgstr "以下のリストにあるアドオンを有効にしたり無効にしたりできます。"
 
 #: components/manage/Controlpanels/ContentTypes
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/SchemaWidget
 #: helpers/MessageLabels/MessageLabels
 msgid "Add"
@@ -180,7 +180,7 @@ msgstr "利用可能"
 #: components/manage/Preferences/PersonalInformation
 #: components/manage/Preferences/PersonalPreferences
 #: components/manage/Sharing/Sharing
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/theme/ContactForm/ContactForm
 #: helpers/MessageLabels/MessageLabels
 msgid "Back"
@@ -324,7 +324,7 @@ msgstr "メニューを閉じる"
 msgid "Code"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Collection"
 msgstr "コレクション"
 
@@ -376,7 +376,7 @@ msgid "Content type deleted"
 msgstr "コンテンツタイプが削除されました"
 
 #: components/manage/Contents/Contents
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Contents"
 msgstr "コンテンツ"
 
@@ -602,7 +602,7 @@ msgstr "E-mail アドレスが見つかりません。"
 #: components/manage/Contents/ContentsItem
 #: components/manage/Controlpanels/ContentTypesActions
 #: components/manage/Controlpanels/ModerateComments
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/FormFieldWrapper
 #: components/manage/Widgets/ObjectBrowserWidget
 #: components/theme/Comments/Comments
@@ -736,7 +736,7 @@ msgstr "期間満了"
 msgid "External URL"
 msgstr "外部URL"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "File"
 msgstr "ファイル"
 
@@ -825,7 +825,7 @@ msgid "Header cell"
 msgstr ""
 
 #: components/manage/History/History
-#: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "History"
 msgstr "履歴"
 
@@ -1004,7 +1004,7 @@ msgstr "リード画像"
 msgid "Left"
 msgstr "左"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Link"
 msgstr "リンク"
 
@@ -1058,7 +1058,7 @@ msgid "Make the table compact"
 msgstr "コンパクトな表示"
 
 #: components/manage/Multilingual/ManageTranslations
-#: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Manage Translations"
 msgstr ""
 
@@ -1115,7 +1115,7 @@ msgstr "日付"
 msgid "Monthly"
 msgstr "毎月"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "More"
 msgstr "もっと見る"
 
@@ -1149,7 +1149,7 @@ msgstr ""
 msgid "New password"
 msgstr "新しいパスワード"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "News Item"
 msgstr "ニュース"
 
@@ -1260,7 +1260,7 @@ msgstr "Open menu (未翻訳)"
 msgid "Origin"
 msgstr "参照元"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Page"
 msgstr "ページ"
 
@@ -1292,17 +1292,19 @@ msgid "Paste blocks"
 msgstr ""
 
 #: components/manage/Preferences/PersonalInformation
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Information"
 msgstr "個人情報"
 
 #: components/manage/Preferences/PersonalPreferences
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Preferences"
 msgstr "個人別設定"
 
 #: components/manage/Toolbar/More
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Personal tools"
 msgstr "個人設定"
 
@@ -1622,7 +1624,7 @@ msgid "Settings"
 msgstr ""
 
 #: components/manage/Sharing/Sharing
-#: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Sharing"
 msgstr "共有"
 
@@ -1654,6 +1656,7 @@ msgid "Shrink sidebar"
 msgstr "サイドバーを閉じる"
 
 #: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Shrink toolbar"
 msgstr "ツールバーを閉じる"
 

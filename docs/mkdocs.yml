@@ -32,7 +32,7 @@ nav:
       - Richeditor settings: 'configuration/richeditor-settings.md'
       - Multilingual: 'configuration/multilingual.md'
       - Environment variables: 'configuration/environmentvariables.md'
-  - Theming & Semantic UI:
+  - Theming &amp; Semantic UI:
       - About Semantic UI: 'theming/about-semantic.md'
       - Semantic UI Theming: 'theming/semanticui-theming.md'
       - Theming Engine: 'theming/theming-engine.md'
@@ -51,6 +51,7 @@ nav:
       - Overriding i18n messages: 'recipes/overridei18n.md'
       - App component insertion point: 'recipes/appextras.md'
       - Context navigation component: 'recipes/contextnavigation.md'
+      - Toolbar: 'recipes/toolbar.md'
   - Blocks:
       - Introduction: 'blocks/introduction.md'
       - Anatomy: 'blocks/anatomy.md'
