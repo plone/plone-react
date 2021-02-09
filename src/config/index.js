@@ -128,6 +128,7 @@ let config = {
 
   addonRoutes: [],
   addonReducers: {},
+  slots: {},
 };
 
 config = applyAddonConfiguration(config);
@@ -139,3 +140,4 @@ export const blocks = config.blocks;
 export const addonRoutes = [...config.addonRoutes];
 export const addonReducers = { ...config.addonReducers };
 export const appExtras = config.appExtras;
+export const slots = { ...config.slots };

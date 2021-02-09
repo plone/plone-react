@@ -56,6 +56,8 @@ nav:
       - Anatomy: 'blocks/anatomy.md'
       - Settings: 'blocks/settings.md'
       - Edit components: 'blocks/editcomponent.md'
+  - Slots:
+      - Anatomy: 'slots/anatomy.md'
   - Addons:
       - Introduction: 'addons/index.md'
       - Internationalization: 'addons/i18n.md'
