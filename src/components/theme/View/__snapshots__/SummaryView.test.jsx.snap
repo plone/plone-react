@@ -36,6 +36,7 @@ exports[`TabularView renders a summary view component 1`] = `
           alt="My image caption"
           className="ui right floated image"
           clearing={true}
+          loading="lazy"
           src="file:///preview.jpg"
         />
         <p>

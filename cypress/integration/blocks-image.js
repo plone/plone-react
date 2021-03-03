@@ -107,7 +107,7 @@ if (Cypress.env('API') !== 'guillotina') {
       // then image src must be equal to image name
       cy.get('.block img')
         .should('have.attr', 'src')
-        .and('eq', '/my-page/image.png/@@images/image');
+        .and('eq', '/my-page/image.png/@@images/image/listing');
     });
 
     it('Create a image block document in edit mode', () => {

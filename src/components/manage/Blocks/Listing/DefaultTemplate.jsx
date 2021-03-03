@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ConditionalLink } from '@plone/volto/components';
 import { flattenToAppURL } from '@plone/volto/helpers';
-
 import { isInternalURL } from '@plone/volto/helpers/Url/Url';
 
 const DefaultTemplate = ({ items, linkMore, isEditMode }) => {

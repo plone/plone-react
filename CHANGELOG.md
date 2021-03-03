@@ -213,6 +213,7 @@
 ### Feature
 
 - Lazy load image in blocks Image and HeroImage @mamico
+- Add Image with srcset and lazy loading using Plone scales @nzambello
 
 ### Bugfix
 

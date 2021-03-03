@@ -70,6 +70,7 @@ const DefaultView = ({ content, intl, location }) => {
           className="document-image"
           src={content.image.scales.thumb.download}
           floated="right"
+          loading="lazy"
         />
       )}
       {content.remoteUrl && (

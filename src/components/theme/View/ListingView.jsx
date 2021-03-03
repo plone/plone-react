@@ -32,6 +32,7 @@ const ListingView = ({ content }) => (
               size="small"
               alt={item.image_caption ? item.image_caption : item.title}
               src={item.image.scales.thumb.download}
+              loading="lazy"
             />
           )}
         </Segment>
