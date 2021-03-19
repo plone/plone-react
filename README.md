@@ -91,6 +91,16 @@ Go to [http://localhost:3000](http://localhost:3000) in your browser.
 
 You can try a Volto online demo in [https://volto.kitconcept.com](https://volto.kitconcept.com)
 
+## Different host, port and backend location
+
+To quickly change the host and port of the Volto frontend or the backend Volto is connecting to, use environment variables:
+
+```shell
+$ HOST=localhost PORT=3001 RAZZLE_API_PATH=http://localhost:8181/OtherPlone yarn start
+```
+
+In a generated Volto app using 'create-volto-app', check 'src/config.js' and add host, port, and/or apiPath to the settings object. 
+
 ## Volto in Production
 
 Volto is actively developed since 2017 and used in production since 2018 on the following websites:
