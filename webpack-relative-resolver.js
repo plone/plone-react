@@ -33,24 +33,31 @@ class RelativeResolverPlugin {
   }
 
   apply(resolver) {
-    resolver.plugin('resolve', (request, callback) => {
-      if (
-        request.request.startsWith('.') &&
-        request.context &&
-        request.context.issuer &&
-        this.isAddon(request)
-      ) {
-        const normalizedResourceName = this.getResolvePath(request);
-        const nextRequest = Object.assign({}, request, {
-          request: normalizedResourceName,
-          path: this.registry.projectRootPath,
-        });
-
-        resolver.doResolve('resolve', nextRequest, '', callback);
-      } else {
-        callback();
-      }
-    });
+    const target = resolver.ensureHook('resolve');
+    resolver
+      .getHook('before-existing-directory')
+      .tapAsync(
+        'RelativeResolverWebpackPlugin',
+        (request, resolveContext, callback) => {
+          // console.dir(request.path, { depth: null });
+          if (
+            request.request &&
+            request.request.startsWith('.') &&
+            request.context &&
+            request.context.issuer &&
+            this.isAddon(request)
+          ) {
+            const normalizedResourceName = this.getResolvePath(request);
+            const nextRequest = Object.assign({}, request, {
+              request: normalizedResourceName,
+              path: this.registry.projectRootPath,
+            });
+            resolver.doResolve(target, nextRequest, resolveContext, callback);
+          } else {
+            callback();
+          }
+        },
+      );
   }
 }
 

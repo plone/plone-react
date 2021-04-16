@@ -99,12 +99,15 @@ module.exports = (userOptions = {}) => ({
 
     const postCssLoader = {
       loader: require.resolve('postcss-loader'),
-      options: hasPostCssConfig()
-        ? undefined
-        : Object.assign({}, options.postcss[constantEnv], {
-            plugins: () => options.postcss.plugins,
-          }),
+      options: {
+        postcssOptions: hasPostCssConfig()
+          ? undefined
+          : Object.assign({}, options.postcss[constantEnv], {
+              plugins: options.postcss.plugins,
+            }),
+      },
     };
+    // console.dir(postCssLoader, { depth: null });
 
     const lessLoader = {
       loader: require.resolve('less-loader'),

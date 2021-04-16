@@ -89,40 +89,40 @@ const defaultModify = ({
       ? 'static/js/[name].js'
       : 'static/js/[name].[chunkhash:8].js';
 
-    config.optimization = Object.assign({}, config.optimization, {
-      runtimeChunk: true,
-      splitChunks: {
-        chunks: 'all',
-        name: dev,
-      },
-    });
+    // config.optimization = Object.assign({}, config.optimization, {
+    //   runtimeChunk: true,
+    //   splitChunks: {
+    //     chunks: 'all',
+    //     name: dev,
+    //   },
+    // });
 
-    config.plugins.unshift(
-      // restrict moment.js locales to en/de
-      // see https://github.com/jmblog/how-to-optimize-momentjs-with-webpack for details
-      new webpack.ContextReplacementPlugin(
-        /moment[/\\]locale$/,
-        new RegExp(Object.keys(languages).join('|')),
-      ),
-      new LodashModuleReplacementPlugin({
-        shorthands: true,
-        cloning: true,
-        currying: true,
-        caching: true,
-        collections: true,
-        exotics: true,
-        guards: true,
-        metadata: true,
-        deburring: true,
-        unicode: true,
-        chaining: true,
-        memoizing: true,
-        coercions: true,
-        flattening: true,
-        paths: true,
-        placeholders: true,
-      }),
-    );
+    //   config.plugins.unshift(
+    //     // restrict moment.js locales to en/de
+    //     // see https://github.com/jmblog/how-to-optimize-momentjs-with-webpack for details
+    //     new webpack.ContextReplacementPlugin(
+    //       /moment[/\\]locale$/,
+    //       new RegExp(Object.keys(languages).join('|')),
+    //     ),
+    //     new LodashModuleReplacementPlugin({
+    //       shorthands: true,
+    //       cloning: true,
+    //       currying: true,
+    //       caching: true,
+    //       collections: true,
+    //       exotics: true,
+    //       guards: true,
+    //       metadata: true,
+    //       deburring: true,
+    //       unicode: true,
+    //       chaining: true,
+    //       memoizing: true,
+    //       coercions: true,
+    //       flattening: true,
+    //       paths: true,
+    //       placeholders: true,
+    //     }),
+    //   );
   }
 
   if (target === 'node') {
@@ -143,9 +143,6 @@ const defaultModify = ({
     ...fileLoader.exclude,
   ];
 
-  // Disabling the ESlint pre loader
-  config.module.rules.splice(0, 1);
-
   let testingAddons = [];
   if (process.env.RAZZLE_TESTING_ADDONS) {
     testingAddons = process.env.RAZZLE_TESTING_ADDONS.split(',');
@@ -158,8 +155,9 @@ const defaultModify = ({
 
   config.resolve.plugins = [
     new RelativeResolverPlugin(registry),
-    new RootResolverPlugin(),
+    // new RootResolverPlugin(),
   ];
+  config.resolve.fallback = { zlib: false };
 
   config.resolve.alias = {
     ...registry.getAddonCustomizationPaths(),
@@ -200,6 +198,7 @@ const defaultModify = ({
     });
     addonsAsExternals = registry.addonNames.map((addon) => new RegExp(addon));
   }
+  // console.dir(config.module.rules[0], { depth: null });
 
   if (process.env.RAZZLE_TESTING_ADDONS) {
     testingAddons.forEach((addon) => {
@@ -215,7 +214,7 @@ const defaultModify = ({
     target === 'node'
       ? [
           nodeExternals({
-            whitelist: [
+            allowlist: [
               dev ? 'webpack/hot/poll?300' : null,
               /\.(eot|woff|woff2|ttf|otf)$/,
               /\.(svg|png|jpg|jpeg|gif|ico)$/,
@@ -264,7 +263,11 @@ module.exports = {
     );
     return res;
   },
-  experimental: {
-    reactRefresh: true,
+  // experimental: {
+  //   reactRefresh: true,
+  // },
+  options: {
+    // verbose: true,
+    debug: true,
   },
 };
