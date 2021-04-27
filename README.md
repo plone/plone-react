@@ -161,6 +161,7 @@ as part of the Plone training docs at [https://training.plone.org/5/volto/index.
 
 ## Node Support
 
+- Node 16: Supported since Volto 13
 - Node 14: Supported since Volto 8.8.0
 - Node 12: Supported since Volto 4
 - Node 10: Supported since Volto 1 (and its predecessor "plone-react")
