@@ -28,7 +28,8 @@
     "react"
   ],
   "scripts": {
-    "postinstall": "yarn patches",
+    "postinstall": "yarn patches && yarn prepare",
+    "prepare": "husky install",
     "analyze": "BUNDLE_ANALYZE=true razzle build",
     "start": "razzle start",
     "start-spa": "razzle start --type=spa",
@@ -199,14 +200,6 @@
       "releaseNotes": "node changelogupdater.js excerpt"
     }
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "post-checkout": "yarnhook",
-      "post-merge": "yarnhook",
-      "post-rebase": "yarnhook"
-    }
-  },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json}": [
       "npx eslint --max-warnings=0 --fix",
@@ -294,7 +287,7 @@
     "handlebars": "4.7.0",
     "history": "4.10.1",
     "http-proxy-middleware": "1.0.4",
-    "husky": "4.2.5",
+    "husky": "6.0.0",
     "identity-obj-proxy": "3.0.0",
     "jest-css-modules": "1.1.0",
     "jest-environment-jsdom-sixteen": "1.0.3",

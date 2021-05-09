@@ -5,7 +5,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "razzle start",
-    "postinstall": "yarn omelette && yarn patches",
+     "prepare:husky": "husky install && find src/addons/ -type f -execdir git config core.hooksPath ../../../.husky {} \\;",
+    "postinstall": "yarn omelette && yarn patches && [ -d .git/ ] && yarn prepare:husky || true",
     "omelette": "ln -sf node_modules/@plone/volto/ omelette",
     "patches": "/bin/bash patches/patchit.sh > /dev/null 2>&1 ||true",
     "build": "razzle build",
@@ -65,6 +66,28 @@
           "parser": "less"
         }
       }
+    ]
+  },
+    "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "npx eslint --max-warnings=0 --fix",
+      "npx prettier --single-quote --write",
+      "razzle test --env=jest-environment-jsdom-sixteen --ci --bail --findRelatedTests --passWithNoTests"
+    ],
+    "src/**/*.{jsx}": [
+      "NODE_ENV=production node node_modules/@plone/volto/src/i18n.js"
+    ],
+    "theme/**/*.{css,less}": [
+      "npx stylelint --fix"
+    ],
+    "src/**/*.{css,less}": [
+      "npx stylelint --fix"
+    ],
+    "theme/**/*.overrides": [
+      "npx stylelint --fix --syntax less"
+    ],
+    "src/**/*.overrides": [
+      "npx stylelint --fix --syntax less"
     ]
   },
   "stylelint": {
