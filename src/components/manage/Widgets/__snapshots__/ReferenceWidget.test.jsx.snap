@@ -34,6 +34,7 @@ exports[`renders an array widget component 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role="combobox"
         >
@@ -57,7 +58,7 @@ exports[`renders an array widget component 1`] = `
           <div
             aria-atomic={true}
             aria-live="polite"
-            className="default text"
+            className="divider default text"
             role="alert"
           >
             My field

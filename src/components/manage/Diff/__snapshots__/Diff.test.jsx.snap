@@ -64,7 +64,7 @@ exports[`Diff renders a diff component 1`] = `
               <div
                 aria-atomic="true"
                 aria-live="polite"
-                class="text"
+                class="divider text"
                 role="alert"
               >
                 0 (Sunday, April 23, 2017 3:38 AM, Web Admin)
@@ -118,7 +118,7 @@ exports[`Diff renders a diff component 1`] = `
               <div
                 aria-atomic="true"
                 aria-live="polite"
-                class="text"
+                class="divider text"
                 role="alert"
               >
                 Current (Sunday, April 23, 2017 3:38 AM, Web Admin)

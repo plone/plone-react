@@ -9,6 +9,7 @@ exports[`Actions renders an actions component 1`] = `
   onChange={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
+  onKeyDown={[Function]}
   onMouseDown={[Function]}
   role="listbox"
   tabIndex={0}
