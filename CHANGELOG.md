@@ -4,6 +4,9 @@
 
 ### Breaking
 
+- Add directive to cache stable resources in browser or intermediate server for 365 days,
+  static resource that could change after a new deployment for 1 minute. @mamico
+
 ### Feature
 
 ### Bugfix
