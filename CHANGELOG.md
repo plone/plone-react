@@ -12,6 +12,8 @@
 
 ### Internal
 
+- Added A11y-test for Table block @ThomasKindermann
+
 ## 13.2.1 (2021-06-14)
 
 ### Bugfix
