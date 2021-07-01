@@ -84,6 +84,10 @@ msgstr "Benutzer hinzufügen"
 msgid "Add a description…"
 msgstr "Beschreibung hinzufügen…"
 
+#: components/manage/Blocks/Block/MutateBlockButton
+msgid "Add block"
+msgstr ""
+
 #: helpers/MessageLabels/MessageLabels
 msgid "Add block…"
 msgstr "Block hinzufügen"
@@ -2303,6 +2307,7 @@ msgid "compare_to"
 msgstr "Vergleichen mit"
 
 #: components/manage/Blocks/Block/EditBlockWrapper
+#: components/manage/Blocks/Block/QuantaBlockWrapper
 msgid "delete"
 msgstr "Löschen"
 

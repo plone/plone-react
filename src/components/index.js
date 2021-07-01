@@ -94,6 +94,7 @@ export Sharing from '@plone/volto/components/manage/Sharing/Sharing';
 export Workflow from '@plone/volto/components/manage/Workflow/Workflow';
 export Messages from '@plone/volto/components/manage/Messages/Messages';
 export BlockChooser from '@plone/volto/components/manage/BlockChooser/BlockChooser';
+export MutateBlockButton from '@plone/volto/components/manage/Blocks/Block/MutateBlockButton';
 export Toolbar from '@plone/volto/components/manage/Toolbar/Toolbar';
 export Sidebar from '@plone/volto/components/manage/Sidebar/Sidebar';
 export SidebarPopup from '@plone/volto/components/manage/Sidebar/SidebarPopup';

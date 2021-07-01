@@ -151,6 +151,7 @@ let config = {
       // },
     ],
     showSelfRegistration: false,
+    useQuantaToolbar: true,
     contentMetadataTagsImageField: 'image',
     hasWorkingCopySupport: false,
   },

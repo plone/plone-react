@@ -6,6 +6,10 @@
 
 ### Feature
 
+- Add a Quanta block wrapper and toolbar. Make the Quanta wrapper the default.  You can opt-out from using it by setting `config.settings.useQuantaToolbar = false` @tiberiuichim
+
+- A new component was added, `MutateBlockButton`, it encapsulate the logic of show/hiding the `BlockChooser` @tiberiuichim
+
 ### Bugfix
 
 ### Internal
@@ -209,6 +213,10 @@ https://docs.voltocms.com/upgrade-guide/
 - Fix selection of previous block when deleting a block @tiberiuichim
 
 ### Internal
+
+- Add `MutateBlockButton`, a component that makes centralizes logic around BlockChooser and block mutation (changing block type) @tiberiuichim
+
+- Upgrade Storybook to 6.2.2 @tiberiuichim
 
 - Upgrade Cypress to latest @sneridagh
 - Remove surge since it's not used anymore @sneridagh
@@ -521,6 +529,7 @@ https://docs.voltocms.com/upgrade-guide/
 ### Feature
 
 - Improved comments @rexalex @avoinea
+- Include a pluggable architecture for pluggable render-time insertions (similar to <Portal>) @tiberiuichim
 - Added SidebarPopup component for extra sidebar handling @avoinea
 - Use SidebarPopup component in place of CSS transition sidebar @nileshgulia1
 

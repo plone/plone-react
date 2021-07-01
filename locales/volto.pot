@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2021-06-21T20:34:09.835Z\n"
+"POT-Creation-Date: 2021-07-01T13:07:45.797Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -82,6 +82,11 @@ msgstr ""
 #: components/manage/Blocks/Description/Edit
 # defaultMessage: Add a description…
 msgid "Add a description…"
+msgstr ""
+
+#: components/manage/Blocks/Block/MutateBlockButton
+# defaultMessage: Add block
+msgid "Add block"
 msgstr ""
 
 #: helpers/MessageLabels/MessageLabels

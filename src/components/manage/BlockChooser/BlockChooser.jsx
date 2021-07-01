@@ -29,6 +29,7 @@ const BlockChooser = ({
   showRestricted,
   blocksConfig = config.blocks.blocksConfig,
   intl,
+  blockChooserRef,
 }) => {
   const useAllowedBlocks = !isEmpty(allowedBlocks);
 
@@ -72,7 +73,7 @@ const BlockChooser = ({
   }
 
   return (
-    <div className="blocks-chooser">
+    <div className="blocks-chooser" ref={blockChooserRef}>
       <Accordion fluid styled className="form">
         {map(groupBlocksOrder, (groupName, index) => (
           <React.Fragment key={groupName.id}>
@@ -149,4 +150,9 @@ BlockChooser.propTypes = {
   blocksConfig: PropTypes.objectOf(PropTypes.any),
 };
 
-export default injectIntl(BlockChooser);
+export default injectIntl(
+  React.forwardRef((props, ref) => (
+    <BlockChooser {...props} blockChooserRef={ref} />
+  )),
+  { forwardRef: true },
+);

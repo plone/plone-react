@@ -109,7 +109,6 @@ class App extends Component {
     return (
       <PluggablesProvider>
         <BodyClass className={`view-${action}view`} />
-
         {/* Body class depending on content type */}
         {this.props.content && this.props.content['@type'] && (
           <BodyClass
@@ -118,7 +117,6 @@ class App extends Component {
               .toLowerCase()}`}
           />
         )}
-
         {/* Body class depending on sections */}
         <BodyClass
           className={cx({

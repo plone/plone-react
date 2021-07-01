@@ -17,6 +17,8 @@ import showSVG from '@plone/volto/icons/show.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
 import codeSVG from '@plone/volto/icons/code.svg';
 import indentSVG from '@plone/volto/icons/indent.svg';
+import config from '@plone/volto/registry';
+import { Plug } from '@plone/volto/components/manage/Pluggable';
 
 const Editor = loadable(() => import('react-simple-code-editor'));
 
@@ -241,70 +243,77 @@ class Edit extends Component {
       this.props.data.placeholder ||
       this.props.intl.formatMessage(messages.placeholder);
     const value = this.getValue();
+    const PlugInsert = config.settings.useQuantaToolbar
+      ? Plug
+      : ({ children }) => children;
     return (
       <>
         {this.props.selected && value && (
           <div className="toolbar">
-            <Popup
-              trigger={
-                <Button
-                  icon
-                  basic
-                  aria-label={this.props.intl.formatMessage(messages.source)}
-                  active={!this.state.isPreview}
-                  onClick={this.onCodeEditor}
-                >
-                  <Icon name={codeSVG} size="24px" />
-                </Button>
-              }
-              position="top center"
-              content={this.props.intl.formatMessage(messages.code)}
-              size="mini"
-            />
-            <Popup
-              trigger={
-                <Button
-                  icon
-                  basic
-                  aria-label={this.props.intl.formatMessage(messages.preview)}
-                  active={this.state.isPreview}
-                  onClick={this.onPreview}
-                >
-                  <Icon name={showSVG} size="24px" />
-                </Button>
-              }
-              position="top center"
-              content={this.props.intl.formatMessage(messages.preview)}
-              size="mini"
-            />
-            <Popup
-              trigger={
-                <Button
-                  icon
-                  basic
-                  aria-label={this.props.intl.formatMessage(messages.prettier)}
-                  onClick={this.onPrettify}
-                >
-                  <Icon name={indentSVG} size="24px" />
-                </Button>
-              }
-              position="top center"
-              content={this.props.intl.formatMessage(messages.prettier)}
-              size="mini"
-            />
-            <div className="separator" />
-            <Popup
-              trigger={
-                <Button.Group>
-                  <Button icon basic onClick={() => this.onChangeCode('')}>
-                    <Icon name={clearSVG} size="24px" color="#e40166" />
+            <PlugInsert pluggable="block-toolbar" id="html-buttons">
+              <Popup
+                trigger={
+                  <Button
+                    icon
+                    basic
+                    aria-label={this.props.intl.formatMessage(messages.source)}
+                    active={!this.state.isPreview}
+                    onClick={this.onCodeEditor}
+                  >
+                    <Icon name={codeSVG} size="24px" />
                   </Button>
-                </Button.Group>
-              }
-              position="top center"
-              content={this.props.intl.formatMessage(messages.clear)}
-              size="mini"
-            />
+                }
+                position="top center"
+                content={this.props.intl.formatMessage(messages.code)}
+                size="mini"
+              />
+              <Popup
+                trigger={
+                  <Button
+                    icon
+                    basic
+                    aria-label={this.props.intl.formatMessage(messages.preview)}
+                    active={this.state.isPreview}
+                    onClick={this.onPreview}
+                  >
+                    <Icon name={showSVG} size="24px" />
+                  </Button>
+                }
+                position="top center"
+                content={this.props.intl.formatMessage(messages.preview)}
+                size="mini"
+              />
+              <Popup
+                trigger={
+                  <Button
+                    icon
+                    basic
+                    aria-label={this.props.intl.formatMessage(
+                      messages.prettier,
+                    )}
+                    onClick={this.onPrettify}
+                  >
+                    <Icon name={indentSVG} size="24px" />
+                  </Button>
+                }
+                position="top center"
+                content={this.props.intl.formatMessage(messages.prettier)}
+                size="mini"
+              />
+              <div className="separator" />
+              <Popup
+                trigger={
+                  <Button.Group>
+                    <Button icon basic onClick={() => this.onChangeCode('')}>
+                      <Icon name={clearSVG} size="24px" color="#e40166" />
+                    </Button>
+                  </Button.Group>
+                }
+                position="top center"
+                content={this.props.intl.formatMessage(messages.clear)}
+                size="mini"
+              />
+            </PlugInsert>
           </div>
         )}
         {this.state.isPreview ? (

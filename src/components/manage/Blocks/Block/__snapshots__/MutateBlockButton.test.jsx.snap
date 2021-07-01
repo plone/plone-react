@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Can render a custom button 1`] = `
+<div>
+  <div
+    class="customButton"
+  >
+    Click me
+  </div>
+</div>
+`;
+
+exports[`Does not render if the block is not empty 1`] = `<div />`;
+
+exports[`Renders a button 1`] = `
+<div>
+  <button
+    class="ui basic icon button block-add-button"
+    title="Add block"
+  >
+    <svg
+      class="icon block-add-button"
+      style="height: 19px; width: auto; fill: currentColor;"
+      viewBox=""
+      xmlns=""
+    />
+  </button>
+</div>
+`;
