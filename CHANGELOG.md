@@ -38,6 +38,7 @@
 ### Internal
 
 - Upgrade to Storybook 6.3, refresh deps version for babel @sneridagh
+- Add some explicit dependencies, pin prepend-http to @2 as later switch to https @tiberiuichim
 
 ## 13.4.0 (2021-06-29)
 
