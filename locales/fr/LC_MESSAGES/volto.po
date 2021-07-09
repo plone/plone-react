@@ -1270,6 +1270,7 @@ msgstr "Aucun profile de désinstalation"
 
 #: components/manage/Widgets/ArrayWidget
 #: components/manage/Widgets/ReferenceWidget
+#: components/manage/Widgets/SelectUtils
 #: components/manage/Widgets/SelectWidget
 msgid "No value"
 msgstr "Aucune valeur"

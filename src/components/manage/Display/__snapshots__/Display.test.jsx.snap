@@ -10,6 +10,12 @@ exports[`Display renders an actions component 1`] = `
   <div
     class="react-select-container css-2b097c-container"
   >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
     <div
       class="react-select__control css-yjz7n5-control"
     >

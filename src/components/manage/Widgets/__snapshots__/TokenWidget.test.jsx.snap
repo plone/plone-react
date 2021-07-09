@@ -31,6 +31,12 @@ exports[`renders a token widget component 1`] = `
           className="react-select-container css-2b097c-container"
           onKeyDown={[Function]}
         >
+          <span
+            aria-atomic="false"
+            aria-live="polite"
+            aria-relevant="additions text"
+            className="css-1f43avz-a11yText-A11yText"
+          />
           <div
             className="react-select__control css-1ard45z-control"
             onMouseDown={[Function]}

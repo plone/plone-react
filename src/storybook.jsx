@@ -1,11 +1,11 @@
+import { createBrowserHistory } from 'history';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
 import { IntlProvider } from 'react-intl';
 import { PluggablesProvider } from '@plone/volto/components/manage/Pluggable';
-import thunk from 'redux-thunk';
+import configureStore from '@plone/volto/store';
 
 const initialState = () => ({
   router: {
@@ -1386,7 +1386,9 @@ export default class Wrapper extends Component {
 
   render() {
     // If thunk is not included there's a complaint about async actions
-    const store = configureStore([thunk])(this.customState());
+    const history = createBrowserHistory();
+    const store = configureStore(this.customState(), history);
+
     return (
       <Provider store={store}>
         <PluggablesProvider>

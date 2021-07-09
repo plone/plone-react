@@ -10,6 +10,12 @@ exports[`Workflow renders a workflow component 1`] = `
   <div
     class="react-select-container css-2b097c-container"
   >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
     <div
       class="react-select__control css-yjz7n5-control"
     >
@@ -71,6 +77,12 @@ exports[`Workflow renders an empty workflow component 1`] = `
   <div
     class="react-select-container react-select--is-disabled css-14jk2my-container"
   >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
     <div
       class="react-select__control react-select__control--is-disabled css-1g1dlbm-control"
     >

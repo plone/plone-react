@@ -206,7 +206,7 @@ class ArrayWidget extends Component {
   render() {
     const { selectedOption } = this.state;
     const CreatableSelect = this.props.reactSelectCreateable.default;
-    const AsyncPaginate = this.props.reactSelectAsyncPaginate.default;
+    const AsyncPaginate = this.props.reactSelectAsyncPaginate.AsyncPaginate;
 
     return (
       <FormFieldWrapper {...this.props}>
@@ -273,7 +273,7 @@ class ArrayWidget extends Component {
   }
 }
 
-export const ArrayWidgetComponent = ArrayWidget;
+export const ArrayWidgetComponent = injectIntl(ArrayWidget);
 
 export default compose(
   injectIntl,

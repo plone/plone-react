@@ -1260,6 +1260,7 @@ msgstr "Ez du desinstalatzeko profilik"
 
 #: components/manage/Widgets/ArrayWidget
 #: components/manage/Widgets/ReferenceWidget
+#: components/manage/Widgets/SelectUtils
 #: components/manage/Widgets/SelectWidget
 msgid "No value"
 msgstr "Ez du baliorik"

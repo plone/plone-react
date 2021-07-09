@@ -10,6 +10,14 @@
 
 ### Bugfix
 
+- Add select utils `normalizerValue`, add state to the basic select field forcing it to be fully controlled @sneridagh
+- Solve glitch in async loading options in `AsyncSelect` components @sneridagh
+
+### Internal
+
+- Add tests for `Select` component, document the use cases propely @sneridagh
+- Upgrade `AsyncSelect` to a version compatible with `react-select` v4 @sneridagh
+- Upgrade to latest `react-select` @sneridagh
 - Fix InlineForm's understanding of missing default values @rexalex
 
 ### Internal
