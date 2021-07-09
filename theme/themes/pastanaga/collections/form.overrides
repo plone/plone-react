@@ -46,6 +46,7 @@
 
   &:focus {
     border-radius: 0;
+    color: @textColor;
   }
 }
 

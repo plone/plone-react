@@ -11,6 +11,7 @@
 ### Bugfix
 
 - Fix InlineForm's understanding of missing default values @rexalex
+- change Form input:focus text color to black for a11y @ThomasKindermann
 
 ### Internal
 
