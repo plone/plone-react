@@ -46,6 +46,41 @@ import config from '@plone/volto/registry';
  * @array
  * @returns {array} Routes.
  */
+export const multilingualRoutes = [
+  {
+    path: `/(${config.settings?.supportedLanguages.join('|')})/sitemap`,
+    component: Sitemap,
+  },
+  {
+    path: `/(${config.settings?.supportedLanguages.join('|')})/search`,
+    component: Search,
+  },
+  {
+    path: `/(${config.settings?.supportedLanguages.join('|')})/contact-form`,
+    component: ContactForm,
+  },
+  {
+    path: `/(${config.settings?.supportedLanguages.join('|')})/change-password`,
+    component: ChangePassword,
+  },
+  {
+    path: `/(${config.settings?.supportedLanguages.join('|')})/register`,
+    component: Register,
+  },
+  {
+    path: `/(${config.settings?.supportedLanguages.join('|')})/password-reset`,
+    component: RequestPasswordReset,
+    exact: true,
+  },
+  {
+    path: `/(${config.settings?.supportedLanguages.join(
+      '|',
+    )})/password-reset/:token`,
+    component: PasswordReset,
+    exact: true,
+  },
+];
+
 export const defaultRoutes = [
   {
     path: '/',
@@ -218,6 +253,7 @@ const routes = [
       })),
       // addon routes have a higher priority then default routes
       ...(config.addonRoutes || []),
+      ...((config.settings?.isMultilingual && multilingualRoutes) || []),
       ...defaultRoutes,
     ],
   },

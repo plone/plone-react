@@ -7,6 +7,7 @@
 ### Feature
 
 - A new component was added, `BlockChooserButton`, it encapsulate the logic of show/hiding the `BlockChooser` @tiberiuichim
+- Multilingual routing was added for sitemap, search, contact-form, change-password, register and password-reset @ionlizarazu
 
 ### Bugfix
 
