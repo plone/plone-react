@@ -168,7 +168,7 @@ export class ContactFormComponent extends Component {
   render() {
     return (
       <div id="contact-form">
-        <Container>
+        <Container id="view">
           <Helmet title={this.props.intl.formatMessage(messages.contactForm)} />
           {this.props.error && (
             <Message

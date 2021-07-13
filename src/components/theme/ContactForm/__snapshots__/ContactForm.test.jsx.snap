@@ -6,6 +6,7 @@ exports[`Contact form renders a contact form 1`] = `
 >
   <div
     className="ui container"
+    id="view"
   >
     <div
       className="ui icon negative attached message"
@@ -162,6 +163,7 @@ exports[`Contact form renders a contact form with error message 1`] = `
 >
   <div
     className="ui container"
+    id="view"
   >
     <div
       className="ui icon negative attached message"
