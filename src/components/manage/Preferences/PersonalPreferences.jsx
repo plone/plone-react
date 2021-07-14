@@ -10,9 +10,8 @@ import { compose } from 'redux';
 import { map, keys } from 'lodash';
 import cookie from 'react-cookie';
 import { defineMessages, injectIntl } from 'react-intl';
-import { toast } from 'react-toastify';
 
-import { Form, Toast } from '@plone/volto/components';
+import { Form, Toast, toast } from '@plone/volto/components';
 import languages from '@plone/volto/constants/Languages';
 import { changeLanguage } from '@plone/volto/actions';
 import { normalizeLanguageName } from '@plone/volto/helpers';

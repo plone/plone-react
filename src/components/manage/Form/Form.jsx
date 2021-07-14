@@ -3,7 +3,14 @@
  * @module components/manage/Form/Form
  */
 
-import { BlocksForm, Field, Icon, Toast } from '@plone/volto/components';
+import {
+  BlocksForm,
+  Field,
+  Icon,
+  Toast,
+  BlocksToolbar,
+  toast,
+} from '@plone/volto/components';
 import {
   difference,
   FormValidation,
@@ -37,8 +44,6 @@ import {
   Tab,
 } from 'semantic-ui-react';
 import { v4 as uuid } from 'uuid';
-import { toast } from 'react-toastify';
-import { BlocksToolbar } from '@plone/volto/components';
 import config from '@plone/volto/registry';
 
 /**

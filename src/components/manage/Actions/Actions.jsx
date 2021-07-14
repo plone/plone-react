@@ -9,12 +9,11 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Dropdown, Icon } from 'semantic-ui-react';
-import { toast } from 'react-toastify';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 
 import { cut, copy, copyContent, moveContent } from '@plone/volto/actions';
 import { getBaseUrl } from '@plone/volto/helpers';
-import { ContentsRenameModal, Toast } from '@plone/volto/components';
+import { ContentsRenameModal, Toast, toast } from '@plone/volto/components';
 
 const messages = defineMessages({
   cut: {

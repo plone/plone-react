@@ -18,6 +18,7 @@ import {
   Icon,
   ModalForm,
   Toast,
+  toast,
   Toolbar,
   UsersControlpanelGroups,
   UsersControlpanelUser,
@@ -32,7 +33,6 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { Portal } from 'react-portal';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { bindActionCreators, compose } from 'redux';
 import {
   Button,

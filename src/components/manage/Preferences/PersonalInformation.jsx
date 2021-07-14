@@ -9,9 +9,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { defineMessages, injectIntl } from 'react-intl';
 import jwtDecode from 'jwt-decode';
-import { toast } from 'react-toastify';
 
-import { Form, Toast } from '@plone/volto/components';
+import { Form, Toast, toast } from '@plone/volto/components';
 import { getUser, updateUser } from '@plone/volto/actions';
 
 const messages = defineMessages({

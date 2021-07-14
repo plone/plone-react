@@ -14,7 +14,6 @@ import { Button, Grid, Menu } from 'semantic-ui-react';
 import { Portal } from 'react-portal';
 import qs from 'query-string';
 import { find } from 'lodash';
-import { toast } from 'react-toastify';
 
 import {
   Forbidden,
@@ -22,6 +21,7 @@ import {
   Icon,
   Sidebar,
   Toast,
+  toast,
   Toolbar,
   Unauthorized,
   CompareLanguages,

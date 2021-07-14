@@ -13,9 +13,8 @@ import { Portal } from 'react-portal';
 import { defineMessages, injectIntl } from 'react-intl';
 import { Container } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
-import { toast } from 'react-toastify';
 
-import { Form, Icon, Toast, Toolbar } from '@plone/volto/components';
+import { Form, Icon, Toast, toast, Toolbar } from '@plone/volto/components';
 import { updatePassword } from '@plone/volto/actions';
 import { getBaseUrl } from '@plone/volto/helpers';
 

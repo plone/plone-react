@@ -12,7 +12,6 @@ import { getParentUrl } from '@plone/volto/helpers';
 import { Portal } from 'react-portal';
 import { last } from 'lodash';
 import { Confirm, Container, Table, Button, Header } from 'semantic-ui-react';
-import { toast } from 'react-toastify';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 import {
   Error,
@@ -20,6 +19,7 @@ import {
   ModalForm,
   Toolbar,
   Toast,
+  toast,
   ContentTypesActions,
 } from '@plone/volto/components';
 import {

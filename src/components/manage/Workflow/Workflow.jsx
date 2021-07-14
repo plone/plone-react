@@ -8,10 +8,9 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { uniqBy } from 'lodash';
-import { toast } from 'react-toastify';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 import getWorkflowMapping from '@plone/volto/constants/Workflows';
-import { Icon, Toast } from '@plone/volto/components';
+import { Icon, Toast, toast } from '@plone/volto/components';
 import { flattenToAppURL } from '@plone/volto/helpers';
 
 import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';

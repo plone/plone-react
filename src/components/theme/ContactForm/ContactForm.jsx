@@ -12,9 +12,8 @@ import { Portal } from 'react-portal';
 import { Container, Message, Icon } from 'semantic-ui-react';
 import { defineMessages, injectIntl } from 'react-intl';
 import { Link, withRouter } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
-import { Form, Toolbar, Toast } from '@plone/volto/components';
+import { Form, Toolbar, Toast, toast } from '@plone/volto/components';
 import { emailNotification } from '@plone/volto/actions';
 import { getBaseUrl } from '@plone/volto/helpers';
 

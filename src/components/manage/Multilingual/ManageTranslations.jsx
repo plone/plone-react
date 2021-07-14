@@ -4,7 +4,7 @@ import { Helmet } from '@plone/volto/helpers';
 import { flattenToAppURL, getBaseUrl, langmap } from '@plone/volto/helpers';
 import { reduce } from 'lodash';
 import { Link, useLocation } from 'react-router-dom';
-import { Icon, Toast, Toolbar } from '@plone/volto/components';
+import { Icon, Toast, toast, Toolbar } from '@plone/volto/components';
 import config from '@plone/volto/registry';
 
 import withObjectBrowser from '@plone/volto/components/manage/Sidebar/ObjectBrowser';
@@ -16,7 +16,6 @@ import {
 import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
 import { useSelector, useDispatch } from 'react-redux';
 import { Portal } from 'react-portal';
-import { toast } from 'react-toastify';
 
 import addSVG from '@plone/volto/icons/add.svg';
 import backSVG from '@plone/volto/icons/back.svg';

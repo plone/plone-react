@@ -16,7 +16,6 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { v4 as uuid } from 'uuid';
 import qs from 'query-string';
-import { toast } from 'react-toastify';
 
 import { createContent, getSchema } from '@plone/volto/actions';
 import {
@@ -25,6 +24,7 @@ import {
   Toolbar,
   Sidebar,
   Toast,
+  toast,
   TranslationObject,
 } from '@plone/volto/components';
 import {

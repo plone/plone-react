@@ -7,6 +7,7 @@
 ### Feature
 
 - A new component was added, `BlockChooserButton`, it encapsulate the logic of show/hiding the `BlockChooser` @tiberiuichim
+- make `toast` a component, to allow addons to configurate it and keep the same existing toast implementations
 
 ### Bugfix
 

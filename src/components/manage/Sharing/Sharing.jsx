@@ -25,8 +25,7 @@ import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 
 import { updateSharing, getSharing } from '@plone/volto/actions';
 import { getBaseUrl } from '@plone/volto/helpers';
-import { Icon, Toolbar, Toast } from '@plone/volto/components';
-import { toast } from 'react-toastify';
+import { Icon, Toolbar, Toast, toast } from '@plone/volto/components';
 
 import aheadSVG from '@plone/volto/icons/ahead.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';

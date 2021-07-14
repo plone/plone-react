@@ -16,7 +16,6 @@ import {
 } from '@plone/volto/helpers';
 import { Portal } from 'react-portal';
 import { Button, Segment } from 'semantic-ui-react';
-import { toast } from 'react-toastify';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import { nth, join } from 'lodash';
 import {
@@ -26,6 +25,7 @@ import {
   Toolbar,
   Sidebar,
   Toast,
+  toast,
 } from '@plone/volto/components';
 import {
   getSchema,

@@ -12,9 +12,8 @@ import { Helmet } from '@plone/volto/helpers';
 import { Portal } from 'react-portal';
 import { Button, Container } from 'semantic-ui-react';
 import { defineMessages, injectIntl } from 'react-intl';
-import { toast } from 'react-toastify';
 
-import { Form, Icon, Toolbar, Toast } from '@plone/volto/components';
+import { Form, Icon, Toolbar, Toast, toast } from '@plone/volto/components';
 import { updateControlpanel, getControlpanel } from '@plone/volto/actions';
 
 import saveSVG from '@plone/volto/icons/save.svg';

@@ -6,7 +6,14 @@
 import { getSchema, putSchema } from '@plone/volto/actions';
 import { getParentUrl } from '@plone/volto/helpers';
 import { nth } from 'lodash';
-import { Error, Form, Icon, Toast, Toolbar } from '@plone/volto/components';
+import {
+  Error,
+  Form,
+  Icon,
+  Toast,
+  toast,
+  Toolbar,
+} from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
 import saveSVG from '@plone/volto/icons/save.svg';
 import PropTypes from 'prop-types';
@@ -14,7 +21,6 @@ import React, { Component } from 'react';
 import { defineMessages, injectIntl } from 'react-intl';
 import { Portal } from 'react-portal';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import { compose } from 'redux';
 import { Button, Header } from 'semantic-ui-react';
 

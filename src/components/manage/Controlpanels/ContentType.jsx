@@ -11,9 +11,15 @@ import { getParentUrl } from '@plone/volto/helpers';
 import { Portal } from 'react-portal';
 import { Button, Header } from 'semantic-ui-react';
 import { defineMessages, injectIntl } from 'react-intl';
-import { toast } from 'react-toastify';
 import { last, nth, join } from 'lodash';
-import { Error, Form, Icon, Toolbar, Toast } from '@plone/volto/components';
+import {
+  Error,
+  Form,
+  Icon,
+  Toolbar,
+  Toast,
+  toast,
+} from '@plone/volto/components';
 import { getControlpanel, updateControlpanel } from '@plone/volto/actions';
 
 import saveSVG from '@plone/volto/icons/save.svg';
