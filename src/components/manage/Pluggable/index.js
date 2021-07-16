@@ -18,9 +18,6 @@ export function usePluggable(name) {
   return ctx.pluggables[name] || [];
 }
 
-/**
-
-**/
 export function Pluggable(props) {
   const { name, maxCount, reversed, children, params } = props; // , ...rest
   let pluggables = usePluggable(name);

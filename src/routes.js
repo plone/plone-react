@@ -32,6 +32,7 @@ import {
   Sharing,
   Sitemap,
   UsersControlpanel,
+  EditSlot,
 } from '@plone/volto/components';
 
 // Deliberatelly use of absolute path of these components, since we do not want them
@@ -126,6 +127,10 @@ export const defaultRoutes = [
     component: Edit,
   },
   {
+    path: '/edit-slot/:id',
+    component: EditSlot,
+  },
+  {
     path: '/contents',
     component: Contents,
   },
@@ -160,6 +165,10 @@ export const defaultRoutes = [
   {
     path: '/**/edit',
     component: Edit,
+  },
+  {
+    path: '/**/edit-slot/:id',
+    component: EditSlot,
   },
   {
     path: '/**/history',

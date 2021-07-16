@@ -29,5 +29,7 @@ export const nonContentRoutes = [
   '/password-reset',
   '/create-translation',
   '/manage-translations',
+  '/edit-slot',
+  /\/edit-slot\/.*$/,
   ...(config.settings?.externalRoutes?.map((route) => route.match.path) || []),
 ];

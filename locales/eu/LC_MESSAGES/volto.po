@@ -50,7 +50,7 @@ msgid "Activate and deactivate"
 msgstr "Aktibatu eta desaktibatu"
 
 #: components/manage/Controlpanels/ContentTypes
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/SchemaWidget
 #: helpers/MessageLabels/MessageLabels
 msgid "Add"
@@ -193,7 +193,7 @@ msgstr "Aukerak"
 #: components/manage/Preferences/PersonalPreferences
 #: components/manage/Sharing/Sharing
 #: components/manage/Sidebar/ObjectBrowserBody
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/theme/ContactForm/ContactForm
 #: helpers/MessageLabels/MessageLabels
 msgid "Back"
@@ -251,6 +251,7 @@ msgstr "Ezin da <strong>{type}</strong> elementu-motaren itxura aldatu, <strong>
 #: components/manage/Edit/Edit
 #: components/manage/Form/ModalForm
 #: components/manage/Sharing/Sharing
+#: components/manage/Slots/EditSlot
 #: components/theme/Login/Login
 #: helpers/MessageLabels/MessageLabels
 msgid "Cancel"
@@ -343,7 +344,7 @@ msgstr ""
 msgid "Collapse item"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Collection"
 msgstr "Bilduma"
 
@@ -395,7 +396,7 @@ msgid "Content type deleted"
 msgstr "Elementu-mota ezabatu da"
 
 #: components/manage/Contents/Contents
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Contents"
 msgstr "Edukiak"
 
@@ -629,7 +630,7 @@ msgstr "Eposta helbideak ez datoz bat"
 #: components/manage/Contents/ContentsItem
 #: components/manage/Controlpanels/ContentTypesActions
 #: components/manage/Controlpanels/ModerateComments
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/FormFieldWrapper
 #: components/manage/Widgets/ObjectBrowserWidget
 #: components/theme/Comments/Comments
@@ -727,6 +728,7 @@ msgstr "Idatzi zure pasahitz berria. Gutxienez 5 karaktere."
 #: components/manage/Controlpanels/ContentTypeSchema
 #: components/manage/Edit/Edit
 #: components/manage/Form/InlineForm
+#: components/manage/Slots/EditSlot
 #: components/manage/Widgets/SchemaWidget
 #: components/theme/ContactForm/ContactForm
 #: components/theme/Login/Login
@@ -767,7 +769,7 @@ msgstr "Iraungita"
 msgid "External URL"
 msgstr "Kanpoko URLa"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "File"
 msgstr "Fitxategia"
 
@@ -865,6 +867,7 @@ msgstr ""
 
 #: components/manage/History/History
 #: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "History"
 msgstr "Historia"
 
@@ -1040,7 +1043,7 @@ msgstr "Irudia"
 msgid "Left"
 msgstr "Ezkerrean"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Link"
 msgstr "Esteka"
 
@@ -1111,6 +1114,7 @@ msgstr "Taula trinkotu"
 
 #: components/manage/Multilingual/ManageTranslations
 #: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Manage Translations"
 msgstr ""
 
@@ -1167,7 +1171,7 @@ msgstr "Hilabeteko"
 msgid "Monthly"
 msgstr "Hilero"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "More"
 msgstr "Gehiago"
 
@@ -1201,7 +1205,7 @@ msgstr ""
 msgid "New password"
 msgstr "Pasahitz berria"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "News Item"
 msgstr "Albistea ikusi"
 
@@ -1317,7 +1321,7 @@ msgstr ""
 msgid "Origin"
 msgstr "Jatorria"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Page"
 msgstr "Orria"
 
@@ -1357,17 +1361,19 @@ msgid "Permissions updated"
 msgstr ""
 
 #: components/manage/Preferences/PersonalInformation
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Information"
 msgstr "Informazio pertsonala"
 
 #: components/manage/Preferences/PersonalPreferences
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Preferences"
 msgstr "Hobespen Pertsonalak"
 
 #: components/manage/Toolbar/More
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Personal tools"
 msgstr "Tresna pertsonalak"
 
@@ -1607,6 +1613,7 @@ msgstr ""
 #: components/manage/Edit/Edit
 #: components/manage/Form/ModalForm
 #: components/manage/Sharing/Sharing
+#: components/manage/Slots/EditSlot
 #: helpers/MessageLabels/MessageLabels
 msgid "Save"
 msgstr "Gorde"
@@ -1720,6 +1727,7 @@ msgstr "Ezarpenak"
 
 #: components/manage/Sharing/Sharing
 #: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Sharing"
 msgstr "Partekatzea"
 
@@ -1758,6 +1766,7 @@ msgid "Shrink sidebar"
 msgstr "Txikitu alboko barra"
 
 #: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Shrink toolbar"
 msgstr "Txikitu tresna-barra"
 
@@ -2068,6 +2077,7 @@ msgid "Uninstall"
 msgstr "Desinstalatu"
 
 #: components/manage/Blocks/Block/Edit
+#: components/theme/SlotRenderer/RenderSlotFill
 #: components/theme/View/DefaultView
 #: components/theme/View/RenderBlocks
 msgid "Unknown Block"
@@ -2323,6 +2333,7 @@ msgid "compare_to"
 msgstr ""
 
 #: components/manage/Blocks/Block/EditBlockWrapper
+#: components/manage/Blocks/Block/QuantaEditBlockWrapper
 msgid "delete"
 msgstr "Ezabatu"
 
@@ -2621,6 +2632,10 @@ msgstr ""
 
 #: components/manage/Widgets/RecurrenceWidget/Utils
 msgid "rrule_years"
+msgstr ""
+
+#: config/Blocks
+msgid "site"
 msgstr ""
 
 #: components/theme/SkipLinks/SkipLinks

@@ -2,7 +2,6 @@ import React from 'react';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { omit } from 'lodash';
-
 import { loadLazyLibrary } from '@plone/volto/actions';
 import config from '@plone/volto/registry';
 
@@ -47,8 +46,8 @@ const flattenLazyBundle = (maybeNames) => {
 // useLoadables hooks inside a single component?
 export function useLazyLibs(maybeNames, options = {}) {
   const libraries = flattenLazyBundle(maybeNames);
-  const { shouldRerender = true } = options;
   const { loadables } = config.settings;
+  const { shouldRerender = true } = options;
   const dispatch = useDispatch();
 
   const globalLoadedLibraries = useSelector(

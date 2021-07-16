@@ -305,6 +305,7 @@ class Search extends Component {
         {this.state.isClient && (
           <Portal node={document.getElementById('toolbar')}>
             <Toolbar
+              activity="search"
               pathname={this.props.pathname}
               hideDefaultViewButtons
               inner={<span />}

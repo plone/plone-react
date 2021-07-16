@@ -58,7 +58,7 @@ msgid "Activate and deactivate"
 msgstr "Aktiviern und Deaktivieren"
 
 #: components/manage/Controlpanels/ContentTypes
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/SchemaWidget
 #: helpers/MessageLabels/MessageLabels
 msgid "Add"
@@ -201,7 +201,7 @@ msgstr "Verfügbar"
 #: components/manage/Preferences/PersonalPreferences
 #: components/manage/Sharing/Sharing
 #: components/manage/Sidebar/ObjectBrowserBody
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/theme/ContactForm/ContactForm
 #: helpers/MessageLabels/MessageLabels
 msgid "Back"
@@ -259,6 +259,7 @@ msgstr "Layout für <strong>{type}</strong> kann nicht verändert werden, da das
 #: components/manage/Edit/Edit
 #: components/manage/Form/ModalForm
 #: components/manage/Sharing/Sharing
+#: components/manage/Slots/EditSlot
 #: components/theme/Login/Login
 #: helpers/MessageLabels/MessageLabels
 msgid "Cancel"
@@ -351,7 +352,7 @@ msgstr "Code"
 msgid "Collapse item"
 msgstr "Element einklappen"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Collection"
 msgstr "Kollektion"
 
@@ -403,7 +404,7 @@ msgid "Content type deleted"
 msgstr "Inhaltstyp gelöscht"
 
 #: components/manage/Contents/Contents
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Contents"
 msgstr "Inhalte"
 
@@ -637,7 +638,7 @@ msgstr "E-Mail-Adressen stimmen nicht überein."
 #: components/manage/Contents/ContentsItem
 #: components/manage/Controlpanels/ContentTypesActions
 #: components/manage/Controlpanels/ModerateComments
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/FormFieldWrapper
 #: components/manage/Widgets/ObjectBrowserWidget
 #: components/theme/Comments/Comments
@@ -735,6 +736,7 @@ msgstr "Geben Sie ihr neues Passwort ein. Mindestens 5 Zeichen."
 #: components/manage/Controlpanels/ContentTypeSchema
 #: components/manage/Edit/Edit
 #: components/manage/Form/InlineForm
+#: components/manage/Slots/EditSlot
 #: components/manage/Widgets/SchemaWidget
 #: components/theme/ContactForm/ContactForm
 #: components/theme/Login/Login
@@ -775,7 +777,7 @@ msgstr "Abgelaufen"
 msgid "External URL"
 msgstr "Externe URL"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "File"
 msgstr "Datei"
 
@@ -873,6 +875,7 @@ msgstr "Antworten ausblenden"
 
 #: components/manage/History/History
 #: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "History"
 msgstr "Historie"
 
@@ -1048,7 +1051,7 @@ msgstr "Lead-Bild"
 msgid "Left"
 msgstr "Links"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Link"
 msgstr "Link"
 
@@ -1119,6 +1122,7 @@ msgstr "Tabelle kompakt darstellen"
 
 #: components/manage/Multilingual/ManageTranslations
 #: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Manage Translations"
 msgstr "Übersetzungen verwalten"
 
@@ -1175,7 +1179,7 @@ msgstr "Tag des Monats"
 msgid "Monthly"
 msgstr "Monatlich"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "More"
 msgstr "Mehr"
 
@@ -1209,7 +1213,7 @@ msgstr "Navigation"
 msgid "New password"
 msgstr "Neues Passwort"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "News Item"
 msgstr "Nachricht"
 
@@ -1325,7 +1329,7 @@ msgstr "Objekt-Browser öffnen"
 msgid "Origin"
 msgstr "Quelle"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Page"
 msgstr "Seite"
 
@@ -1365,17 +1369,19 @@ msgid "Permissions updated"
 msgstr "Berechtigungen aktualisiert"
 
 #: components/manage/Preferences/PersonalInformation
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Information"
 msgstr "Persönliche Informationen"
 
 #: components/manage/Preferences/PersonalPreferences
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Preferences"
 msgstr "Meine Einstellungen"
 
 #: components/manage/Toolbar/More
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Personal tools"
 msgstr "Persönliche Einstellungen"
 
@@ -1615,6 +1621,7 @@ msgstr "Wurzel"
 #: components/manage/Edit/Edit
 #: components/manage/Form/ModalForm
 #: components/manage/Sharing/Sharing
+#: components/manage/Slots/EditSlot
 #: helpers/MessageLabels/MessageLabels
 msgid "Save"
 msgstr "Speichern"
@@ -1728,6 +1735,7 @@ msgstr "Einstellungen"
 
 #: components/manage/Sharing/Sharing
 #: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Sharing"
 msgstr "Freigabe"
 
@@ -1766,6 +1774,7 @@ msgid "Shrink sidebar"
 msgstr "Sidebar verkleinern"
 
 #: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Shrink toolbar"
 msgstr "Toolbar verkleinern"
 
@@ -2076,6 +2085,7 @@ msgid "Uninstall"
 msgstr "Deinstallieren"
 
 #: components/manage/Blocks/Block/Edit
+#: components/theme/SlotRenderer/RenderSlotFill
 #: components/theme/View/DefaultView
 #: components/theme/View/RenderBlocks
 msgid "Unknown Block"
@@ -2331,6 +2341,7 @@ msgid "compare_to"
 msgstr "Vergleichen mit"
 
 #: components/manage/Blocks/Block/EditBlockWrapper
+#: components/manage/Blocks/Block/QuantaEditBlockWrapper
 msgid "delete"
 msgstr "Löschen"
 
@@ -2630,6 +2641,10 @@ msgstr "Regel Jahr"
 #: components/manage/Widgets/RecurrenceWidget/Utils
 msgid "rrule_years"
 msgstr "Regel Jahre"
+
+#: config/Blocks
+msgid "site"
+msgstr ""
 
 #: components/theme/SkipLinks/SkipLinks
 msgid "skiplink-footer"

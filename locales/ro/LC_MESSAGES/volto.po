@@ -43,7 +43,7 @@ msgid "Activate and deactivate"
 msgstr "Activare și dezactivare"
 
 #: components/manage/Controlpanels/ContentTypes
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/SchemaWidget
 #: helpers/MessageLabels/MessageLabels
 msgid "Add"
@@ -186,7 +186,7 @@ msgstr "Disponibil"
 #: components/manage/Preferences/PersonalPreferences
 #: components/manage/Sharing/Sharing
 #: components/manage/Sidebar/ObjectBrowserBody
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/theme/ContactForm/ContactForm
 #: helpers/MessageLabels/MessageLabels
 msgid "Back"
@@ -244,6 +244,7 @@ msgstr ""
 #: components/manage/Edit/Edit
 #: components/manage/Form/ModalForm
 #: components/manage/Sharing/Sharing
+#: components/manage/Slots/EditSlot
 #: components/theme/Login/Login
 #: helpers/MessageLabels/MessageLabels
 msgid "Cancel"
@@ -336,7 +337,7 @@ msgstr ""
 msgid "Collapse item"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Collection"
 msgstr "Colecție"
 
@@ -388,7 +389,7 @@ msgid "Content type deleted"
 msgstr "Tip de conținut șters"
 
 #: components/manage/Contents/Contents
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Contents"
 msgstr "Cuprins"
 
@@ -622,7 +623,7 @@ msgstr "Adresele de e-mail nu se potrivesc."
 #: components/manage/Contents/ContentsItem
 #: components/manage/Controlpanels/ContentTypesActions
 #: components/manage/Controlpanels/ModerateComments
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 #: components/manage/Widgets/FormFieldWrapper
 #: components/manage/Widgets/ObjectBrowserWidget
 #: components/theme/Comments/Comments
@@ -720,6 +721,7 @@ msgstr "Introduceți noua parolă. Minim 5 caractere."
 #: components/manage/Controlpanels/ContentTypeSchema
 #: components/manage/Edit/Edit
 #: components/manage/Form/InlineForm
+#: components/manage/Slots/EditSlot
 #: components/manage/Widgets/SchemaWidget
 #: components/theme/ContactForm/ContactForm
 #: components/theme/Login/Login
@@ -760,7 +762,7 @@ msgstr "Expirat"
 msgid "External URL"
 msgstr "URL extern"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "File"
 msgstr "Fișier"
 
@@ -858,6 +860,7 @@ msgstr ""
 
 #: components/manage/History/History
 #: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "History"
 msgstr "Istoric"
 
@@ -1033,7 +1036,7 @@ msgstr "Imaginea de start"
 msgid "Left"
 msgstr "Stânga"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Link"
 msgstr "Legătură"
 
@@ -1104,6 +1107,7 @@ msgstr "Compactati tabelul"
 
 #: components/manage/Multilingual/ManageTranslations
 #: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Manage Translations"
 msgstr ""
 
@@ -1160,7 +1164,7 @@ msgstr ""
 msgid "Monthly"
 msgstr ""
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "More"
 msgstr "Mai mult"
 
@@ -1194,7 +1198,7 @@ msgstr ""
 msgid "New password"
 msgstr "Parolă nouă"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "News Item"
 msgstr "Articol de știri"
 
@@ -1310,7 +1314,7 @@ msgstr ""
 msgid "Origin"
 msgstr "Origine"
 
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Page"
 msgstr "Pagina"
 
@@ -1350,17 +1354,19 @@ msgid "Permissions updated"
 msgstr ""
 
 #: components/manage/Preferences/PersonalInformation
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Information"
 msgstr "Informații personale"
 
 #: components/manage/Preferences/PersonalPreferences
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
+#: config/toolbar
 msgid "Personal Preferences"
 msgstr "Preferințe personale"
 
 #: components/manage/Toolbar/More
-#: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Personal tools"
 msgstr "Instrumente personale"
 
@@ -1600,6 +1606,7 @@ msgstr ""
 #: components/manage/Edit/Edit
 #: components/manage/Form/ModalForm
 #: components/manage/Sharing/Sharing
+#: components/manage/Slots/EditSlot
 #: helpers/MessageLabels/MessageLabels
 msgid "Save"
 msgstr "Salvare"
@@ -1713,6 +1720,7 @@ msgstr ""
 
 #: components/manage/Sharing/Sharing
 #: components/manage/Toolbar/More
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Sharing"
 msgstr "Partajare"
 
@@ -1751,6 +1759,7 @@ msgid "Shrink sidebar"
 msgstr "Reduceți bara laterală"
 
 #: components/manage/Toolbar/Toolbar
+#: components/manage/Toolbar/ToolbarComponents
 msgid "Shrink toolbar"
 msgstr "Reduceti bara de instrumente"
 
@@ -2061,6 +2070,7 @@ msgid "Uninstall"
 msgstr "Dezinstalare"
 
 #: components/manage/Blocks/Block/Edit
+#: components/theme/SlotRenderer/RenderSlotFill
 #: components/theme/View/DefaultView
 #: components/theme/View/RenderBlocks
 msgid "Unknown Block"
@@ -2316,6 +2326,7 @@ msgid "compare_to"
 msgstr ""
 
 #: components/manage/Blocks/Block/EditBlockWrapper
+#: components/manage/Blocks/Block/QuantaEditBlockWrapper
 msgid "delete"
 msgstr "Ștergeți"
 
@@ -2614,6 +2625,10 @@ msgstr ""
 
 #: components/manage/Widgets/RecurrenceWidget/Utils
 msgid "rrule_years"
+msgstr ""
+
+#: config/Blocks
+msgid "site"
 msgstr ""
 
 #: components/theme/SkipLinks/SkipLinks

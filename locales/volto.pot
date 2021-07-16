@@ -139,11 +139,6 @@ msgstr ""
 msgid "Add to Groups"
 msgstr ""
 
-#: components/manage/Widgets/VocabularyTermsWidget
-# defaultMessage: Add term
-msgid "Add vocabulary term"
-msgstr ""
-
 #: components/manage/Add/Add
 # defaultMessage: Add {type}
 msgid "Add {type}"
@@ -1827,11 +1822,6 @@ msgstr ""
 msgid "Remove recurrence"
 msgstr ""
 
-#: components/manage/Widgets/VocabularyTermsWidget
-# defaultMessage: Remove term
-msgid "Remove term"
-msgstr ""
-
 #: components/manage/Toolbar/More
 # defaultMessage: Remove working copy
 msgid "Remove working copy"
@@ -1889,11 +1879,6 @@ msgstr ""
 #: helpers/MessageLabels/MessageLabels
 # defaultMessage: Required input is missing.
 msgid "Required input is missing."
-msgstr ""
-
-#: components/manage/Widgets/VocabularyTermsWidget
-# defaultMessage: Reset title
-msgid "Reset term title"
 msgstr ""
 
 #: components/manage/Widgets/QuerystringWidget
@@ -2670,21 +2655,6 @@ msgstr ""
 #: components/manage/Display/Display
 # defaultMessage: View
 msgid "Viewmode"
-msgstr ""
-
-#: components/manage/Widgets/VocabularyTermsWidget
-# defaultMessage: Vocabulary term
-msgid "Vocabulary term"
-msgstr ""
-
-#: components/manage/Widgets/VocabularyTermsWidget
-# defaultMessage: Title
-msgid "Vocabulary term title"
-msgstr ""
-
-#: components/manage/Widgets/VocabularyTermsWidget
-# defaultMessage: Vocabulary terms
-msgid "Vocabulary terms"
 msgstr ""
 
 #: components/manage/Controlpanels/VersionOverview

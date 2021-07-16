@@ -130,80 +130,73 @@ export class Edit extends Component {
     const blockHasOwnFocusManagement =
       blocksConfig?.[type]?.['blockHasOwnFocusManagement'] || null;
 
-    return (
-      <>
-        {Block !== null ? (
-          <div
-            role="presentation"
-            onClick={(e) => {
-              const isMultipleSelection = e.shiftKey || e.ctrlKey || e.metaKey;
-              !this.props.selected &&
-                this.props.onSelectBlock(
-                  this.props.id,
-                  this.props.selected ? false : isMultipleSelection,
+    return Block !== null ? (
+      <div
+        role="presentation"
+        onClick={(e) => {
+          const isMultipleSelection = e.shiftKey || e.ctrlKey || e.metaKey;
+          !this.props.selected &&
+            this.props.onSelectBlock(
+              this.props.id,
+              this.props.selected ? false : isMultipleSelection,
+              e,
+            );
+        }}
+        onKeyDown={
+          !(blockHasOwnFocusManagement || disableNewBlocks)
+            ? (e) =>
+                this.props.handleKeyDown(
                   e,
-                );
-            }}
-            onKeyDown={
-              !(blockHasOwnFocusManagement || disableNewBlocks)
-                ? (e) =>
-                    this.props.handleKeyDown(
-                      e,
-                      this.props.index,
-                      this.props.id,
-                      this.blockNode.current,
-                    )
-                : null
-            }
-            className={cx(`block ${type}`, {
-              selected: this.props.selected || this.props.multiSelected,
-              multiSelected: this.props.multiSelected,
-            })}
-            style={{ outline: 'none' }}
-            ref={this.blockNode}
-            // The tabIndex is required for the keyboard navigation
-            /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-            tabIndex={!blockHasOwnFocusManagement ? -1 : null}
-          >
-            <Block {...this.props} blockNode={this.blockNode} />
-            {this.props.manage && (
-              <SidebarPortal
-                selected={this.props.selected}
-                tab="sidebar-settings"
-              >
-                <BlockSettingsSidebar {...this.props} schema={schema} />
-              </SidebarPortal>
-            )}
-          </div>
-        ) : (
-          <div
-            role="presentation"
-            onClick={() =>
-              !this.props.selected && this.props.onSelectBlock(this.props.id)
-            }
-            onKeyDown={
-              !(blockHasOwnFocusManagement || disableNewBlocks)
-                ? (e) =>
-                    this.props.handleKeyDown(
-                      e,
-                      this.props.index,
-                      this.props.id,
-                      this.blockNode.current,
-                    )
-                : null
-            }
-            className={cx(`block ${type}`, { selected: this.props.selected })}
-            style={{ outline: 'none' }}
-            ref={this.blockNode}
-            // The tabIndex is required for the keyboard navigation
-            tabIndex={-1}
-          >
-            {this.props.intl.formatMessage(messages.unknownBlock, {
-              block: type,
-            })}
-          </div>
+                  this.props.index,
+                  this.props.id,
+                  this.blockNode.current,
+                )
+            : null
+        }
+        className={cx(`block ${type}`, {
+          selected: this.props.selected || this.props.multiSelected,
+          multiSelected: this.props.multiSelected,
+        })}
+        style={{ outline: 'none' }}
+        ref={this.blockNode}
+        // The tabIndex is required for the keyboard navigation
+        /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+        tabIndex={!blockHasOwnFocusManagement ? -1 : null}
+      >
+        <Block {...this.props} blockNode={this.blockNode} />
+        {this.props.manage && (
+          <SidebarPortal selected={this.props.selected} tab="sidebar-settings">
+            <BlockSettingsSidebar {...this.props} schema={schema} />
+          </SidebarPortal>
         )}
-      </>
+      </div>
+    ) : (
+      <div
+        role="presentation"
+        onClick={() =>
+          !this.props.selected && this.props.onSelectBlock(this.props.id)
+        }
+        onKeyDown={
+          !(blockHasOwnFocusManagement || disableNewBlocks)
+            ? (e) =>
+                this.props.handleKeyDown(
+                  e,
+                  this.props.index,
+                  this.props.id,
+                  this.blockNode.current,
+                )
+            : null
+        }
+        className={cx(`block ${type}`, { selected: this.props.selected })}
+        style={{ outline: 'none' }}
+        ref={this.blockNode}
+        // The tabIndex is required for the keyboard navigation
+        tabIndex={-1}
+      >
+        {this.props.intl.formatMessage(messages.unknownBlock, {
+          block: type,
+        })}
+      </div>
     );
   }
 }

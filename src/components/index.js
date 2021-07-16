@@ -37,6 +37,9 @@ export Icon from '@plone/volto/components/theme/Icon/Icon';
 export ConditionalLink from '@plone/volto/components/manage/ConditionalLink/ConditionalLink';
 export UniversalLink from '@plone/volto/components/manage/UniversalLink/UniversalLink';
 
+export SlotRenderer from '@plone/volto/components/theme/SlotRenderer/SlotRenderer';
+export ContentContainer from '@plone/volto/components/theme/ContentContainer/ContentContainer';
+
 // Lazy load them, since we want them and its deps to be in its own chunk
 export ContactForm from '@plone/volto/components/theme/ContactForm/ContactForm';
 export Login from '@plone/volto/components/theme/Login/Login';
@@ -88,6 +91,7 @@ export Delete from '@plone/volto/components/manage/Delete/Delete';
 export Diff from '@plone/volto/components/manage/Diff/Diff';
 export Display from '@plone/volto/components/manage/Display/Display';
 export Edit from '@plone/volto/components/manage/Edit/Edit';
+export EditSlot from '@plone/volto/components/manage/Slots/EditSlot';
 export ModalForm from '@plone/volto/components/manage/Form/ModalForm';
 export History from '@plone/volto/components/manage/History/History';
 export Sharing from '@plone/volto/components/manage/Sharing/Sharing';
@@ -95,6 +99,7 @@ export Workflow from '@plone/volto/components/manage/Workflow/Workflow';
 export Messages from '@plone/volto/components/manage/Messages/Messages';
 export BlockChooser from '@plone/volto/components/manage/BlockChooser/BlockChooser';
 export BlockChooserButton from '@plone/volto/components/manage/BlockChooser/BlockChooserButton';
+export BlockToolbarItem from '@plone/volto/components/manage/Blocks/Block/BlockToolbarItem';
 export Toolbar from '@plone/volto/components/manage/Toolbar/Toolbar';
 export Sidebar from '@plone/volto/components/manage/Sidebar/Sidebar';
 export SidebarPopup from '@plone/volto/components/manage/Sidebar/SidebarPopup';

@@ -1,5 +1,5 @@
 import React from 'react';
-import EditBlock from './Edit';
+import WrapperlessBlockEdit from './Edit';
 import { DragDropList } from '@plone/volto/components';
 import { getBlocks } from '@plone/volto/helpers';
 import {
@@ -16,7 +16,24 @@ import EditBlockWrapper from './EditBlockWrapper';
 import { setSidebarTab } from '@plone/volto/actions';
 import { useDispatch } from 'react-redux';
 import { useDetectClickOutside } from '@plone/volto/helpers';
+import QuantaEditBlockWrapper from './QuantaEditBlockWrapper';
 import config from '@plone/volto/registry';
+
+const topLevelBlockWrapper = ({ draginfo }, editBlock, blockProps) => {
+  return (
+    <QuantaEditBlockWrapper draginfo={draginfo} blockProps={blockProps}>
+      {editBlock}
+    </QuantaEditBlockWrapper>
+  );
+};
+
+const defaultBlockWrapper = ({ draginfo }, editBlock, blockProps) => {
+  return (
+    <EditBlockWrapper draginfo={draginfo} blockProps={blockProps}>
+      {editBlock}
+    </EditBlockWrapper>
+  );
+};
 
 const BlocksForm = (props) => {
   const {
@@ -142,13 +159,11 @@ const BlocksForm = (props) => {
     onChangeFormData(newFormData);
   };
 
-  const defaultBlockWrapper = ({ draginfo }, editBlock, blockProps) => (
-    <EditBlockWrapper draginfo={draginfo} blockProps={blockProps}>
-      {editBlock}
-    </EditBlockWrapper>
-  );
-
-  const editBlockWrapper = children || defaultBlockWrapper;
+  const editBlockWrapper =
+    children ||
+    (props.isMainForm && config.settings.useQuantaToolbar
+      ? topLevelBlockWrapper
+      : defaultBlockWrapper);
 
   return (
     <div className="blocks-form" ref={ref}>
@@ -203,7 +218,7 @@ const BlocksForm = (props) => {
             };
             return editBlockWrapper(
               dragProps,
-              <EditBlock key={childId} {...blockProps} />,
+              <WrapperlessBlockEdit key={childId} {...blockProps} />,
               blockProps,
             );
           }}

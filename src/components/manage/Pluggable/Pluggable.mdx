@@ -45,7 +45,7 @@ are rendered.
 
 ```js
 <Pluggable name="block-toolbar">
-{(pluggables) => pluggables.map(p => <div>{p}</div>)
+{(pluggables) => pluggables.map(p => <div>{p()}</div>)
 </Pluggable>
 ```
 

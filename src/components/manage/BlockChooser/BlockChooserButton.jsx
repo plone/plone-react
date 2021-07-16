@@ -71,12 +71,12 @@ const BlockChooserButton = (props) => {
 
   return (
     <>
-      {!disableNewBlocks && !blockHasValue(data) && (
+      {!disableNewBlocks && !blockHasValue(data) ? (
         <Component
           {...props}
           onShowBlockChooser={() => setAddNewBlockOpened(true)}
         />
-      )}
+      ) : null}
       {addNewBlockOpened && (
         <BlockChooser
           onMutateBlock={

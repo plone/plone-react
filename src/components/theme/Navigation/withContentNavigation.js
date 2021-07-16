@@ -6,6 +6,8 @@ import useDeepCompareEffect from 'use-deep-compare-effect';
 import { getBaseUrl } from '@plone/volto/helpers';
 import { getContextNavigation } from '@plone/volto/actions';
 
+import { contextNavPath } from '@plone/volto/helpers/ContextNavigation';
+
 export function withContentNavigation(WrappedComponent) {
   /**
    * Options passed in params can be:
@@ -28,13 +30,7 @@ export function withContentNavigation(WrappedComponent) {
       params = {},
     } = props;
 
-    let qs = Object.keys(params)
-      .sort()
-      .map((key) => `expand.contextnavigation.${key}=${params[key]}`)
-      .join('&');
-    const path = `${pathname}${
-      pathname.endsWith('/') ? '' : '/'
-    }@contextnavigation${qs ? `?${qs}` : ''}`;
+    const path = contextNavPath(pathname, params);
 
     const dispatch = useDispatch();
     const nav = useSelector((state) => {

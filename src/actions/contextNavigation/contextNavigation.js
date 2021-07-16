@@ -4,6 +4,7 @@
  */
 
 import { GET_CONTEXT_NAVIGATION } from '@plone/volto/constants/ActionTypes';
+import { contextNavPath } from '@plone/volto/helpers/ContextNavigation';
 
 /**
  * Get the context navigation
@@ -13,11 +14,7 @@ import { GET_CONTEXT_NAVIGATION } from '@plone/volto/constants/ActionTypes';
  * @returns {Object} Get context navigation action
  */
 export function getContextNavigation(url, params = {}) {
-  let qs = Object.keys(params)
-    .sort()
-    .map((key) => `expand.contextnavigation.${key}=${params[key]}`)
-    .join('&');
-  const path = `${url}/@contextnavigation${qs ? `?${qs}` : ''}`;
+  const path = contextNavPath(url, params);
 
   return {
     type: GET_CONTEXT_NAVIGATION,

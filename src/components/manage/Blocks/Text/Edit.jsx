@@ -13,9 +13,12 @@ import isSoftNewlineEvent from 'draft-js/lib/isSoftNewlineEvent';
 import { defineMessages, injectIntl } from 'react-intl';
 import { includes, isEqual } from 'lodash';
 import { filterEditorState } from 'draftjs-filters';
+import { Plug } from '@plone/volto/components/manage/Pluggable';
+
 import config from '@plone/volto/registry';
 
 import { BlockChooserButton } from '@plone/volto/components';
+const PassThrough = (props) => props.children;
 
 const messages = defineMessages({
   text: {
@@ -211,6 +214,9 @@ class Edit extends Component {
       this.props.data?.disableNewBlocks || this.props.detached;
     const { InlineToolbar } = this.state.inlineToolbarPlugin;
     const { settings } = config;
+    const usesQuantaToolbar = settings.useQuantaToolbar; // && !usesClassicWrapper(this.props.data);
+    const PlugInsert = usesQuantaToolbar ? Plug : PassThrough;
+    const { selected } = this.props;
 
     return (
       <>
@@ -288,20 +294,28 @@ class Edit extends Component {
           }}
         />
         <InlineToolbar />
-        {this.props.selected && (
-          <BlockChooserButton
-            data={this.props.data}
-            block={this.props.block}
-            onInsertBlock={(id, value) => {
-              this.props.onSelectBlock(this.props.onInsertBlock(id, value));
-            }}
-            allowedBlocks={this.props.allowedBlocks}
-            blocksConfig={this.props.blocksConfig}
-            size="24px"
-            className="block-add-button"
-            properties={this.props.properties}
-          />
-        )}
+        <PlugInsert
+          pluggable="block-toolbar-main"
+          id="mutate-block-button-classic"
+          dependencies={[selected]}
+        >
+          <>
+            {selected ? (
+              <BlockChooserButton
+                data={this.props.data}
+                block={this.props.block}
+                onInsertBlock={(id, value) => {
+                  this.props.onSelectBlock(this.props.onInsertBlock(id, value));
+                }}
+                allowedBlocks={this.props.allowedBlocks}
+                blocksConfig={this.props.blocksConfig}
+                size="24px"
+                className="block-add-button"
+                properties={this.props.properties}
+              />
+            ) : null}
+          </>
+        </PlugInsert>
       </>
     );
   }
