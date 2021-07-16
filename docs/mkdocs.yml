@@ -57,6 +57,7 @@ nav:
       - App component insertion point: 'recipes/appextras.md'
       - Context navigation component: 'recipes/contextnavigation.md'
       - Pluggables: 'recipes/pluggables.md'
+      - Forms and widgets: 'recipes/widget.md'
   - Blocks:
       - Introduction: 'blocks/introduction.md'
       - Anatomy: 'blocks/anatomy.md'

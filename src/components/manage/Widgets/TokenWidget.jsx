@@ -140,10 +140,12 @@ class TokenWidget extends Component {
    */
   loadOptions(search) {
     return this.props.getVocabulary(this.vocabBaseUrl, search).then((resolve) =>
-      this.props.choices.map((item) => ({
-        label: item.value,
-        value: item.value,
-      })),
+      this.props.choices.map
+        .filter((item) => !this.state.selectedOption.includes(item.label))
+        .map((item) => ({
+          label: item.label || item.value,
+          value: item.value,
+        })),
     );
   }
 
@@ -158,7 +160,7 @@ class TokenWidget extends Component {
     this.setState({ selectedOption });
     this.props.onChange(
       this.props.id,
-      selectedOption ? selectedOption.map((item) => item.value) : null,
+      selectedOption ? selectedOption.map((item) => item.label) : null,
     );
   }
 
@@ -169,6 +171,15 @@ class TokenWidget extends Component {
    */
   render() {
     const { selectedOption } = this.state;
+    const defaultOptions = (this.props.choices || [])
+      .filter(
+        (item) =>
+          !this.state.selectedOption.find(({ label }) => label === item.label),
+      )
+      .map((item) => ({
+        label: item.label || item.value,
+        value: item.value,
+      }));
     const AsyncCreatableSelect = this.props.reactSelectAsyncCreateable.default;
 
     return (
@@ -177,7 +188,7 @@ class TokenWidget extends Component {
           isDisabled={this.props.isDisabled}
           className="react-select-container"
           classNamePrefix="react-select"
-          defaultOptions={this.props.choices || []}
+          defaultOptions={defaultOptions}
           styles={customSelectStyles}
           theme={selectTheme}
           components={{ DropdownIndicator, Option }}
@@ -209,7 +220,7 @@ export default compose(
         return {
           choices: vocabState.items
             ? vocabState.items.map((item) => ({
-                label: item.value,
+                label: item.label || item.value,
                 value: item.value,
               }))
             : [],
