@@ -55,7 +55,13 @@
 }
 
 .users-control-panel .ui.clearing.segment.actions {
+  display: inline-block;
+  width: 100%;
   text-transform: uppercase;
+}
+
+.users-control-panel table div.item::after {
+  display: none;
 }
 
 .ui.segment.imageborder {

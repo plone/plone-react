@@ -42,7 +42,8 @@ msgstr "Acção"
 #: components/manage/Actions/Actions
 #: components/manage/Contents/Contents
 #: components/manage/Controlpanels/ContentTypes
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
+#: components/manage/Controlpanels/Users/UsersControlpanel
 msgid "Actions"
 msgstr "Acções"
 
@@ -508,9 +509,9 @@ msgstr "Predefinido"
 #: components/manage/Contents/Contents
 #: components/manage/Contents/ContentsItem
 #: components/manage/Controlpanels/ContentTypesActions
+#: components/manage/Controlpanels/Groups/RenderGroups
 #: components/manage/Controlpanels/ModerateComments
-#: components/manage/Controlpanels/UsersControlpanelGroups
-#: components/manage/Controlpanels/UsersControlpanelUser
+#: components/manage/Controlpanels/Users/RenderUsers
 #: components/manage/Delete/Delete
 #: components/manage/Widgets/FormFieldWrapper
 #: components/manage/Widgets/ObjectBrowserWidget
@@ -581,7 +582,7 @@ msgstr "Dividir cada linha em células separadas"
 msgid "Do you really want to delete the following items?"
 msgstr "Quer mesmo eliminar os itens seguintes?"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
 msgid "Do you really want to delete the group {groupname}?"
 msgstr "Quer mesmo eliminar o grupo {groupname}?"
 
@@ -589,7 +590,7 @@ msgstr "Quer mesmo eliminar o grupo {groupname}?"
 msgid "Do you really want to delete the type {typename}?"
 msgstr ""
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Users/UsersControlpanel
 msgid "Do you really want to delete the user {username}?"
 msgstr "Quer mesmo eliminar o utilizador {username}?"
 
@@ -847,14 +848,24 @@ msgstr "Grupo"
 msgid "Group created"
 msgstr "Grupo criado"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: helpers/MessageLabels/MessageLabels
+msgid "Group roles updated"
+msgstr ""
+
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
 #: helpers/MessageLabels/MessageLabels
 msgid "Groupname"
 msgstr "Nome do grupo"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Controlpanels
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
+#: helpers/MessageLabels/MessageLabels
 msgid "Groups"
 msgstr "Grupos"
+
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
+msgid "Groups are logical collections of users, such as departments and business units. Groups are not directly related to permissions on a global level, you normally use Roles for that - and let certain Groups have a particular role. The symbol{plone_svg}indicates a role inherited from membership in another group."
+msgstr ""
 
 #: components/manage/Blocks/Table/Edit
 msgid "Header cell"
@@ -1281,6 +1292,10 @@ msgstr "Sem fluxo de trabalho"
 #: components/manage/Contents/ContentsItem
 msgid "None"
 msgstr "Nenhum"
+
+#: components/manage/Controlpanels/Users/UsersControlpanel
+msgid "Note that roles set here apply directly to a user. The symbol{plone_svg}indicates a role inherited from membership in a group."
+msgstr ""
 
 #: components/manage/Controlpanels/DatabaseInformation
 msgid "Number of active objects"
@@ -2132,26 +2147,27 @@ msgstr "Utilizador"
 msgid "User created"
 msgstr "Utilizador criado"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Users/UsersControlpanel
 msgid "User name"
 msgstr "Nome de utilizador"
+
+#: helpers/MessageLabels/MessageLabels
+msgid "User roles updated"
+msgstr ""
 
 #: helpers/MessageLabels/MessageLabels
 msgid "Username"
 msgstr "Nome de utilizador"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Controlpanels
+#: components/manage/Controlpanels/Users/UsersControlpanel
+#: helpers/MessageLabels/MessageLabels
 msgid "Users"
 msgstr "Utilizadores"
 
 #: components/manage/Controlpanels/Controlpanels
-#: helpers/MessageLabels/MessageLabels
 msgid "Users and Groups"
 msgstr "Utilizadores e Grupos"
-
-#: components/manage/Controlpanels/UsersControlpanel
-msgid "Users and groups settings"
-msgstr "Configurações de utilizadores e grupos"
 
 #: helpers/Extensions/withBlockSchemaEnhancer
 msgid "Variation"

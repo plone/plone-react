@@ -14,13 +14,11 @@ import {
   UPDATE_USER,
   INITIAL_PASSWORD,
   RESET_PASSWORD,
-  Show_All_USERS,
 } from '@plone/volto/constants/ActionTypes';
 
 const initialState = {
   user: {},
   users: [],
-  showAllUser: false,
   create: {
     error: null,
     loaded: false,
@@ -147,7 +145,7 @@ export default function users(state = initialState, action = {}) {
         [getRequestKey(action.type)]: {
           loading: false,
           loaded: false,
-          error: action.error.error,
+          error: action.error,
         },
       };
     case `${LIST_USERS}_FAIL`:
@@ -157,7 +155,7 @@ export default function users(state = initialState, action = {}) {
         [getRequestKey(action.type)]: {
           loading: false,
           loaded: false,
-          error: action.error.error,
+          error: action.error,
         },
       };
     case `${CREATE_USER}_FAIL`:
@@ -171,15 +169,9 @@ export default function users(state = initialState, action = {}) {
         [getRequestKey(action.type)]: {
           loading: false,
           loaded: false,
-          error: action.error.error,
+          error: action.error,
         },
       };
-    case Show_All_USERS: {
-      return {
-        ...state,
-        showAllUser: true,
-      };
-    }
     default:
       return state;
   }

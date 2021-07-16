@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-intl-redux';
 
-import UsersControlpanelUser from './UsersControlpanelUser';
+import RenderUsers from './RenderUsers';
 
 const mockStore = configureStore();
 
@@ -47,11 +47,7 @@ describe('UsersControlpanelUser', () => {
     });
     const component = renderer.create(
       <Provider store={store}>
-        <UsersControlpanelUser
-          user={testUser}
-          roles={testRoles}
-          onDelete={() => {}}
-        />
+        <RenderUsers user={testUser} roles={testRoles} onDelete={() => {}} />
       </Provider>,
     );
     const json = component.toJSON();

@@ -31,6 +31,7 @@ import sharing from '@plone/volto/reducers/sharing/sharing';
 import sidebar from '@plone/volto/reducers/sidebar/sidebar';
 import types from '@plone/volto/reducers/types/types';
 import users from '@plone/volto/reducers/users/users';
+import authRole from '@plone/volto/reducers/authRole/authRole';
 import userSession from '@plone/volto/reducers/userSession/userSession';
 import vocabularies from '@plone/volto/reducers/vocabularies/vocabularies';
 import workflow from '@plone/volto/reducers/workflow/workflow';
@@ -77,6 +78,7 @@ const reducers = {
   sidebar,
   types,
   users,
+  authRole,
   userSession,
   vocabularies,
   workflow,

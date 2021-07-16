@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UsersControlpanel renders a user control component 1`] = `
+<div
+  className="ui container users-control-panel"
+>
+  <div
+    className="container"
+  />
+  <div
+    className="ui raised segments"
+  >
+    <div
+      className="ui segment primary"
+    >
+      Users
+    </div>
+    <div
+      className="ui secondary segment"
+    >
+      Note that roles set here apply directly to a user. The symbol
+      <svg
+        className="icon"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<title>plone-svg</title>undefined",
+          }
+        }
+        onClick={null}
+        style={
+          Object {
+            "fill": "#007EB1",
+            "height": "20px",
+            "width": "auto",
+          }
+        }
+        viewBox=""
+        xmlns=""
+      />
+      indicates a role inherited from membership in a group.
+    </div>
+    <div
+      className="ui segment"
+    >
+      <form
+        className="ui form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="field"
+        >
+          <div
+            className="ui action input"
+          >
+            <input
+              id="user-search-input"
+              name="SearchableText"
+              onChange={[Function]}
+              placeholder="Search users…"
+              type="text"
+            />
+            <button
+              className="ui icon button"
+              onClick={[Function]}
+            >
+              <i
+                aria-hidden="true"
+                className="search icon"
+                onClick={[Function]}
+              />
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <form
+      className="ui form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="table"
+      >
+        <table
+          className="ui striped unstackable attached padded table"
+        >
+          <thead
+            className=""
+          >
+            <tr
+              className=""
+            >
+              <th
+                className=""
+              >
+                User name
+              </th>
+              <th
+                className=""
+              >
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            className=""
+            data-user="users"
+          />
+        </table>
+      </div>
+      <div
+        className="contents-pagination"
+      >
+        <div
+          className="ui secondary attached menu"
+        >
+          <div
+            className="menu"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    id="Portal"
+  />
+</div>
+`;

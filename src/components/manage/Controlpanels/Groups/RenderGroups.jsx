@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Dropdown, Table, Checkbox } from 'semantic-ui-react';
 import trashSVG from '@plone/volto/icons/delete.svg';
+import ploneSVG from '@plone/volto/icons/plone.svg';
 import { Icon } from '@plone/volto/components';
 
 /**
@@ -14,25 +15,28 @@ import { Icon } from '@plone/volto/components';
  * @class UsersControlpanelGroups
  * @extends Component
  */
-class UsersControlpanelGroups extends Component {
+class RenderGroups extends Component {
   /**
    * Property types.
    * @property {Object} propTypes Property types.
    * @static
    */
   static propTypes = {
-    groups: PropTypes.shape({
+    //single group
+    group: PropTypes.shape({
       title: PropTypes.string,
       description: PropTypes.string,
       email: PropTypes.string,
       groupname: PropTypes.string,
       roles: PropTypes.arrayOf(PropTypes.string),
     }).isRequired,
+
     roles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
       }),
     ).isRequired,
+    inheritedRole: PropTypes.array,
     onDelete: PropTypes.func.isRequired,
   };
 
@@ -58,21 +62,44 @@ class UsersControlpanelGroups extends Component {
   }
 
   /**
+   *@param {*}
+   *@returns {Boolean}
+   *@memberof RenderGroups
+   */
+  isAuthGroup = (roleId) => {
+    return this.props.inheritedRole.includes(roleId);
+  };
+  /**
    * Render method.
    * @method render
    * @returns {string} Markup for the component.
    */
   render() {
     return (
-      <Table.Row key={this.props.groups.title}>
-        <Table.Cell>{this.props.groups.groupname}</Table.Cell>
+      <Table.Row key={this.props.group.title}>
+        <Table.Cell>{this.props.group.groupname}</Table.Cell>
         {this.props.roles.map((role) => (
           <Table.Cell key={role.id}>
-            <Checkbox
-              checked={this.props.groups.roles.includes(role.id)}
-              onChange={this.onChange}
-              value={`${this.props.groups.id}.${role.id}`}
-            />
+            {this.props.inheritedRole &&
+            this.props.inheritedRole.includes(role.id) &&
+            this.props.group.roles.includes('Authenticated') ? (
+              <Icon
+                name={ploneSVG}
+                size="20px"
+                color="#007EB1"
+                title={'plone-svg'}
+              />
+            ) : (
+              <Checkbox
+                checked={
+                  this.props.group.id === 'AuthenticatedUsers'
+                    ? this.isAuthGroup(role.id)
+                    : this.props.group.roles.includes(role.id)
+                }
+                onChange={this.onChange}
+                value={`${this.props.group.id}.${role.id}`}
+              />
+            )}
           </Table.Cell>
         ))}
         <Table.Cell textAlign="right">
@@ -80,7 +107,7 @@ class UsersControlpanelGroups extends Component {
             <Dropdown.Menu className="left">
               <Dropdown.Item
                 onClick={this.props.onDelete}
-                value={this.props.groups['@id']}
+                value={this.props.group['@id']}
               >
                 <Icon name={trashSVG} size="15px" />
                 <FormattedMessage id="Delete" defaultMessage="Delete" />
@@ -93,4 +120,4 @@ class UsersControlpanelGroups extends Component {
   }
 }
 
-export default injectIntl(UsersControlpanelGroups);
+export default injectIntl(RenderGroups);

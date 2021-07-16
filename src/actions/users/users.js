@@ -12,7 +12,6 @@ import {
   UPDATE_PASSWORD,
   INITIAL_PASSWORD,
   RESET_PASSWORD,
-  Show_All_USERS,
 } from '@plone/volto/constants/ActionTypes';
 
 /**
@@ -76,17 +75,6 @@ export function listUsers(query) {
     request: query
       ? { op: 'get', path: `/@users?query=${query}` }
       : { op: 'get', path: '/@users' },
-  };
-}
-
-/**
- * Show All users function
- * @function showAllUsers
- * @returns boolean
- */
-export function showAllUsers() {
-  return {
-    type: Show_All_USERS,
   };
 }
 

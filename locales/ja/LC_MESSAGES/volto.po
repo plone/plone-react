@@ -41,7 +41,8 @@ msgstr "アクション"
 #: components/manage/Actions/Actions
 #: components/manage/Contents/Contents
 #: components/manage/Controlpanels/ContentTypes
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
+#: components/manage/Controlpanels/Users/UsersControlpanel
 msgid "Actions"
 msgstr "アクション"
 
@@ -507,9 +508,9 @@ msgstr "基本"
 #: components/manage/Contents/Contents
 #: components/manage/Contents/ContentsItem
 #: components/manage/Controlpanels/ContentTypesActions
+#: components/manage/Controlpanels/Groups/RenderGroups
 #: components/manage/Controlpanels/ModerateComments
-#: components/manage/Controlpanels/UsersControlpanelGroups
-#: components/manage/Controlpanels/UsersControlpanelUser
+#: components/manage/Controlpanels/Users/RenderUsers
 #: components/manage/Delete/Delete
 #: components/manage/Widgets/FormFieldWrapper
 #: components/manage/Widgets/ObjectBrowserWidget
@@ -580,7 +581,7 @@ msgstr "列の区切り線を表示"
 msgid "Do you really want to delete the following items?"
 msgstr "以下のアイテムを削除してよろしいですか?"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
 msgid "Do you really want to delete the group {groupname}?"
 msgstr "グループ {groupname} を削除してよろしいですか?"
 
@@ -588,7 +589,7 @@ msgstr "グループ {groupname} を削除してよろしいですか?"
 msgid "Do you really want to delete the type {typename}?"
 msgstr "本当にコンテンツタイプ {typename} を削除しますか?"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Users/UsersControlpanel
 msgid "Do you really want to delete the user {username}?"
 msgstr "ユーザ {username} を削除してよろしいですか?"
 
@@ -846,14 +847,24 @@ msgstr "グループ"
 msgid "Group created"
 msgstr "グループが作成されました"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: helpers/MessageLabels/MessageLabels
+msgid "Group roles updated"
+msgstr ""
+
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
 #: helpers/MessageLabels/MessageLabels
 msgid "Groupname"
 msgstr "グループ名"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Controlpanels
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
+#: helpers/MessageLabels/MessageLabels
 msgid "Groups"
 msgstr "グループ"
+
+#: components/manage/Controlpanels/Groups/GroupsControlpanel
+msgid "Groups are logical collections of users, such as departments and business units. Groups are not directly related to permissions on a global level, you normally use Roles for that - and let certain Groups have a particular role. The symbol{plone_svg}indicates a role inherited from membership in another group."
+msgstr ""
 
 #: components/manage/Blocks/Table/Edit
 msgid "Header cell"
@@ -1280,6 +1291,10 @@ msgstr "ワークフローなし"
 #: components/manage/Contents/ContentsItem
 msgid "None"
 msgstr "None"
+
+#: components/manage/Controlpanels/Users/UsersControlpanel
+msgid "Note that roles set here apply directly to a user. The symbol{plone_svg}indicates a role inherited from membership in a group."
+msgstr ""
 
 #: components/manage/Controlpanels/DatabaseInformation
 msgid "Number of active objects"
@@ -2131,26 +2146,27 @@ msgstr "ユーザ"
 msgid "User created"
 msgstr "ユーザを作成しました"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Users/UsersControlpanel
 msgid "User name"
 msgstr "ユーザ名"
+
+#: helpers/MessageLabels/MessageLabels
+msgid "User roles updated"
+msgstr ""
 
 #: helpers/MessageLabels/MessageLabels
 msgid "Username"
 msgstr "ユーザ名"
 
-#: components/manage/Controlpanels/UsersControlpanel
+#: components/manage/Controlpanels/Controlpanels
+#: components/manage/Controlpanels/Users/UsersControlpanel
+#: helpers/MessageLabels/MessageLabels
 msgid "Users"
 msgstr "ユーザ"
 
 #: components/manage/Controlpanels/Controlpanels
-#: helpers/MessageLabels/MessageLabels
 msgid "Users and Groups"
 msgstr "ユーザとグループ"
-
-#: components/manage/Controlpanels/UsersControlpanel
-msgid "Users and groups settings"
-msgstr "ユーザとグループの設定"
 
 #: helpers/Extensions/withBlockSchemaEnhancer
 msgid "Variation"

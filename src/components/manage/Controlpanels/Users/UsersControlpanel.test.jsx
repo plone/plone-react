@@ -6,11 +6,9 @@ import { Provider } from 'react-intl-redux';
 import UsersControlpanel from './UsersControlpanel';
 
 const mockStore = configureStore();
-
 jest.mock('react-portal', () => ({
   Portal: jest.fn(() => <div id="Portal" />),
 }));
-
 describe('UsersControlpanel', () => {
   it('renders a user control component', () => {
     const store = mockStore({
@@ -22,6 +20,9 @@ describe('UsersControlpanel', () => {
       groups: {
         groups: [],
         create: { loading: false },
+      },
+      authRole: {
+        authenticatedRole: [],
       },
       intl: {
         locale: 'en',

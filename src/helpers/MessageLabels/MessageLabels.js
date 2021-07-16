@@ -142,6 +142,14 @@ export const messages = defineMessages({
     id: 'Roles',
     defaultMessage: 'Roles',
   },
+  updateRoles: {
+    id: 'User roles updated',
+    defaultMessage: 'User roles updated',
+  },
+  updateGroups: {
+    id: 'Group roles updated',
+    defaultMessage: 'Group roles updated',
+  },
   addGroupsFormRolesTitle: {
     id: 'Roles',
     defaultMessage: 'Roles',
@@ -158,9 +166,13 @@ export const messages = defineMessages({
     id: 'Group created',
     defaultMessage: 'Group created',
   },
-  usersAndGroups: {
-    id: 'Users and Groups',
-    defaultMessage: 'Users and Groups',
+  users: {
+    id: 'Users',
+    defaultMessage: 'Users',
+  },
+  groups: {
+    id: 'Groups',
+    defaultMessage: 'Groups',
   },
   copyBlocks: {
     id: 'Copy blocks',

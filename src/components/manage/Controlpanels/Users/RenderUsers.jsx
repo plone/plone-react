@@ -8,13 +8,14 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { Dropdown, Table, Checkbox } from 'semantic-ui-react';
 import trashSVG from '@plone/volto/icons/delete.svg';
 import { Icon } from '@plone/volto/components';
+import ploneSVG from '@plone/volto/icons/plone.svg';
 
 /**
  * UsersControlpanelUser class.
  * @class UsersControlpanelUser
  * @extends Component
  */
-class UsersControlpanelUser extends Component {
+class RenderUsers extends Component {
   /**
    * Property types.
    * @property {Object} propTypes Property types.
@@ -70,11 +71,21 @@ class UsersControlpanelUser extends Component {
         </Table.Cell>
         {this.props.roles.map((role) => (
           <Table.Cell key={role.id}>
-            <Checkbox
-              checked={this.props.user.roles.includes(role.id)}
-              onChange={this.onChange}
-              value={`${this.props.user.id}.${role.id}`}
-            />
+            {this.props.inheritedRole &&
+            this.props.inheritedRole.includes(role.id) ? (
+              <Icon
+                name={ploneSVG}
+                size="20px"
+                color="#007EB1"
+                title={'plone-svg'}
+              />
+            ) : (
+              <Checkbox
+                checked={this.props.user.roles.includes(role.id)}
+                onChange={this.onChange}
+                value={`${this.props.user.id}.${role.id}`}
+              />
+            )}
           </Table.Cell>
         ))}
         <Table.Cell textAlign="right">
@@ -95,4 +106,4 @@ class UsersControlpanelUser extends Component {
   }
 }
 
-export default injectIntl(UsersControlpanelUser);
+export default injectIntl(RenderUsers);
