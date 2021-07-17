@@ -1,5 +1,5 @@
 import React from 'react';
-import EditBlock from './Edit';
+import EditBlock from './WrapperlessBlockEdit';
 import { DragDropList } from '@plone/volto/components';
 import { getBlocks } from '@plone/volto/helpers';
 import {

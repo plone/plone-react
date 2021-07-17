@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-intl-redux';
+import { MemoryRouter } from 'react-router-dom';
 
 import View from './View';
 import config from '@plone/volto/registry';
@@ -149,7 +150,9 @@ describe('View', () => {
     });
     const component = renderer.create(
       <Provider store={store}>
-        <View location={{ pathname: '/test' }} />
+        <MemoryRouter initialEntries={[{ pathname: '/test' }]}>
+          <View location={{ pathname: '/test' }} />
+        </MemoryRouter>
       </Provider>,
     );
     const json = component.toJSON();
@@ -169,7 +172,9 @@ describe('View', () => {
     });
     const component = renderer.create(
       <Provider store={store}>
-        <View location={{ pathname: '/test' }} />
+        <MemoryRouter initialEntries={[{ pathname: '/test' }]}>
+          <View location={{ pathname: '/test' }} />
+        </MemoryRouter>
       </Provider>,
     );
     const json = component.toJSON();
@@ -189,7 +194,9 @@ describe('View', () => {
     });
     const component = renderer.create(
       <Provider store={store}>
-        <View location={{ pathname: '/test' }} />
+        <MemoryRouter initialEntries={[{ pathname: '/test' }]}>
+          <View location={{ pathname: '/test' }} />
+        </MemoryRouter>
       </Provider>,
     );
     const json = component.toJSON();
@@ -209,7 +216,9 @@ describe('View', () => {
     });
     const component = renderer.create(
       <Provider store={store}>
-        <View location={{ pathname: '/test' }} />
+        <MemoryRouter initialEntries={[{ pathname: '/test' }]}>
+          <View location={{ pathname: '/test' }} />
+        </MemoryRouter>
       </Provider>,
     );
     const json = component.toJSON();

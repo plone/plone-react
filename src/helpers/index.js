@@ -81,6 +81,7 @@ export {
   withBlockExtensions,
 } from './Extensions';
 export { asyncConnect } from './AsyncConnect';
+export * from './Slots';
 export { userHasRoles } from './User/User';
 // export { injectLazyLibs } from './Loadable/Loadable';
 export { useDetectClickOutside } from './Utils/useDetectClickOutside';

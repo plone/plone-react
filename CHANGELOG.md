@@ -197,6 +197,22 @@
 
 ### Breaking
 
+- Add a new config registry, the `toolbar`. You should migrate your projects `config.js` to export the `toolbar` registry. @tiberiuichim @ksuess
+
+- Introduction of the new Volto's Configuration Registry @sneridagh @tiberiuichim
+  For more information about this breaking change: https://docs.voltocms.com/upgrade-guide/#upgrading-to-volto-12xx
+
+### Feature
+
+### Bugfix
+
+### Internal
+
+## 11.1.0 (2021-02-08)
+
+- Introduction of the new Volto's Configuration Registry @sneridagh @tiberiuichim
+  For more information about this breaking change: https://docs.voltocms.com/upgrade-guide/#upgrading-to-volto-12xx
+
 - Seamless mode by default in development. Added `Host` header support for production
   deployments, so no `RAZZLE_API_PATH` is required in production builds anymore if the
   header is present. Not an strictly breaking change, but it's a default behavior change
@@ -432,10 +448,15 @@ https://docs.voltocms.com/upgrade-guide/
 
 ### Bugfix
 
+- Don't show empty groups in BlockChooser @tiberiuichim
+
 - Include selected block in multiselections @sneridagh
 - Correct the selected values rendering at isMulti SelectWidget @ionlizarazu
 
 ### Internal
+
+- BlocksForm and RenderBlocks now allow a `blocksConfig` configuration object as a prop @tiberiuichim
+- Upgrade Storybook to 6.2.2 @tiberiuichim
 
 - Implement Github actions workflow to deploy the documentation to the Plone Foundation server @ericof
 - Pin `immutable` to an updated version that does not produce continuous deprecation notices in console on every change @sneridagh
@@ -698,6 +719,7 @@ https://docs.voltocms.com/upgrade-guide/
 - Add `preloadLazyLibs` and `settings.lazyBundles` to allow preloading bundles of lazy libraries @tiberiuichim @silviubogan
 - Added onChangeFormData prop to Form component @giuliaghisini
 - Internationalization story for add-ons @sneridagh
+- Allow configuration of Toolbar actions @tiberiuichim
 - robots.txt from plone as fallback (if /public/robots.txt not exists and .env VOLTO_ROBOTSTXT variable not exists.) @giuliaghisini
 - UniversalLink and ConditionalLink accepts also an item to link to. If item is of @type Link, a direct link to remote url is generated if user is not logged. @giuliaghisini
 

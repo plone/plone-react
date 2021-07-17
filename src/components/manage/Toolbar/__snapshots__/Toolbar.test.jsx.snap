@@ -24,128 +24,12 @@ Array [
       <div
         className="toolbar-actions"
       >
-        <a
-          aria-label="Edit"
-          className="edit"
-          href="/test/edit"
-          onClick={[Function]}
-        >
-          <svg
-            className="icon circled"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined,
-              }
-            }
-            onClick={null}
-            style={
-              Object {
-                "fill": "currentColor",
-                "height": "30px",
-                "width": "auto",
-              }
-            }
-            viewBox=""
-            xmlns=""
-          />
-        </a>
-        <a
-          aria-label="Contents"
-          href="/test/contents"
-          onClick={[Function]}
-        >
-          <svg
-            className="icon"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined,
-              }
-            }
-            onClick={null}
-            style={
-              Object {
-                "fill": "currentColor",
-                "height": "30px",
-                "width": "auto",
-              }
-            }
-            viewBox=""
-            xmlns=""
-          />
-        </a>
-        <button
-          aria-label="Add"
-          className="add"
-          id="toolbar-add"
-          onClick={[Function]}
-          tabIndex={0}
-        >
-          <svg
-            className="icon"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined,
-              }
-            }
-            onClick={null}
-            style={
-              Object {
-                "fill": "currentColor",
-                "height": "30px",
-                "width": "auto",
-              }
-            }
-            viewBox=""
-            xmlns=""
-          />
-        </button>
+        <span />
         <div
-          className="toolbar-button-spacer"
-        />
-        <button
-          aria-label="More"
-          className="more"
-          id="toolbar-more"
-          onClick={[Function]}
-          tabIndex={0}
+          className="view-button"
         >
-          <svg
-            className="icon mobile hidden"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined,
-              }
-            }
-            onClick={null}
-            style={
-              Object {
-                "fill": "currentColor",
-                "height": "30px",
-                "width": "auto",
-              }
-            }
-            viewBox=""
-            xmlns=""
-          />
-          <svg
-            className="icon mobile only"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined,
-              }
-            }
-            onClick={null}
-            style={
-              Object {
-                "fill": "currentColor",
-                "height": "30px",
-                "width": "auto",
-              }
-            }
-            viewBox=""
-            xmlns=""
-          />
-        </button>
+          View
+        </div>
       </div>
       <div
         className="toolbar-bottom"
@@ -155,32 +39,11 @@ Array [
           className="minipastanaga"
           src="pastanaga-small.svg"
         />
-        <button
-          aria-label="Personal tools"
-          className="user"
-          id="toolbar-personal"
-          onClick={[Function]}
-          tabIndex={0}
+        <div
+          className="view-button"
         >
-          <svg
-            className="icon"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined,
-              }
-            }
-            onClick={null}
-            style={
-              Object {
-                "fill": "currentColor",
-                "height": "30px",
-                "width": "auto",
-              }
-            }
-            viewBox=""
-            xmlns=""
-          />
-        </button>
+          Bottom
+        </div>
         <div
           className="divider"
         />

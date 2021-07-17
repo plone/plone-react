@@ -28,6 +28,9 @@ import EditMapBlock from '@plone/volto/components/manage/Blocks/Maps/Edit';
 import EditHTMLBlock from '@plone/volto/components/manage/Blocks/HTML/Edit';
 import EditTableBlock from '@plone/volto/components/manage/Blocks/Table/Edit';
 
+import ContextNavigationEdit from '@plone/volto/components/manage/Blocks/ContextNavigation/ContextNavigationEdit';
+import ContextNavigationView from '@plone/volto/components/manage/Blocks/ContextNavigation/ContextNavigationView';
+
 import descriptionSVG from '@plone/volto/icons/description.svg';
 import titleSVG from '@plone/volto/icons/text.svg';
 import textSVG from '@plone/volto/icons/subtext.svg';
@@ -108,6 +111,10 @@ defineMessages({
     id: 'common',
     defaultMessage: 'Common',
   },
+  site: {
+    id: 'site',
+    defaultMessage: 'Site',
+  },
 });
 
 const groupBlocksOrder = [
@@ -115,6 +122,7 @@ const groupBlocksOrder = [
   { id: 'text', title: 'Text' },
   { id: 'media', title: 'Media' },
   { id: 'common', title: 'Common' },
+  { id: 'site', title: 'Site' },
 ];
 
 const blocksConfig = {
@@ -335,6 +343,24 @@ const blocksConfig = {
     edit: EditTableBlock,
     schema: BlockSettingsSchema,
     restricted: false,
+    mostUsed: false,
+    blockHasOwnFocusManagement: true,
+    sidebarTab: 1,
+    security: {
+      addPermission: [],
+      view: [],
+    },
+  },
+  contextNavigation: {
+    id: 'contextNavigation',
+    title: 'Navigation',
+    icon: tableSVG,
+    group: 'site',
+    view: ContextNavigationView,
+    edit: ContextNavigationEdit,
+    schema: BlockSettingsSchema,
+    restricted: true,
+    isSlotFill: true,
     mostUsed: false,
     blockHasOwnFocusManagement: true,
     sidebarTab: 1,

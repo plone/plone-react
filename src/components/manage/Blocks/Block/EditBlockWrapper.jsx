@@ -2,12 +2,12 @@ import React from 'react';
 import { Icon } from '@plone/volto/components';
 import { blockHasValue } from '@plone/volto/helpers';
 import dragSVG from '@plone/volto/icons/drag.svg';
+import { injectIntl, defineMessages } from 'react-intl';
+
+import config from '@plone/volto/registry';
 import { Button } from 'semantic-ui-react';
 import includes from 'lodash/includes';
 import isBoolean from 'lodash/isBoolean';
-import { defineMessages, injectIntl } from 'react-intl';
-import config from '@plone/volto/registry';
-
 import trashSVG from '@plone/volto/icons/delete.svg';
 
 const messages = defineMessages({

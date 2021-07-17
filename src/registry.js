@@ -79,6 +79,14 @@ class Config {
   set slots(slots) {
     this._data.slots = slots;
   }
+
+  get toolbar() {
+    return this._data.toolbar;
+  }
+
+  set toolbar(toolbar) {
+    this._data.toolbar = toolbar;
+  }
 }
 
 const instance = new Config();

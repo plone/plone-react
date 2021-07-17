@@ -36,6 +36,7 @@ import {
   getNavigation,
   getTypes,
   getWorkflow,
+  getSlots,
 } from '@plone/volto/actions';
 
 import clearSVG from '@plone/volto/icons/clear.svg';
@@ -217,6 +218,11 @@ export default compose(
       key: 'workflow',
       promise: ({ location, store: { dispatch } }) =>
         __SERVER__ && dispatch(getWorkflow(getBaseUrl(location.pathname))),
+    },
+    {
+      key: 'slots',
+      promise: ({ location, store: { dispatch } }) =>
+        __SERVER__ && dispatch(getSlots(getBaseUrl(location.pathname))),
     },
   ]),
   connect(

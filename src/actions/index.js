@@ -119,6 +119,7 @@ export {
 export { loadLazyLibrary } from '@plone/volto/actions/lazyLibraries/lazyLibraries';
 export { getContextNavigation } from '@plone/volto/actions/contextNavigation/contextNavigation';
 export * from './asyncConnect/asyncConnect';
+export { getSlots, saveSlot } from './slots/slots';
 export { changeLanguage, changeLanguageCookies } from './language/language';
 export {
   applyWorkingCopy,

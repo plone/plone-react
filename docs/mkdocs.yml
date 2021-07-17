@@ -37,7 +37,7 @@ nav:
       - Working copy: 'configuration/workingcopy.md'
       - Environment variables: 'configuration/environmentvariables.md'
       - API expanders: 'configuration/expanders.md'
-  - Theming & Semantic UI:
+  - Theming &amp; Semantic UI:
       - About Semantic UI: 'theming/about-semantic.md'
       - Semantic UI Theming: 'theming/semanticui-theming.md'
       - Theming Engine: 'theming/theming-engine.md'
@@ -57,12 +57,15 @@ nav:
       - App component insertion point: 'recipes/appextras.md'
       - Context navigation component: 'recipes/contextnavigation.md'
       - Pluggables: 'recipes/pluggables.md'
+      - Toolbar: 'recipes/toolbar.md'
   - Blocks:
       - Introduction: 'blocks/introduction.md'
       - Anatomy: 'blocks/anatomy.md'
       - Settings: 'blocks/settings.md'
       - Edit components: 'blocks/editcomponent.md'
       - Extensions: 'blocks/extensions.md'
+  - Slots:
+      - Anatomy: 'slots/anatomy.md'
   - Addons:
       - Introduction: 'addons/index.md'
       - Internationalization: 'addons/i18n.md'

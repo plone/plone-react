@@ -132,7 +132,7 @@ describe('Toolbar', () => {
       <Provider store={store}>
         <PluggablesProvider>
           <MemoryRouter>
-            <Toolbar pathname="/test" inner={<span />} />
+            <Toolbar pathname="/test" inner={<span />} activity="view" />
           </MemoryRouter>
         </PluggablesProvider>
       </Provider>,
