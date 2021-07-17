@@ -1584,6 +1584,7 @@ https://docs.voltocms.com/upgrade-guide/
 
 ### Bugfix
 
+- Fix for content overflow in folder contents view @nileshgulia1
 - Japanese translation updated @terapyon
 - Bugfix Edit page through Contents list #1594 @terapyon @csenger
 

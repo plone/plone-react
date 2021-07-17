@@ -971,694 +971,698 @@ exports[`Contents renders a folder contents view component 1`] = `
                 </div>
               </div>
             </div>
-            <table
-              className="ui selectable single line attached compact table"
+            <div
+              className="table-scrollbar"
             >
-              <thead
-                className=""
+              <table
+                className="ui selectable single line attached compact table"
               >
-                <tr
+                <thead
                   className=""
                 >
-                  <th
+                  <tr
                     className=""
                   >
-                    <div
-                      aria-expanded={false}
-                      aria-label="sort"
-                      className="ui simple dropdown sort-icon"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseDown={[Function]}
-                      role="listbox"
-                      tabIndex={0}
+                    <th
+                      className=""
                     >
-                      <svg
-                        className="icon configuration-svg"
-                        dangerouslySetInnerHTML={
-                          Object {
-                            "__html": undefined,
-                          }
-                        }
-                        onClick={null}
-                        style={
-                          Object {
-                            "fill": "#826a6a",
-                            "height": "24px",
-                            "width": "auto",
-                          }
-                        }
-                        viewBox=""
-                        xmlns=""
-                      />
                       <div
-                        className="menu transition"
+                        aria-expanded={false}
+                        aria-label="sort"
+                        className="ui simple dropdown sort-icon"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseDown={[Function]}
+                        role="listbox"
+                        tabIndex={0}
                       >
-                        <div
-                          className="header"
-                        >
-                          Rearrange items by…
-                        </div>
-                        <div
-                          className="item sort_id icon-align"
-                          onClick={[Function]}
-                          role="option"
-                        >
-                          <svg
-                            className="icon"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": undefined,
-                              }
+                        <svg
+                          className="icon configuration-svg"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": undefined,
                             }
-                            onClick={null}
-                            style={
-                              Object {
-                                "fill": "currentColor",
-                                "height": "24px",
-                                "width": "auto",
-                              }
+                          }
+                          onClick={null}
+                          style={
+                            Object {
+                              "fill": "#826a6a",
+                              "height": "24px",
+                              "width": "auto",
                             }
-                            viewBox=""
-                            xmlns=""
-                          />
-                          ID
+                          }
+                          viewBox=""
+                          xmlns=""
+                        />
+                        <div
+                          className="menu transition"
+                        >
                           <div
-                            className="menu transition"
+                            className="header"
                           >
+                            Rearrange items by…
+                          </div>
+                          <div
+                            className="item sort_id icon-align"
+                            onClick={[Function]}
+                            role="option"
+                          >
+                            <svg
+                              className="icon"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": undefined,
+                                }
+                              }
+                              onClick={null}
+                              style={
+                                Object {
+                                  "fill": "currentColor",
+                                  "height": "24px",
+                                  "width": "auto",
+                                }
+                              }
+                              viewBox=""
+                              xmlns=""
+                            />
+                            ID
                             <div
-                              className="item sort_id_ascending icon-align"
-                              onClick={[Function]}
-                              role="option"
+                              className="menu transition"
                             >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                              <div
+                                className="item sort_id_ascending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Ascending
-                            </div>
-                            <div
-                              className="item sort_id_descending icon-align"
-                              onClick={[Function]}
-                              role="option"
-                            >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Ascending
+                              </div>
+                              <div
+                                className="item sort_id_descending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Descending
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Descending
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          className="item sort_sortable_title icon-align"
-                          onClick={[Function]}
-                          role="option"
-                        >
-                          <svg
-                            className="icon"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": undefined,
-                              }
-                            }
-                            onClick={null}
-                            style={
-                              Object {
-                                "fill": "currentColor",
-                                "height": "24px",
-                                "width": "auto",
-                              }
-                            }
-                            viewBox=""
-                            xmlns=""
-                          />
-                          Title
                           <div
-                            className="menu transition"
+                            className="item sort_sortable_title icon-align"
+                            onClick={[Function]}
+                            role="option"
                           >
+                            <svg
+                              className="icon"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": undefined,
+                                }
+                              }
+                              onClick={null}
+                              style={
+                                Object {
+                                  "fill": "currentColor",
+                                  "height": "24px",
+                                  "width": "auto",
+                                }
+                              }
+                              viewBox=""
+                              xmlns=""
+                            />
+                            Title
                             <div
-                              className="item sort_sortable_title_ascending icon-align"
-                              onClick={[Function]}
-                              role="option"
+                              className="menu transition"
                             >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                              <div
+                                className="item sort_sortable_title_ascending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Ascending
-                            </div>
-                            <div
-                              className="item sort_sortable_title_descending icon-align"
-                              onClick={[Function]}
-                              role="option"
-                            >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Ascending
+                              </div>
+                              <div
+                                className="item sort_sortable_title_descending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Descending
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Descending
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          className="item sort_EffectiveDate icon-align"
-                          onClick={[Function]}
-                          role="option"
-                        >
-                          <svg
-                            className="icon"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": undefined,
-                              }
-                            }
-                            onClick={null}
-                            style={
-                              Object {
-                                "fill": "currentColor",
-                                "height": "24px",
-                                "width": "auto",
-                              }
-                            }
-                            viewBox=""
-                            xmlns=""
-                          />
-                          Publication date
                           <div
-                            className="menu transition"
+                            className="item sort_EffectiveDate icon-align"
+                            onClick={[Function]}
+                            role="option"
                           >
+                            <svg
+                              className="icon"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": undefined,
+                                }
+                              }
+                              onClick={null}
+                              style={
+                                Object {
+                                  "fill": "currentColor",
+                                  "height": "24px",
+                                  "width": "auto",
+                                }
+                              }
+                              viewBox=""
+                              xmlns=""
+                            />
+                            Publication date
                             <div
-                              className="item sort_effective_ascending icon-align"
-                              onClick={[Function]}
-                              role="option"
+                              className="menu transition"
                             >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                              <div
+                                className="item sort_effective_ascending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Ascending
-                            </div>
-                            <div
-                              className="item sort_effective_descending icon-align"
-                              onClick={[Function]}
-                              role="option"
-                            >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Ascending
+                              </div>
+                              <div
+                                className="item sort_effective_descending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Descending
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Descending
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          className="item sort_CreationDate icon-align"
-                          onClick={[Function]}
-                          role="option"
-                        >
-                          <svg
-                            className="icon"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": undefined,
-                              }
-                            }
-                            onClick={null}
-                            style={
-                              Object {
-                                "fill": "currentColor",
-                                "height": "24px",
-                                "width": "auto",
-                              }
-                            }
-                            viewBox=""
-                            xmlns=""
-                          />
-                          Created on
                           <div
-                            className="menu transition"
+                            className="item sort_CreationDate icon-align"
+                            onClick={[Function]}
+                            role="option"
                           >
+                            <svg
+                              className="icon"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": undefined,
+                                }
+                              }
+                              onClick={null}
+                              style={
+                                Object {
+                                  "fill": "currentColor",
+                                  "height": "24px",
+                                  "width": "auto",
+                                }
+                              }
+                              viewBox=""
+                              xmlns=""
+                            />
+                            Created on
                             <div
-                              className="item sort_created_ascending icon-align"
-                              onClick={[Function]}
-                              role="option"
+                              className="menu transition"
                             >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                              <div
+                                className="item sort_created_ascending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Ascending
-                            </div>
-                            <div
-                              className="item sort_created_descending icon-align"
-                              onClick={[Function]}
-                              role="option"
-                            >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Ascending
+                              </div>
+                              <div
+                                className="item sort_created_descending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Descending
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Descending
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          className="item sort_ModificationDate icon-align"
-                          onClick={[Function]}
-                          role="option"
-                        >
-                          <svg
-                            className="icon"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": undefined,
-                              }
-                            }
-                            onClick={null}
-                            style={
-                              Object {
-                                "fill": "currentColor",
-                                "height": "24px",
-                                "width": "auto",
-                              }
-                            }
-                            viewBox=""
-                            xmlns=""
-                          />
-                          Last modified
                           <div
-                            className="menu transition"
+                            className="item sort_ModificationDate icon-align"
+                            onClick={[Function]}
+                            role="option"
                           >
+                            <svg
+                              className="icon"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": undefined,
+                                }
+                              }
+                              onClick={null}
+                              style={
+                                Object {
+                                  "fill": "currentColor",
+                                  "height": "24px",
+                                  "width": "auto",
+                                }
+                              }
+                              viewBox=""
+                              xmlns=""
+                            />
+                            Last modified
                             <div
-                              className="item sort_modified_ascending icon-align"
-                              onClick={[Function]}
-                              role="option"
+                              className="menu transition"
                             >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                              <div
+                                className="item sort_modified_ascending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Ascending
-                            </div>
-                            <div
-                              className="item sort_modified_descending icon-align"
-                              onClick={[Function]}
-                              role="option"
-                            >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Ascending
+                              </div>
+                              <div
+                                className="item sort_modified_descending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Descending
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Descending
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          className="item sort_portal_type icon-align"
-                          onClick={[Function]}
-                          role="option"
-                        >
-                          <svg
-                            className="icon"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": undefined,
-                              }
-                            }
-                            onClick={null}
-                            style={
-                              Object {
-                                "fill": "currentColor",
-                                "height": "24px",
-                                "width": "auto",
-                              }
-                            }
-                            viewBox=""
-                            xmlns=""
-                          />
-                          Type
                           <div
-                            className="menu transition"
+                            className="item sort_portal_type icon-align"
+                            onClick={[Function]}
+                            role="option"
                           >
+                            <svg
+                              className="icon"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": undefined,
+                                }
+                              }
+                              onClick={null}
+                              style={
+                                Object {
+                                  "fill": "currentColor",
+                                  "height": "24px",
+                                  "width": "auto",
+                                }
+                              }
+                              viewBox=""
+                              xmlns=""
+                            />
+                            Type
                             <div
-                              className="item sort_portal_type_ascending icon-align"
-                              onClick={[Function]}
-                              role="option"
+                              className="menu transition"
                             >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                              <div
+                                className="item sort_portal_type_ascending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Ascending
-                            </div>
-                            <div
-                              className="item sort_portal_type_descending icon-align"
-                              onClick={[Function]}
-                              role="option"
-                            >
-                              <svg
-                                className="icon"
-                                dangerouslySetInnerHTML={
-                                  Object {
-                                    "__html": undefined,
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Ascending
+                              </div>
+                              <div
+                                className="item sort_portal_type_descending icon-align"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <svg
+                                  className="icon"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": undefined,
+                                    }
                                   }
-                                }
-                                onClick={null}
-                                style={
-                                  Object {
-                                    "fill": "currentColor",
-                                    "height": "24px",
-                                    "width": "auto",
+                                  onClick={null}
+                                  style={
+                                    Object {
+                                      "fill": "currentColor",
+                                      "height": "24px",
+                                      "width": "auto",
+                                    }
                                   }
-                                }
-                                viewBox=""
-                                xmlns=""
-                              />
-                               
-                              Descending
+                                  viewBox=""
+                                  xmlns=""
+                                />
+                                 
+                                Descending
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </th>
-                  <th
-                    className=""
-                  >
-                    <div
-                      aria-expanded={false}
-                      className="ui dropdown"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseDown={[Function]}
-                      role="listbox"
-                      tabIndex={0}
+                    </th>
+                    <th
+                      className=""
                     >
-                      <svg
-                        className="icon"
-                        dangerouslySetInnerHTML={
-                          Object {
-                            "__html": undefined,
-                          }
-                        }
-                        onClick={null}
-                        style={
-                          Object {
-                            "fill": "#826a6a",
-                            "height": "24px",
-                            "width": "auto",
-                          }
-                        }
-                        viewBox=""
-                        xmlns=""
-                      />
                       <div
-                        className="menu transition"
+                        aria-expanded={false}
+                        className="ui dropdown"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseDown={[Function]}
+                        role="listbox"
+                        tabIndex={0}
                       >
-                        <div
-                          className="header"
-                        >
-                          Select…
-                        </div>
-                        <div
-                          className="item"
-                          onClick={[Function]}
-                          role="option"
-                        >
-                          <svg
-                            className="icon"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": undefined,
-                              }
+                        <svg
+                          className="icon"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": undefined,
                             }
-                            onClick={null}
-                            style={
-                              Object {
-                                "fill": "#007eb1",
-                                "height": "24px",
-                                "width": "auto",
-                              }
+                          }
+                          onClick={null}
+                          style={
+                            Object {
+                              "fill": "#826a6a",
+                              "height": "24px",
+                              "width": "auto",
                             }
-                            viewBox=""
-                            xmlns=""
-                          />
-                           
-                          All
-                        </div>
-                        <div
-                          className="item"
-                          onClick={[Function]}
-                          role="option"
-                        >
-                          <svg
-                            className="icon"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": undefined,
-                              }
-                            }
-                            onClick={null}
-                            style={
-                              Object {
-                                "fill": "currentColor",
-                                "height": "24px",
-                                "width": "auto",
-                              }
-                            }
-                            viewBox=""
-                            xmlns=""
-                          />
-                           
-                          None
-                        </div>
-                        <div
-                          className="divider"
+                          }
+                          viewBox=""
+                          xmlns=""
                         />
                         <div
-                          className="header"
+                          className="menu transition"
                         >
-                          0 selected
-                        </div>
-                        <div
-                          className="ui left icon input search"
-                        >
-                          <input
-                            onChange={[Function]}
-                            placeholder="Filter…"
-                            type="text"
-                          />
-                          <svg
-                            className="icon"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": undefined,
+                          <div
+                            className="header"
+                          >
+                            Select…
+                          </div>
+                          <div
+                            className="item"
+                            onClick={[Function]}
+                            role="option"
+                          >
+                            <svg
+                              className="icon"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": undefined,
+                                }
                               }
-                            }
-                            onClick={null}
-                            style={
-                              Object {
-                                "fill": "currentColor",
-                                "height": "24px",
-                                "width": "auto",
+                              onClick={null}
+                              style={
+                                Object {
+                                  "fill": "#007eb1",
+                                  "height": "24px",
+                                  "width": "auto",
+                                }
                               }
-                            }
-                            viewBox=""
-                            xmlns=""
+                              viewBox=""
+                              xmlns=""
+                            />
+                             
+                            All
+                          </div>
+                          <div
+                            className="item"
+                            onClick={[Function]}
+                            role="option"
+                          >
+                            <svg
+                              className="icon"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": undefined,
+                                }
+                              }
+                              onClick={null}
+                              style={
+                                Object {
+                                  "fill": "currentColor",
+                                  "height": "24px",
+                                  "width": "auto",
+                                }
+                              }
+                              viewBox=""
+                              xmlns=""
+                            />
+                             
+                            None
+                          </div>
+                          <div
+                            className="divider"
+                          />
+                          <div
+                            className="header"
+                          >
+                            0 selected
+                          </div>
+                          <div
+                            className="ui left icon input search"
+                          >
+                            <input
+                              onChange={[Function]}
+                              placeholder="Filter…"
+                              type="text"
+                            />
+                            <svg
+                              className="icon"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": undefined,
+                                }
+                              }
+                              onClick={null}
+                              style={
+                                Object {
+                                  "fill": "currentColor",
+                                  "height": "24px",
+                                  "width": "auto",
+                                }
+                              }
+                              viewBox=""
+                              xmlns=""
+                            />
+                          </div>
+                          <div
+                            className="scrolling menu transition"
                           />
                         </div>
-                        <div
-                          className="scrolling menu transition"
-                        />
                       </div>
-                    </div>
-                  </th>
-                  <th
-                    className="four wide"
-                  >
-                    Title
-                  </th>
-                  <th
-                    className="right aligned"
-                  >
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                className=""
-              />
-            </table>
+                    </th>
+                    <th
+                      className="four wide"
+                    >
+                      Title
+                    </th>
+                    <th
+                      className="right aligned"
+                    >
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  className=""
+                />
+              </table>
+            </div>
             <div
               className="contents-pagination"
             >

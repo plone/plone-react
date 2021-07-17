@@ -128,3 +128,12 @@ body.has-toolbar-collapsed.has-sidebar-collapsed {
   margin-right: -50vw !important;
   margin-left: -50vw !important;
 }
+
+div.table-scrollbar {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    height: 3px !important;
+    background: transparent;
+  }
+}
