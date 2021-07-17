@@ -176,7 +176,7 @@ const ObjectListWidget = (props) => {
                       block={block}
                       schema={
                         schemaExtender
-                          ? schemaExtender(schema, child)
+                          ? schemaExtender(schema, child, intl)
                           : objectSchema
                       }
                       value={child}
