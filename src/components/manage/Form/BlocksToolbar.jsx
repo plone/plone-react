@@ -48,7 +48,10 @@ export class BlocksToolbarComponent extends React.Component {
   }
 
   deleteBlocks() {
-    const blockIds = this.props.selectedBlocks;
+    const blockIds =
+      this.props.selectedBlocks.length > 0
+        ? this.props.selectedBlocks
+        : [this.props.selectedBlock];
 
     const { formData } = this.props;
     const blocksFieldname = getBlocksFieldname(formData);
@@ -77,11 +80,15 @@ export class BlocksToolbarComponent extends React.Component {
 
   setBlocksClipboard(actionType) {
     const { formData } = this.props;
+
+    const blockIds =
+      this.props.selectedBlocks.length > 0
+        ? this.props.selectedBlocks
+        : [this.props.selectedBlock];
+
     const blocksFieldname = getBlocksFieldname(formData);
     const blocks = formData[blocksFieldname];
-    const blocksData = this.props.selectedBlocks.map(
-      (blockId) => blocks[blockId],
-    );
+    const blocksData = blockIds.map((blockId) => blocks[blockId]);
     this.props.setBlocksClipboard({ [actionType]: blocksData });
     this.props.onSetSelectedBlocks([]);
   }
@@ -137,19 +144,21 @@ export class BlocksToolbarComponent extends React.Component {
     } = this.props;
     return (
       <>
-        {selectedBlocks.length > 0 ? (
+        {selectedBlocks.length > 0 && (
+          <Plug pluggable="main.toolbar.bottom" id="blocks-delete-btn">
+            <button
+              aria-label={intl.formatMessage(messages.deleteBlocks)}
+              onClick={this.deleteBlocks}
+              tabIndex={0}
+              className="deleteBlocks"
+              id="toolbar-delete-blocks"
+            >
+              <Icon name={trashSVG} size="30px" />
+            </button>
+          </Plug>
+        )}
+        {selectedBlock || selectedBlocks.length > 0 ? (
           <>
-            <Plug pluggable="main.toolbar.bottom" id="blocks-delete-btn">
-              <button
-                aria-label={intl.formatMessage(messages.deleteBlocks)}
-                onClick={this.deleteBlocks}
-                tabIndex={0}
-                className="deleteBlocks"
-                id="toolbar-delete-blocks"
-              >
-                <Icon name={trashSVG} size="30px" />
-              </button>
-            </Plug>
             <Plug pluggable="main.toolbar.bottom" id="blocks-cut-btn">
               <button
                 aria-label={intl.formatMessage(messages.cutBlocks)}

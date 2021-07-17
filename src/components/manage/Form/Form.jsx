@@ -506,7 +506,7 @@ class Form extends Component {
           <BlocksToolbar
             formData={this.state.formData}
             selectedBlock={this.state.selected}
-            selectedBlocks={this.state.multiSelected}
+            selectedBlocks={this.state.multiSelected || []}
             onChangeBlocks={(newBlockData) =>
               this.setState({
                 formData: {
