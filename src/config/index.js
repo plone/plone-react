@@ -173,6 +173,7 @@ let config = {
   },
   addonRoutes: [],
   addonReducers: {},
+  transient: {},
 };
 
 config = applyAddonConfiguration(config);
@@ -192,3 +193,4 @@ ConfigRegistry.widgets = widgets;
 ConfigRegistry.addonRoutes = addonRoutes;
 ConfigRegistry.addonReducers = addonReducers;
 ConfigRegistry.appExtras = appExtras;
+ConfigRegistry.transient = config.transient;

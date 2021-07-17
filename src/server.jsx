@@ -16,6 +16,7 @@ import path from 'path';
 import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import { resetServerContext } from 'react-beautiful-dnd';
+import { PluggablesProvider } from '@plone/volto/components/manage/Pluggable';
 
 import routes from '~/routes';
 import config from '@plone/volto/registry';
@@ -199,15 +200,35 @@ server.get('/*', (req, res) => {
 
       const context = {};
       resetServerContext();
-      const markup = renderToString(
-        <ChunkExtractorManager extractor={extractor}>
-          <Provider store={store}>
+
+      config.transient.pluggables = {};
+      config.transient.isFirstPass = true;
+
+      renderToString(
+        <Provider store={store}>
+          <PluggablesProvider>
             <StaticRouter context={context} location={req.url}>
               <ReduxAsyncConnect routes={routes} helpers={api} />
             </StaticRouter>
+          </PluggablesProvider>
+        </Provider>,
+      );
+
+      config.transient.isFirstPass = false;
+
+      const markup = renderToString(
+        <ChunkExtractorManager extractor={extractor}>
+          <Provider store={store}>
+            <PluggablesProvider>
+              <StaticRouter context={context} location={req.url}>
+                <ReduxAsyncConnect routes={routes} helpers={api} />
+              </StaticRouter>
+            </PluggablesProvider>
           </Provider>
         </ChunkExtractorManager>,
       );
+
+      config.resetTransientData();
 
       const readCriticalCss =
         config.settings.serverConfig.readCriticalCss || defaultReadCriticalCss;

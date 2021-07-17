@@ -90,6 +90,8 @@ config.set('views', {
   errorViews: {},
 });
 
+config.set('transient', { pluggables: {} });
+
 function BaseWidget(name) {
   return (props) => (
     <div id={`mocked-field-${props.id}`} className={`mocked-${name}-widget`}>

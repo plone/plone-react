@@ -79,6 +79,18 @@ class Config {
   set slots(slots) {
     this._data.slots = slots;
   }
+
+  get transient() {
+    return this._data.transient;
+  }
+
+  set transient(transient) {
+    this._data.transient = transient;
+  }
+
+  resetTransientData() {
+    this._data.transient = {};
+  }
 }
 
 const instance = new Config();

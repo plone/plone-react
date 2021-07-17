@@ -3,6 +3,7 @@
 
 import React from 'react';
 import sortBy from 'lodash.sortby';
+import config from '@plone/volto/registry';
 
 export const context = React.createContext();
 
@@ -66,6 +67,21 @@ export function usePlug({ pluggable, id, renderer, dependencies, options }) {
   // Could be that a Plug is empty (or it evaluates and have no children)
   if (renderer) {
     Object.assign(renderer, { pluggableName: name, extra, order });
+  }
+
+  if (__SERVER__) {
+    config.transient.pluggables = {
+      ...config.transient.pluggables,
+      [pluggable]: sortBy(
+        [
+          ...(config.transient.pluggables[pluggable] || []).filter(
+            (e) => e.id !== id,
+          ),
+          renderer,
+        ],
+        (e) => e.order || 0,
+      ),
+    };
   }
 
   React.useEffect(
@@ -150,7 +166,10 @@ export const PluggablesProvider = ({ children }) => {
   };
 
   const initialPluggables = {
-    pluggables: {},
+    pluggables:
+      __SERVER__ && !config.transient.isFirstPass
+        ? config.transient.pluggables
+        : {},
     setPlug,
     removePlug,
   };

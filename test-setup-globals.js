@@ -1,4 +1,5 @@
 global.__CLIENT__ = true;
+global.__SERVER__ = false;
 global.__DEVELOPMENT__ = false;
 
 window.matchMedia =
