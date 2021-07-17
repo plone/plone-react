@@ -12,11 +12,11 @@ import { Link, withRouter } from 'react-router-dom';
 import { Portal } from 'react-portal';
 import { defineMessages, injectIntl } from 'react-intl';
 import { Container } from 'semantic-ui-react';
-import jwtDecode from 'jwt-decode';
 import { toast } from 'react-toastify';
 
 import { Form, Icon, Toast, Toolbar } from '@plone/volto/components';
 import { updatePassword } from '@plone/volto/actions';
+import { userData } from '@plone/volto/selectors/userSession/userSession';
 import { getBaseUrl } from '@plone/volto/helpers';
 
 import backSVG from '@plone/volto/icons/back.svg';
@@ -226,9 +226,7 @@ export default compose(
   injectIntl,
   connect(
     (state, props) => ({
-      userId: state.userSession.token
-        ? jwtDecode(state.userSession.token).sub
-        : '',
+      userId: userData(state).userId,
       loading: state.users.update_password.loading,
       pathname: props.location.pathname,
     }),

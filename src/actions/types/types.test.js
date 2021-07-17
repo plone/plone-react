@@ -1,13 +1,15 @@
 import { getTypes } from './types';
 import { GET_TYPES } from '@plone/volto/constants/ActionTypes';
+import { arrayWIdsToObject } from '@plone/volto/helpers/Utils/Utils';
+
+const actions = { user: [{ id: 'logout' }] };
+const actionsById = arrayWIdsToObject(actions);
 
 describe('Types action', () => {
   describe('getTypes', () => {
     it('should create an action to get the types', () => {
       const getState = () => ({
-        userSession: {
-          token: 'thetoken',
-        },
+        actions: { actions, actionsById },
       });
       const url = '/blog';
       const dispatch = jest.fn();

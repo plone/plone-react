@@ -1,5 +1,16 @@
 # Change Log
 
+## 14.0.0 (unreleased)
+
+### Breaking
+
+- Detect when a user has logged in by means other than JWT, such as ZMI `Basic`
+  authentication or the classic HTML Plone `@login` view @rpatterson
+
+### Feature
+
+### Bugfix
+
 ## 13.8.2 (unreleased)
 
 ### Breaking

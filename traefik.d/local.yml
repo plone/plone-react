@@ -1,0 +1,50 @@
+# Proxy the back-end and front-end running on the local host
+http:
+  routers:
+
+    router0:
+      entryPoints:
+      - "web"
+      service: "plone"
+      rule: "PathPrefix(`/api`)"
+      middlewares:
+      - "strip-api-prefix"
+      - "rewrite-api-vhost"
+
+    router1:
+      entryPoints:
+      - "web"
+      service: "frontend"
+      rule: "PathPrefix(`/`)"
+      # FIXME: It should be possible to host the UI at a path prefix but currently isn't
+      # because of how the UI app code assembles API URLs
+      # rule: "PathPrefix(`/ui`)"
+      # middlewares:
+      # - "strip-ui-prefix"
+
+  middlewares:
+
+    strip-api-prefix:
+      stripprefix:
+        prefixes:
+          - "/api"
+    rewrite-api-vhost:
+      replacepathregex:
+        regex: "^(.*)$"
+        replacement: "/VirtualHostBase/http/localhost:49080/VirtualHostRoot/_vh_api$1"
+
+    # strip-ui-prefix:
+    #   stripprefix:
+    #     prefixes:
+    #       - "/ui"
+
+  services:
+    plone:
+      loadBalancer:
+        servers:
+        - url: "http://192.168.80.1:8080/"
+
+    frontend:
+      loadBalancer:
+        servers:
+        - url: "http://192.168.80.1:3000/"

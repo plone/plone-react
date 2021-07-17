@@ -9,6 +9,16 @@ services:
       - ADDONS=kitconcept.volto
       - 'PROFILES=kitconcept.volto:default-homepage'
     image: plone
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.plone.entrypoints: "web"
+      traefik.http.routers.plone.rule: "PathPrefix(`/api`)"
+      # https://doc.traefik.io/traefik/middlewares/stripprefix/#configuration-examples
+      traefik.http.middlewares.strip-api-prefix.stripprefix.prefixes: "/api"
+      traefik.http.middlewares.rewrite-api-vhost.replacepathregex.regex: "^(.*)$$"
+      traefik.http.middlewares.rewrite-api-vhost.replacepathregex.replacement: "/VirtualHostBase/http/localhost:49080/VirtualHostRoot/_vh_api$$1"
+      traefik.http.routers.plone.middlewares: "strip-api-prefix@docker,rewrite-api-vhost@docker"
+      traefik.http.services.plone.loadbalancer.server.port: "8080"
 
   frontend:
     ports:
@@ -20,3 +30,38 @@ services:
     # environment:
     #   - INTERNAL_API_PATH=plone:8080/Plone
     #   - ADDONS="volto-slate:asDefault"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.frontend.entrypoints: "web"
+      traefik.http.routers.frontend.rule: "PathPrefix(`/ui`)"
+      # https://doc.traefik.io/traefik/middlewares/stripprefix/#configuration-examples
+      traefik.http.middlewares.strip-ui-prefix.stripprefix.prefixes: "/ui"
+      traefik.http.routers.frontend.middlewares: "strip-ui-prefix@docker"
+      traefik.http.services.frontend.loadbalancer.server.port: "3000"
+
+  traefik:
+    image: "traefik"
+    # Disabled so that the proxy can also be used to test deployment scenarios against
+    # a back-end and/or front-end running on the local host.
+    # depends_on:
+    #   - plone
+    #   - frontend
+    command:
+      # - "--log.level=DEBUG"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:49080"
+      - "--providers.file.directory=/etc/traefik.d/"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./traefik.d/:/etc/traefik.d/"
+    ports:
+      - "49080:49080"
+
+networks:
+  default:
+    ipam:
+      driver: "default"
+      config:
+        # Use the same random subnet each time
+        - subnet: "192.168.80.0/24"

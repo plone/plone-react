@@ -4,6 +4,7 @@
  */
 
 import { GET_TYPES } from '@plone/volto/constants/ActionTypes';
+import { loggedIn } from '@plone/volto/selectors/userSession/userSession';
 
 /**
  * Get types function.
@@ -13,7 +14,7 @@ import { GET_TYPES } from '@plone/volto/constants/ActionTypes';
  */
 export function getTypes(url) {
   return (dispatch, getState) => {
-    if (getState().userSession.token) {
+    if (loggedIn(getState())) {
       dispatch({
         type: GET_TYPES,
         request: {

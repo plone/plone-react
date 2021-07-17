@@ -188,6 +188,24 @@ export const normalizeLanguageName = (language) => {
 };
 
 /**
+ * Create an object with properties for each object with an `id` in an array
+ * @function arrayWIdsToObject
+ * @param {Array} An array of objects, each has an `id` property with a string value
+ * @returns {Object} Oobject with property for each array object keyed by the `id`
+ */
+export function arrayWIdsToObject(arrayOfObjs) {
+  /* The user may be authenticated by different means, including outside the UI.  Defer
+   * to the response from Plone, sepcifically whether Plone presents an option to log
+   * in. */
+  return Object.fromEntries(
+    Object.entries(arrayOfObjs).map((entry) => [
+      entry[0],
+      Object.fromEntries(entry[1].map((action) => [action.id, action])),
+    ]),
+  );
+}
+
+/**
  * Lookup if a given expander is set in apiExpanders
  * @param {string} language Language to be normalized
  * @returns {string} Language normalized

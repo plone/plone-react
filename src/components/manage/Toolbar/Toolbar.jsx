@@ -26,6 +26,7 @@ import {
   listActions,
   setExpandedToolbar,
 } from '@plone/volto/actions';
+import { loggedIn } from '@plone/volto/selectors/userSession/userSession';
 import { Icon } from '@plone/volto/components';
 import { BodyClass, getBaseUrl } from '@plone/volto/helpers';
 import { Pluggable } from '@plone/volto/components/manage/Pluggable';
@@ -133,7 +134,7 @@ class Toolbar extends Component {
       object_buttons: PropTypes.arrayOf(PropTypes.object),
       user: PropTypes.arrayOf(PropTypes.object),
     }),
-    token: PropTypes.string,
+    userLoggedIn: PropTypes.bool,
     pathname: PropTypes.string.isRequired,
     content: PropTypes.shape({
       '@type': PropTypes.string,
@@ -160,7 +161,6 @@ class Toolbar extends Component {
    */
   static defaultProps = {
     actions: null,
-    token: null,
     content: null,
     hideDefaultViewButtons: false,
     types: [],
@@ -284,7 +284,7 @@ class Toolbar extends Component {
     const { expanded } = this.state;
 
     return (
-      this.props.token && (
+      this.props.userLoggedIn && (
         <>
           <BodyClass
             className={expanded ? 'has-toolbar' : 'has-toolbar-collapsed'}
@@ -515,7 +515,7 @@ export default compose(
   connect(
     (state, props) => ({
       actions: state.actions.actions,
-      token: state.userSession.token,
+      userLoggedIn: loggedIn(state),
       content: state.content.data,
       pathname: props.pathname,
       types: filter(state.types.types, 'addable'),

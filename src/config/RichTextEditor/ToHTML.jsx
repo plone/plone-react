@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { isEmpty } from 'lodash';
+
+import { loggedIn } from '@plone/volto/selectors/userSession/userSession';
 import UniversalLink from '@plone/volto/components/manage/UniversalLink/UniversalLink';
 
 const styles = {
@@ -219,9 +221,9 @@ const blocks = {
 };
 
 const LinkEntity = connect((state) => ({
-  token: state.userSession.token,
-}))(({ token, key, url, target, targetUrl, download, children }) => {
-  const to = token ? url : targetUrl || url;
+  userLoggedIn: loggedIn(state),
+}))(({ userLoggedIn, key, url, target, targetUrl, download, children }) => {
+  const to = userLoggedIn ? url : targetUrl || url;
 
   return (
     <UniversalLink

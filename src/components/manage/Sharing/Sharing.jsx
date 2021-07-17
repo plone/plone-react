@@ -20,10 +20,10 @@ import {
   Segment,
   Table,
 } from 'semantic-ui-react';
-import jwtDecode from 'jwt-decode';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 
 import { updateSharing, getSharing } from '@plone/volto/actions';
+import { userData } from '@plone/volto/selectors/userSession/userSession';
 import { getBaseUrl } from '@plone/volto/helpers';
 import { Icon, Toolbar, Toast } from '@plone/volto/components';
 import { toast } from 'react-toastify';
@@ -467,9 +467,7 @@ export default compose(
       updateRequest: state.sharing.update,
       pathname: props.location.pathname,
       title: state.content.data.title,
-      login: state.userSession.token
-        ? jwtDecode(state.userSession.token).sub
-        : '',
+      login: userData(state).userId,
     }),
     { updateSharing, getSharing },
   ),

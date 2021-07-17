@@ -8,6 +8,7 @@ import { Container, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { loggedIn } from '@plone/volto/selectors/userSession/userSession';
 import {
   Anontools,
   LanguageSelector,
@@ -28,7 +29,7 @@ class Header extends Component {
    * @static
    */
   static propTypes = {
-    token: PropTypes.string,
+    userLoggedIn: PropTypes.bool,
     pathname: PropTypes.string.isRequired,
   };
 
@@ -37,9 +38,7 @@ class Header extends Component {
    * @property {Object} defaultProps Default properties.
    * @static
    */
-  static defaultProps = {
-    token: null,
-  };
+  static defaultProps = {};
 
   /**
    * Render method.
@@ -59,7 +58,7 @@ class Header extends Component {
             </div>
             <div className="tools-search-wrapper">
               <LanguageSelector />
-              {!this.props.token && (
+              {!this.props.userLoggedIn && (
                 <div className="tools">
                   <Anontools />
                 </div>
@@ -76,5 +75,5 @@ class Header extends Component {
 }
 
 export default connect((state) => ({
-  token: state.userSession.token,
+  userLoggedIn: loggedIn(state),
 }))(Header);

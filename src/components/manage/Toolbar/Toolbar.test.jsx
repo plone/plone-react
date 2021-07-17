@@ -8,112 +8,114 @@ import thunk from 'redux-thunk';
 import { PluggablesProvider } from '@plone/volto/components/manage/Pluggable';
 
 import Toolbar from './Toolbar';
+import { arrayWIdsToObject } from '@plone/volto/helpers/Utils/Utils';
 
 const mockStore = configureStore([thunk]);
+
+const actions = {
+  document_actions: [],
+  object: [
+    {
+      icon: '',
+      id: 'view',
+      title: 'View',
+    },
+    {
+      icon: '',
+      id: 'edit',
+      title: 'Edit',
+    },
+    {
+      icon: '',
+      id: 'folderContents',
+      title: 'Contents',
+    },
+    {
+      icon: '',
+      id: 'history',
+      title: 'History',
+    },
+    {
+      icon: '',
+      id: 'local_roles',
+      title: 'Sharing',
+    },
+  ],
+  object_buttons: [
+    {
+      icon: '',
+      id: 'cut',
+      title: 'Cut',
+    },
+    {
+      icon: '',
+      id: 'copy',
+      title: 'Copy',
+    },
+    {
+      icon: '',
+      id: 'delete',
+      title: 'Delete',
+    },
+    {
+      icon: '',
+      id: 'rename',
+      title: 'Rename',
+    },
+    {
+      icon: '',
+      id: 'ical_import_enable',
+      title: 'Enable icalendar import',
+    },
+  ],
+  portal_tabs: [],
+  site_actions: [
+    {
+      icon: '',
+      id: 'sitemap',
+      title: 'Site Map',
+    },
+    {
+      icon: '',
+      id: 'accessibility',
+      title: 'Accessibility',
+    },
+    {
+      icon: '',
+      id: 'contact',
+      title: 'Contact',
+    },
+  ],
+  user: [
+    {
+      icon: '',
+      id: 'preferences',
+      title: 'Preferences',
+    },
+    {
+      icon: '',
+      id: 'dashboard',
+      title: 'Dashboard',
+    },
+    {
+      icon: '',
+      id: 'plone_setup',
+      title: 'Site Setup',
+    },
+    {
+      icon: '',
+      id: 'logout',
+      title: 'Log out',
+    },
+  ],
+};
+const actionsById = arrayWIdsToObject(actions);
 
 describe('Toolbar', () => {
   it('renders the Toolbar component', () => {
     const store = mockStore({
       types: { types: [{ title: 'Document', addable: true }] },
-      actions: {
-        actions: {
-          document_actions: [],
-          object: [
-            {
-              icon: '',
-              id: 'view',
-              title: 'View',
-            },
-            {
-              icon: '',
-              id: 'edit',
-              title: 'Edit',
-            },
-            {
-              icon: '',
-              id: 'folderContents',
-              title: 'Contents',
-            },
-            {
-              icon: '',
-              id: 'history',
-              title: 'History',
-            },
-            {
-              icon: '',
-              id: 'local_roles',
-              title: 'Sharing',
-            },
-          ],
-          object_buttons: [
-            {
-              icon: '',
-              id: 'cut',
-              title: 'Cut',
-            },
-            {
-              icon: '',
-              id: 'copy',
-              title: 'Copy',
-            },
-            {
-              icon: '',
-              id: 'delete',
-              title: 'Delete',
-            },
-            {
-              icon: '',
-              id: 'rename',
-              title: 'Rename',
-            },
-            {
-              icon: '',
-              id: 'ical_import_enable',
-              title: 'Enable icalendar import',
-            },
-          ],
-          portal_tabs: [],
-          site_actions: [
-            {
-              icon: '',
-              id: 'sitemap',
-              title: 'Site Map',
-            },
-            {
-              icon: '',
-              id: 'accessibility',
-              title: 'Accessibility',
-            },
-            {
-              icon: '',
-              id: 'contact',
-              title: 'Contact',
-            },
-          ],
-          user: [
-            {
-              icon: '',
-              id: 'preferences',
-              title: 'Preferences',
-            },
-            {
-              icon: '',
-              id: 'dashboard',
-              title: 'Dashboard',
-            },
-            {
-              icon: '',
-              id: 'plone_setup',
-              title: 'Site Setup',
-            },
-            {
-              icon: '',
-              id: 'logout',
-              title: 'Log out',
-            },
-          ],
-        },
-      },
+      actions: { actions, actionsById },
       userSession: {
         token: jwt.sign({ fullname: 'John Doe' }, 'secret'),
       },

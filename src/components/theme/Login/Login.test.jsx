@@ -6,6 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 import config from '@plone/volto/registry';
 
 import Login from './Login';
+import { arrayWIdsToObject } from '@plone/volto/helpers/Utils/Utils';
 
 beforeAll(() => {
   config.settings.nonContentRoutes = [];
@@ -14,9 +15,13 @@ beforeAll(() => {
 
 const mockStore = configureStore();
 
+const actions = { user: [{ id: 'login' }] };
+const actionsById = arrayWIdsToObject(actions);
+
 describe('Login', () => {
   it('renders a login component', () => {
     const store = mockStore({
+      actions: { actions, actionsById },
       userSession: {
         login: {},
       },

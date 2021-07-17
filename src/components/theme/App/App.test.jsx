@@ -6,6 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 import config from '@plone/volto/registry';
 
 import { __test__ as App } from './App';
+import { arrayWIdsToObject } from '@plone/volto/helpers/Utils/Utils';
 
 beforeAll(() => {
   config.settings.navDepth = 1;
@@ -35,12 +36,13 @@ jest.mock('semantic-ui-react', () => ({
 }));
 jest.mock('../Footer/Footer', () => jest.fn(() => <div id="footer" />));
 
+const actions = { user: [{ id: 'logout' }] };
+const actionsById = arrayWIdsToObject(actions);
+
 describe('App', () => {
   it('renders a app component', () => {
     const store = mockStore({
-      userSession: {
-        token: 'abcdefgh',
-      },
+      actions: { actions, actionsById },
       content: { data: { id: 'content', '@type': 'Document' } },
       apierror: {},
       intl: {

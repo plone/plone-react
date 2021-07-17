@@ -13,6 +13,12 @@ MAKEFLAGS+=--no-builtin-rules
 # Project settings
 
 INSTANCE_PORT=8080
+# The defaults from the UI configuration
+# export RAZZLE_DEV_PROXY_API_PATH=http://localhost:$(INSTANCE_PORT)/Plone
+# export RAZZLE_API_PATH=http://localhost:3000
+# Uncomment the following to run against the proxy hosting testbed
+# export RAZZLE_DEV_PROXY_API_PATH=
+# export RAZZLE_API_PATH=http://localhost:49080/api/Plone
 
 # Recipe snippets for reuse
 
@@ -77,7 +83,7 @@ docs-build:
 .PHONY: start
 # Run both the back-end and the front end
 start:
-	$(MAKE) -j 2 start-backend start-frontend
+	$(MAKE) -e -j 2 start-backend start-frontend
 
 .PHONY: start-frontend
 start-frontend: dist
@@ -94,6 +100,10 @@ start-backend-docker:
 .PHONY: start-backend-docker-guillotina
 start-backend-docker-guillotina:
 	docker-compose -f g-api/docker-compose.yml up -d
+
+.PHONY: start-proxy
+start-proxy: start
+	docker-compose up -d traefik
 
 .PHONY: start-test
 start-test: ## Start Test

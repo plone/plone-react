@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Anontools renders an anontools component when no token is specified 1`] = `
+exports[`Anontools renders an anontools component when no use is logged in 1`] = `
 <div
   className="ui pointing secondary right floated menu"
 >
@@ -19,4 +19,4 @@ exports[`Anontools renders an anontools component when no token is specified 1`]
 </div>
 `;
 
-exports[`Anontools should not render an anontools component when a token is specified 1`] = `null`;
+exports[`Anontools should not render an anontools component when a user is logged in 1`] = `null`;
