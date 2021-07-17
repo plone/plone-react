@@ -2153,6 +2153,8 @@ https://docs.voltocms.com/upgrade-guide/
 - Improve the UX of the listing block when queries are running @sneridagh
 - Added table of content cypress test @steffenri
 
+- Move block selector into the empty text block on smaller screens when sidebar is open, partially fixes #1272 @fredvd
+
 ## 4.0.1 (2020-03-09)
 
 ### Bugfix
