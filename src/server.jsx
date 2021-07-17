@@ -1,5 +1,5 @@
 /* eslint no-console: 0 */
-import '~/config'; // This is the bootstrap for the global config - server side
+import '@plone/volto/config'; // This is the bootstrap for the global config - server side
 import { existsSync, lstatSync, readFileSync } from 'fs';
 import React from 'react';
 import { StaticRouter } from 'react-router-dom';

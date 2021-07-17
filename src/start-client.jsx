@@ -1,4 +1,4 @@
-import '~/config'; // This is the bootstrap for the global config - client side
+import '@plone/volto/config'; // This is the bootstrap for the global config - client side
 import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';

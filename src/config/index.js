@@ -177,18 +177,10 @@ let config = {
 
 config = applyAddonConfiguration(config);
 
-export const settings = config.settings;
-export const widgets = config.widgets;
-export const views = config.views;
-export const blocks = config.blocks;
-export const addonRoutes = [...config.addonRoutes];
-export const addonReducers = { ...config.addonReducers };
-export const appExtras = config.appExtras;
-
-ConfigRegistry.settings = settings;
-ConfigRegistry.blocks = blocks;
-ConfigRegistry.views = views;
-ConfigRegistry.widgets = widgets;
-ConfigRegistry.addonRoutes = addonRoutes;
-ConfigRegistry.addonReducers = addonReducers;
-ConfigRegistry.appExtras = appExtras;
+ConfigRegistry.settings = config.settings;
+ConfigRegistry.blocks = config.blocks;
+ConfigRegistry.views = config.views;
+ConfigRegistry.widgets = config.widgets;
+ConfigRegistry.addonRoutes = config.addonRoutes;
+ConfigRegistry.addonReducers = config.addonReducers;
+ConfigRegistry.appExtras = config.appExtras;

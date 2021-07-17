@@ -4,6 +4,10 @@
 
 ### Breaking
 
+- Remove compatibility for old configuration (based on imports) system. Migrate your configuration to the new configuration system for your project before upgrading to Volto 14.
+See https://docs.voltocms.com/upgrade-guide/#volto-configuration-registry
+@sneridagh
+
 ### Feature
 
 ### Bugfix
