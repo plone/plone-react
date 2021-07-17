@@ -712,6 +712,7 @@ https://docs.voltocms.com/upgrade-guide/
 ### Internal
 
 - Update docs: configuration of routes and addonRoutes @ksuess
+- Documentation: Add chapter for development of Volto in a project. Testing new configuration like pluggable toolbar. @ksuess
 
 ## 11.0.0 (2021-01-29)
 

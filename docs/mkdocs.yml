@@ -87,6 +87,7 @@ nav:
       - Accessibility: 'developer-guidelines/accessibility-guidelines.md'
   - Contributing:
       - Guidelines: 'contributing/guidelines.md'
+      - Development in project: 'contributing/developvoltoinproject.md
 
 markdown_extensions:
   - admonition
