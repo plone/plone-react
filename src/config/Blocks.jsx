@@ -46,6 +46,8 @@ import TextSettingsSchema from '@plone/volto/components/manage/Blocks/Text/Schem
 import ImageSettingsSchema from '@plone/volto/components/manage/Blocks/Image/Schema';
 import ToCSettingsSchema from '@plone/volto/components/manage/Blocks/ToC/Schema';
 
+import getListingBlockAsyncProps from '@plone/volto/components/manage/Blocks/Listing/getAsyncProps';
+
 defineMessages({
   title: {
     id: 'title',
@@ -244,6 +246,7 @@ const blocksConfig = {
         template: SummaryListingBlockTemplate,
       },
     ],
+    getAsyncProps: getListingBlockAsyncProps,
   },
   video: {
     id: 'video',
