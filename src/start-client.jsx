@@ -3,6 +3,7 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl-redux';
+import cookie from 'react-cookie';
 import { ConnectedRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { ReduxAsyncConnect } from '@plone/volto/helpers/AsyncConnect';
@@ -10,16 +11,22 @@ import { loadableReady } from '@loadable/component';
 import routes from '~/routes';
 import config from '@plone/volto/registry';
 import '~/theme';
-
 import configureStore from '@plone/volto/store';
 import { Api, persistAuthToken, ScrollToTop } from '@plone/volto/helpers';
 
 import * as Sentry from '@sentry/browser';
 import initSentry from '@plone/volto/sentry';
 
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+OfflinePluginRuntime.install();
+
 export const history = createBrowserHistory();
 
 initSentry(Sentry);
+
+if (process.env.NODE_ENV === 'production' && cookie.load('auth_token')) {
+  import('offline-plugin/runtime').then((plugin) => plugin.install());
+}
 
 function reactIntlErrorHandler(error) {
   if (process.env.NODE_ENV !== 'production') {

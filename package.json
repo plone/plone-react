@@ -320,6 +320,7 @@
     "mem": "4.0.0",
     "mini-css-extract-plugin": "0.9.0",
     "moment": "2.24.0",
+    "offline-plugin": "5.0.7",
     "pofile": "1.0.10",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-loader": "3.0.0",

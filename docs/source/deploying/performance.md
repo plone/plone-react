@@ -52,3 +52,12 @@ invalidations, async workers, etc have to be taken into account. In case you
 want to implement this type of scenario, look at
 [Penthouse](https://github.com/pocketjoso/penthouse) and override the
 `settings.serverConfig.readCriticalCss` function with your own implementation.
+
+# caching webpack assets and prefetch using a service worker
+
+In production environments sometimes we get this nasty "ChunkLoadError" or "Failed to load chunk". This error originates when a chunk changed its name based on the content and when a browser requests it, the old chunk would not be there.
+
+The idea is to cache chunknames using a worker and let the user to load it from `cache first` to avoid the error.
+
+Volto uses [offline-plugin](https://github.com/NekR/offline-plugin) which is a webpack plugin to provide PWA support for projects.
+It creates a `sw.js`(by default) service worker file on the build time, which have all webpack assets output as minified.

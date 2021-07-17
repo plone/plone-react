@@ -3,6 +3,7 @@ const path = require('path');
 const makeLoaderFinder = require('razzle-dev-utils/makeLoaderFinder');
 const nodeExternals = require('webpack-node-externals');
 const LoadablePlugin = require('@loadable/webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const fs = require('fs');
 const RootResolverPlugin = require('./webpack-root-resolver');
@@ -100,7 +101,18 @@ const defaultModify = ({
         name: dev,
       },
     });
-
+    if (process.env.NODE_ENV === 'production') {
+      config.plugins.push(
+        new OfflinePlugin({
+          caches: {
+            main: [':rest:'],
+          },
+          ServiceWorker: {
+            minify: false,
+          },
+        }),
+      );
+    }
     config.plugins.unshift(
       // restrict moment.js locales to en/de
       // see https://github.com/jmblog/how-to-optimize-momentjs-with-webpack for details

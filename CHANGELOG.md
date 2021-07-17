@@ -6,6 +6,9 @@
 
 ### Feature
 
+- service worker for caching webpack assets via offline-plugin @nileshgulia1
+
+- New breadcrumbs `INavigationRoot` aware for the *Home* icon. This allows inner subsites navigation and better support for multilingual sites.  @sneridagh
 ### Bugfix
 
 ### Internal
