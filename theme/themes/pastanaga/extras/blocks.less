@@ -408,6 +408,19 @@ body.has-toolbar.has-sidebar-collapsed .ui.wrapper > .ui.inner.block.full {
     max-height: 400px;
   }
 
+  picture {
+    width: 100%;
+    max-width: 50%;
+
+    img.hero-image {
+      max-width: none;
+    }
+
+    @media only screen and (max-width: (@largestMobileScreen)) {
+      max-width: 100%;
+    }
+  }
+
   .image-add {
     min-width: 50%;
   }
@@ -420,6 +433,10 @@ body.has-toolbar.has-sidebar-collapsed .ui.wrapper > .ui.inner.block.full {
     position: relative;
     z-index: 1;
     display: flex;
+
+    @media only screen and (max-width: (@largestMobileScreen)) {
+      flex-wrap: wrap;
+    }
   }
 
   .title-editor,
@@ -756,7 +773,7 @@ body.has-toolbar.has-sidebar-collapsed .ui.wrapper > .ui.inner.block.full {
   margin-bottom: 20px;
 
   img {
-    width: 15%;
+    max-width: 15%;
     margin-right: 20px;
 
     @media only screen and (max-width: (@largestMobileScreen)) {

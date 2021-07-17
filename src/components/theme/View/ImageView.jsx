@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { Container } from 'semantic-ui-react';
 import { FormattedMessage } from 'react-intl';
 import prettybytes from 'pretty-bytes';
-
+import Image from '@plone/volto/components/theme/Image/Image';
 import { flattenToAppURL } from '@plone/volto/helpers';
 
 /**
@@ -28,10 +28,7 @@ const ImageView = ({ content }) => (
     )}
     {content?.image?.download && (
       <a href={flattenToAppURL(content.image.download)}>
-        <img
-          alt={content.title}
-          src={flattenToAppURL(content.image.scales.preview.download)}
-        />
+        <Image image={content.image} size="preview" alt={content.title} />
         <figcaption>
           <FormattedMessage
             id="Size: {size}"

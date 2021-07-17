@@ -15,11 +15,38 @@ exports[`renders an image view component 1`] = `
     Hi
   </p>
   <a
-    href="file:///preview.jpg"
+    href="/test-images/@@images/image"
   >
-    <img
-      alt="Hello World!"
-      src="file:///preview.jpg"
+    <picture>
+      <img
+        alt="Hello World!"
+        loading="lazy"
+        role="img"
+        size="preview"
+        src="http://localhost:8080/Plone/test-images/@@images/image/listing"
+        style={
+          Object {
+            "objectFit": "cover",
+            "width": "100%",
+          }
+        }
+      />
+    </picture>
+    <noscript
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+              <img
+                src=\\"http://localhost:8080/Plone/test-images/@@images/image/listing\\"
+                srcset=\\"/test-images/@@images/image/listing 16w, /test-images/@@images/image/icon 32w, /test-images/@@images/image/tile 64w, /test-images/@@images/image/thumb 128w, /test-images/@@images/image/mini 200w, /test-images/@@images/image/preview 400w, /test-images/@@images/image/large 768w\\"
+                alt=\\"Hello World!\\"
+                className=\\"undefined\\"
+                role=\\"img\\"
+                loading=\\"lazy\\"
+                style=\\"width: 100%; object-fit: cover;\\"
+            ",
+        }
+      }
     />
     <figcaption>
       Size: 123 kB

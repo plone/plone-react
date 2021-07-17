@@ -7,9 +7,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
-import config from '@plone/volto/registry';
-
 import { flattenToAppURL } from '@plone/volto/helpers';
+import Image from '@plone/volto/components/theme/Image/Image';
+
+import config from '@plone/volto/registry';
 
 /**
  * View image block class.
@@ -30,10 +31,10 @@ const View = ({ data, properties }) => (
       <>
         {(() => {
           const image = (
-            <img
+            <Image
+              image={properties.image}
+              alt={properties.image_caption}
               className={cx({ 'full-width': data.align === 'full' })}
-              src={flattenToAppURL(properties.image.download)}
-              alt={properties.image_caption || ''}
             />
           );
           if (data.href) {

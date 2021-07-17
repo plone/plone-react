@@ -37,6 +37,7 @@ const NewsItemView = ({ content }) => (
             : flattenToAppURL(content.image.scales.mini.download)
         }
         floated="right"
+        loading="lazy"
       />
     )}
     {content.text && (

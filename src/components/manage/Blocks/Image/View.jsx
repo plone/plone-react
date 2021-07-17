@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
+import Image from '@plone/volto/components/theme/Image/Image';
 
 import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers';
 
@@ -30,33 +31,15 @@ const View = ({ data, detached }) => (
       <>
         {(() => {
           const image = (
-            <img
+            <Image
+              image={data.url}
+              alt={data.alt}
               className={cx({
                 'full-width': data.align === 'full',
                 large: data.size === 'l',
                 medium: data.size === 'm',
                 small: data.size === 's',
               })}
-              src={
-                isInternalURL(data.url)
-                  ? // Backwards compat in the case that the block is storing the full server URL
-                    (() => {
-                      if (data.size === 'l')
-                        return `${flattenToAppURL(data.url)}/@@images/image`;
-                      if (data.size === 'm')
-                        return `${flattenToAppURL(
-                          data.url,
-                        )}/@@images/image/preview`;
-                      if (data.size === 's')
-                        return `${flattenToAppURL(
-                          data.url,
-                        )}/@@images/image/mini`;
-                      return `${flattenToAppURL(data.url)}/@@images/image`;
-                    })()
-                  : data.url
-              }
-              alt={data.alt || ''}
-              loading="lazy"
             />
           );
           if (data.href) {

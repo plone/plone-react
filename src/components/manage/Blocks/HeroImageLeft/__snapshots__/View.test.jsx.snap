@@ -7,11 +7,36 @@ exports[`renders a view hero component 1`] = `
   <div
     className="block-inner-wrapper"
   >
-    <img
-      alt=""
-      className="hero-image"
-      loading="lazy"
-      src="heroimage.jpg/@@images/image"
+    <picture>
+      <img
+        alt=""
+        className="hero-image"
+        loading="lazy"
+        role="img"
+        src="/heroimage.jpg/@@images/image/listing"
+        style={
+          Object {
+            "objectFit": "cover",
+            "width": "100%",
+          }
+        }
+      />
+    </picture>
+    <noscript
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+              <img
+                src=\\"/heroimage.jpg/@@images/image/listing\\"
+                srcset=\\"/heroimage.jpg/@@images/image/large 768w, /heroimage.jpg/@@images/image/preview 400w, /heroimage.jpg/@@images/image/mini 200w, /heroimage.jpg/@@images/image/thumb 128w, /heroimage.jpg/@@images/image/tile 64w, /heroimage.jpg/@@images/image/icon 32w, /heroimage.jpg/@@images/image/listing 16w\\"
+                alt=\\"\\"
+                className=\\"hero-image\\"
+                role=\\"img\\"
+                loading=\\"lazy\\"
+                style=\\"width: 100%; object-fit: cover;\\"
+            ",
+        }
+      }
     />
     <div
       className="hero-body"

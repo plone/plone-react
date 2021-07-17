@@ -144,6 +144,7 @@ class AlbumView extends Component {
                                       : item.title
                                   }
                                   src={item.image.scales.large.download}
+                                  loading="lazy"
                                 />
                                 <Modal.Description>
                                   <p>{item.description}</p>

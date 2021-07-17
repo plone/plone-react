@@ -38,6 +38,7 @@ const SummaryView = ({ content }) => (
                 floated="right"
                 alt={item.image_caption ? item.image_caption : item.title}
                 src={item.image.scales.thumb.download}
+                loading="lazy"
               />
             )}
             {item.description && <p>{item.description}</p>}
