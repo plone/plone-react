@@ -9,29 +9,31 @@
 
 ## Introduction
 
-[Volto](https://github.com/plone/volto) is a React-based frontend for content
-management systems, currently supporting three backend implementations: Plone,
-Guillotina and a NodeJS reference implementation.
+[Volto](https://github.com/plone/volto) is a [React](https://reactjs.org/)-based [content management system (CMS)](https://en.wikipedia.org/wiki/Content_management_system).
 
-[Plone](https://plone.org) is a CMS built on Python with over 17 years of experience.
+### Plone Backend
 
-Plone has very interesting features that appeal to developers and users alike,
-such as customizable content types, hierarchical URL object traversing and a
-sophisticated content workflow powered by a granular permissions model. This
-allows you to build anything from simple websites to enterprise-grade
-intranets.
+Volto uses [Plone](https://plone.org) and its [REST API](https://github.com/plone/plone.restapi) as a backend.
+Plone is a mature and secure content management system written in [Python](https://www.python.org/).
+It has the [best security track record of any major CMS](https://plone.com/secure.html).
+Out-of-the-box, Plone comes with everything you need to build sophisticated websites and enterprise-grade intranets.
 
-Volto exposes all these features and communicates with Plone via its
-mature [REST API](https://github.com/plone/plone.restapi). Volto has the
-ability of being highly themable and customizable.
+### Plone 6
 
-Volto also supports other APIs like [Guillotina](https://guillotina.io/), a
-Python resource management system, inspired by Plone and using the same basic
-concepts like traversal, content types and permissions model.
+Volto will become the default frontend for the [upcoming Plone 6 release](https://plone.org/roadmap/2019-plone-roadmap).
 
-Last but not least, it also supports a [Volto Nodejs-based backend reference](https://github.com/plone/volto-reference-backend) API implementation that
-demos how other systems could also use Volto to display and create content
-through it.
+### Volto Demo
+
+Give Volto a shot under: [volto.kitconcept.com](https://volto.kitconcept.com)
+
+### Volto in Production
+
+Volto is actively developed since 2017 and used in production since early 2018 on the following websites:
+
+- [VHS Ehrenamtsportal](https://vhs-ehrenamtsportal.de) (Website to help volunteers that help refugees for the [German Adult Education Association](https://www.dvv-vhs.de/en/home/), developed by [kitconcept GmbH](https://kitconcept.com))
+- [Zeelandia](https://zeelandia.de) (Corporate website for one of the leading backery ingrediences manufactors in Germany, developed by [kitconcept GmbH](https://kitconcept.com))
+- [Excellence at Humboldt-Universität zu Berlin](https://www.alles-beginnt-mit-einer-frage.de) (Website for the excellence initiative of the [Humboldt University Berlin](https://hu-berlin.de), developed by [kitconcept GmbH](https://kitconcept.com))
+- Please create a new [issue](https://github.com/plone/volto/issues/new) or [pull request](https://github.com/plone/volto/pulls) to add your Volto-site here!
 
 ## Demo
 
