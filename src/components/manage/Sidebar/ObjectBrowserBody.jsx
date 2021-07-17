@@ -125,6 +125,7 @@ class ObjectBrowserBody extends Component {
           : '',
       showSearchInput: false,
     };
+    this.searchInputRef = React.createRef();
   }
 
   /**
@@ -187,9 +188,14 @@ class ObjectBrowserBody extends Component {
   };
 
   toggleSearchInput = () =>
-    this.setState((prevState) => ({
-      showSearchInput: !prevState.showSearchInput,
-    }));
+    this.setState(
+      (prevState) => ({
+        showSearchInput: !prevState.showSearchInput,
+      }),
+      () => {
+        this.searchInputRef.current.focus();
+      },
+    );
 
   onSearch = (e) => {
     const text = flattenToAppURL(e.target.value);
@@ -364,6 +370,7 @@ class ObjectBrowserBody extends Component {
           {this.state.showSearchInput ? (
             <Input
               className="search"
+              ref={this.searchInputRef}
               onChange={this.onSearch}
               placeholder={this.props.intl.formatMessage(
                 messages.SearchInputPlaceholder,

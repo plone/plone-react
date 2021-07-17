@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Opening the search input in the object browser, it will get the focus @nzambello
+
 ### Bugfix
 
 ### Internal
