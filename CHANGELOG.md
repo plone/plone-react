@@ -6,7 +6,11 @@
 
 ### Feature
 
+- Close object browser when pressing ESC @nzambello
+
 ### Bugfix
+
+- Fix outside click handling in object browser @nzambello
 
 ### Internal
 

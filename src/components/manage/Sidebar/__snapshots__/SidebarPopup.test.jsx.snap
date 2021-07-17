@@ -11,6 +11,7 @@ exports[`sidebar popup is not rendered when the block is not selected 1`] = `
     <Portal>
       <aside
         className="sidebar-container"
+        id="sidebar-popup-container"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="presentation"
@@ -40,6 +41,7 @@ exports[`sidebar popup is rendered when the block is selected 1`] = `
     <Portal>
       <aside
         className="sidebar-container"
+        id="sidebar-popup-container"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="presentation"
