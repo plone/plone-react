@@ -5,7 +5,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { save, load } from 'redux-localstorage-simple';
 
 import config from '@plone/volto/registry';
-import reducers from '~/reducers';
+import reducers from '@plone/volto/reducers';
 
 import { api, crashReporter, blacklistRoutes } from '@plone/volto/middleware';
 

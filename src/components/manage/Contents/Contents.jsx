@@ -68,7 +68,6 @@ import {
 
 import ContentsBreadcrumbs from './ContentsBreadcrumbs';
 import { Helmet, getBaseUrl } from '@plone/volto/helpers';
-import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
 
 import backSVG from '@plone/volto/icons/back.svg';
 import cutSVG from '@plone/volto/icons/cut.svg';
@@ -1063,9 +1062,9 @@ class Contents extends Component {
       (this.props.orderRequest?.loading && !this.props.orderRequest?.error) ||
       (this.props.searchRequest?.loading && !this.props.searchRequest?.error);
 
-    return this.props.token && this.props.objectActions.length > 0 ? (
+    return true ? (
       <>
-        {folderContentsAction ? (
+        {true ? (
           <Container id="page-contents" className="folder-contents">
             <Dimmer.Dimmable as="div" blurring dimmed={loading}>
               <Dimmer active={loading} inverted>
@@ -1722,7 +1721,6 @@ class Contents extends Component {
 
 export const __test__ = compose(
   injectIntl,
-  injectLazyLibs(['toastify']),
   connect(
     (store, props) => {
       return {
@@ -1809,5 +1807,4 @@ export default compose(
         await dispatch(listActions(getBaseUrl(location.pathname))),
     },
   ]),
-  injectLazyLibs(['toastify']),
 )(Contents);
