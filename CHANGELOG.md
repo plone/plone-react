@@ -8,6 +8,9 @@
 
 ### Bugfix
 
+- Fix ObjectBrowserNav items key @nzambello
+- Fix ObjectBrowserNav aria label: id => title @nzambello
+
 ### Internal
 
 ## 13.8.1 (2021-07-16)
